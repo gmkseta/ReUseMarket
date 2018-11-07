@@ -1,0 +1,17 @@
+table.price-table thead tr th {
+	color: #1e1e1e;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: 600;
+}
+
+table.price-table thead tr th,
+table.price-table tbody tr td {
+	border: 1px solid #1e1e1e;
+	text-align: center;
+	vertical-align: middle;
+}
+
+table.price-table tbody tr td {
+	padding: 10px 0;
+}
