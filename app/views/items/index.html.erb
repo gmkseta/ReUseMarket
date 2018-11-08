@@ -1,0 +1,253 @@
+<section class="page-title parallax parallax6">
+  <div class="title-heading">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box-title color-black">
+            <h1>
+              Shop Sidebar Fullwidth
+            </h1>
+            <div class="breadcrumbs">
+              <ul>
+                <li><a href="/index.html" title="">Home</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                <li><a href="/element.html" title="">Shop</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                <li><a href="#" title="">Shop Sidebar Fullwidth</a></li>
+              </ul>
+            </div>
+            <!-- /.breadcrumbs -->
+          </div>
+          <!-- /.box-title -->
+        </div>
+        <!-- /.col-md-12 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.title-heading -->
+  <div class="overlay-black"></div>
+</section>
+<!-- /.page-title parallax -->
+<section id="main-shop">
+  <div class="container wrap-product">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="sidebar shop">
+          <div class="widget widget-sort-by">
+            <div class="widget-title">
+              <h4>Sort By</h4>
+            </div>
+            <ul>
+              <li>
+                <a href="#" title="">Default</a>
+              </li>
+              <li>
+                <a href="#" title="">Popularity</a>
+              </li>
+              <li>
+                <a href="#" title="">Average rating</a>
+              </li>
+              <li>
+                <a href="#" title="">Newness</a>
+              </li>
+              <li>
+                <a href="#" title="">Price: low to high</a>
+              </li>
+              <li>
+                <a href="#" title="">Price: high to low</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.widget widget-sort-by -->
+          <div class="widget widget-price">
+            <div class="widget-title">
+              <h4>Price</h4>
+            </div>
+            <ul class="price-list">
+              <li>
+                <a href="#" title="">₩000 - ₩5000</a>
+              </li>
+              <li>
+                <a href="#" title="">₩5000 - ₩10000</a>
+              </li>
+              <li>
+                <a href="#" title="">₩10000 - ₩15000</a>
+              </li>
+              <li>
+                <a href="#" title="">₩15000 - ₩20000</a>
+              </li>
+              <li>
+                <a href="#" title="">₩20000 - 25000</a>
+              </li>
+              <li>
+                <a href="#" title="">25000+</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.widget widget-price -->
+
+          <div class="widget widget-size">
+            <div class="widget-title">
+              <h4>Category</h4>
+            </div>
+            <ul class="size-list">
+              <li>
+                <a href="#" title="">전공서적?</a>
+              </li>
+              <li>
+                <a href="#" title="">등등</a>
+              </li>
+              <li>
+                <a href="#" title="">it 제품?</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.widget widget-size -->
+          <div class="widget widget-tags">
+            <div class="widget-title">
+              <h4>Tags</h4>
+            </div>
+            <ul class="tags-list">
+              <li>
+                <a href="#" title="">All products</a>
+              </li>
+              <li>
+                <a href="#" title="">Bags</a>
+              </li>
+              <li>
+                <a href="#" title="">Decoration</a>
+              </li>
+              <li>
+                <a href="#" title="">Fashion</a>
+              </li>
+              <li>
+                <a href="#" title="">Chair</a>
+              </li>
+              <li>
+                <a href="#" title="">Chair</a>
+              </li>
+              <li>
+                <a href="#" title="">Furniture</a>
+              </li>
+              <li>
+                <a href="#" title="">Accesories</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.widget widget-tags -->
+        </div>
+        <!-- /.sidebar shop -->
+      </div>
+      <!-- /.col-md-3 -->
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="sort-product style3 v3">
+              <ul class="tab-product-list float-left">
+                <li class="active">All Products</li>
+                <li>Best Sellers</li>
+                <li>New Arrivals</li>
+                <li>Sales Products</li>
+              </ul>
+            </div>
+            <!-- /.sort-product -->
+          </div>
+          <!-- /.col-md-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="tab-product-content style3">
+          <div class="row first">
+            <% @items.each do |item| %>
+              <div class="col-lg-4 col-md-6 col-sm-6 item-loadmore">
+                <div class="imagebox style1">
+                  <div class="imagebox-header">
+                    <img src="/images/shop/11.jpg" alt=""><!--여기에 원래는 이미지 유알엘<#%= item.item_image %>-->
+                    <!-- <#%= item.user %> -->
+                    <div class="add-cart">
+                      <a href="#" class="shop-cart" title=""><span class="icon_cart_alt"></span></a>
+                      <a href="#" class="like" title=""><span class="icon_heart_alt"></span></a>
+                    </div>
+                    <div class="view center">
+                      <%= link_to item ,class:"bg-black color-white" do %>
+                      상세 내용
+                      <% end %>
+                    </div>
+                  </div>
+                  <!-- /.imagebox-header -->
+                  <div class="imagebox-content center">
+                    <div class="name">
+                      <a href="#" title=""><%= item.name %></a>
+                    </div>
+                    <div class="price">
+                      ₩ <%= item.price %>
+                    </div>
+                  </div>
+                  <!-- /.imagebox-content -->
+                </div>
+                <!-- /.imagebox style1 -->
+
+
+                  <!-- <#%= item.category %> -->
+<!--
+                  <#%= link_to 'Edit', edit_item_path(item) %>
+                  <#%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %> -->
+              </div>
+            <% end %>
+            <!-- /.col-lg-4 col-md-6 col-sm-6 item-loadmore -->
+            <div class="col-md-12">
+              <div class="btn-loadmore center">
+                <a href="#" class="base bg-black color-white center" title="">LOADMORE</a>
+              </div>
+            </div>
+          </div>
+          <!-- /.row -->
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6 item-loadmore">
+              <div class="imagebox style1">
+                <div class="imagebox-header">
+                  <img src="/images/shop/03.jpg" alt="">
+                  <div class="add-cart">
+                    <a href="#" class="shop-cart" title=""><span class="icon_cart_alt"></span></a>
+                    <a href="#" class="like" title=""><span class="icon_heart_alt"></span></a>
+                  </div>
+                  <div class="view center">
+                    <a href="#" class="bg-black color-white" title="">QUICK VIEW</a>
+                  </div>
+                </div>
+                <!-- /.imagebox-header -->
+                <div class="imagebox-content center">
+                  <div class="name">
+                    <a href="#" title="">Raffia basket bag</a>
+                  </div>
+                  <div class="price">
+                    ₩30000
+                  </div>
+                </div>
+                <!-- /.imagebox-content -->
+              </div>
+              <!-- /.imagebox style1 -->
+            </div>
+            <!-- /.col-lg-4 col-md-6 col-sm-6 item-loadmore -->
+            <div class="col-md-12">
+              <div class="btn-loadmore center">
+                <a href="#" class="base bg-black color-white center" title="">LOADMORE</a>
+              </div>
+            </div>
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.tab-product-content -->
+      </div>
+      <!-- /.col-md-9 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+
+
+
+
+<br>
+
+<%= link_to 'New Item', new_item_path %>

@@ -1,0 +1,100 @@
+<section class="page-title parallax parallax2">
+  <div class="title-heading" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box-title style1">
+            <h1>
+              Posting Form
+            </h1>
+            <div class="breadcrumbs">
+              <ul>
+                <li><a href="/index.html" title="">Home</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                <li><a href="/element.html" title="">Sell</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+              </ul>
+            </div>
+            <!-- /.breadcrumbs -->
+          </div>
+          <!-- /.box-title -->
+        </div>
+        <!-- /.col-md-12 -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.title-heading -->
+  <div class="overlay-black"></div>
+</section>
+<!-- /.page-title parallax -->
+<section class="flat-contact-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-contact-form padding-contact">
+          <!-- <form id="contactform" action="./contact/contact-process.php" method="post" accept-charset="utf-8"> -->
+
+          <%= form_with(model: item, local: true) do |form| %>
+            <% if item.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+                  <ul>
+                  <% item.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+              </div>
+            <% end %>
+
+
+
+            <div class="contact-form-name contact-form">
+                <%= form.text_field :name, placeholder:"Title" %>
+              <!-- <input type="text" name="name" id="name" placeholder="Name |" required=""/> -->
+            </div>
+            <div class="contact-form-comment contact-form">
+              <%= form.text_area :content , placeholder:"Content"%>
+            </div>
+            <div class="contact-form">
+              <%= form.label :price %>
+              <%= form.number_field :price %>
+            </div>
+            <!-- <div class="contact-form-url contact-form">
+              <input type="text" name="url" id="url" placeholder="Website" required=""/>
+            </div>
+            <div class="contact-form-comment contact-form">
+              <textarea name="message" id="message" placeholder="Messages" required=""></textarea>
+            </div> -->
+            <!-- <div class="btn-contact-form center">
+              <button type="submit" class="flat-button-form">SEND MESSAGES</button>
+            </div> -->
+          <!-- </form> -->
+
+            <ddiv class="btn-contact-form center">
+              <%= form.button class:"flat-button-form" %>
+            </div>
+          <% end %>
+          <!-- /form -->
+        </div>
+        <!-- /.form-contact-form -->
+      </div>
+      <!-- /.col-md-12 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.flat-contact-form -->
+
+
+
+
+  <!-- <div class="field">
+    <#%= form.label :item_image %>
+    <#%= form.text_field :item_image %>
+  </div> -->
+
+  <!-- <div class="field">
+    <#%= form.label :category %>
+    <#%= form.number_field :category %>
+  </div> -->

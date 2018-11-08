@@ -48,7 +48,7 @@
           <!-- /.logo -->
           <div class="get-quote float-right">
             <% if user_signed_in? %>
-              <%= link_to '로그아웃', destroy_user_session_path, method:delete %>
+              <%= link_to '로그아웃', destroy_user_session_path,method: :delete %>
             <% else %>
               <%= link_to '로그인', new_user_session_path %>
               <%= link_to '회원가입', new_user_registration_path %>
@@ -85,7 +85,7 @@
                 </li>
                 <!-- /.has-menu-mega -->
                 <li class="has-submenu">
-                  <%= link_to posts_path do %>
+                  <%= link_to items_path do %>
                     Shop
                   <%end%>
                   <div class="submenu">
