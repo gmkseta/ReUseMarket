@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'trades/list'
+  get 'trades/detail'
   get 'home/home'
   resources :items
   devise_for :users
