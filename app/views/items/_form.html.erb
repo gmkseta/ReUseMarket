@@ -46,8 +46,6 @@
               </div>
             <% end %>
 
-            <a href="#" id="upload_widget_opener">Upload multiple images</a>
-
             <div class="contact-form-name contact-form">
                 <%= form.text_field :name, placeholder:"Title" %>
               <!-- <input type="text" name="name" id="name" placeholder="Name |" required=""/> -->
@@ -58,6 +56,11 @@
             <div class="contact-form">
               <%= form.label :price %>
               <%= form.number_field :price %>
+            </div>
+            <div class="contact-form">
+              <!-- <#%= form.label : %> -->
+              <%= form.file_field :item_images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+
             </div>
             <!-- <div class="contact-form-url contact-form">
               <input type="text" name="url" id="url" placeholder="Website" required=""/>

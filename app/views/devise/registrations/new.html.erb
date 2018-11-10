@@ -47,14 +47,20 @@
                         <!-- <input type="text" id="email" name="email" > -->
                       </div>
                       <!-- /.form-box -->
+
                       <div class="form-box">
-                        <div class="field">
+                        <%= f.label :name %>
+                        <%= f.text_field :name%>
+                      </div>
+
+                      <div class="form-box">
+                        <!-- <div class="field"> -->
                           <%= f.label :password %>
                           <% if @minimum_password_length %>
                           <em>(<%= @minimum_password_length %> characters minimum)</em>
                           <% end %><br />
                           <%= f.password_field :password, autocomplete: "new-password" %>
-                        </div>
+                        <!-- </div> -->
                         <!-- <label for="password">
                           Password *
                         </label>
@@ -65,6 +71,14 @@
                           <%= f.label :password_confirmation %><br />
                           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
                         <!-- </div> -->
+                      </div>
+                      <div class="form-box">
+                        <%= f.label :stu_num %>
+                        <%= f.text_field :stu_num%>
+                      </div>
+                      <div class="form-box">
+                        <%= f.label :phone_num %>
+                        <%= f.text_field :phone_num%>
                       </div>
                       <!-- /.form-box -->
                       <div class="btn-submit">

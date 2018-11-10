@@ -1,43 +1,103 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<section class="page-title style3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box-title style2 color-black">
+              <div class="breadcrumbs">
+                <ul>
+                  <li><a href="/index.html" title="">Home</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                  <li><a href="/element.html" title="">Shop</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                  <li>My Account</li>
+                </ul>
+              </div>
+              <!-- /.breadcrumbs -->
+            </div>
+            <!-- /.box-title -->
+          </div>
+          <!-- /.col-md-12 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /.page-title -->
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    <section class="flat-signin">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="wrap-sign-in center">
+                <h4>정보 수정</h4>
+                <div class="form-sign-in">
+                  <!-- <form action="#" method="post" accept-charset="utf-8"> -->
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                    <%= devise_error_messages! %>
+                    <div>
+                      <div class="form-box">
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+                          <!-- <div class="field"> -->
+                            <%= f.label :email %><br />
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                          <!-- </div> -->
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+                        <!-- <label for="email"> -->
+                          <!-- Username or email address * -->
+                        <!-- </label> -->
+                        <!-- <input type="text" id="email" name="email" > -->
+                      </div>
+                      <!-- /.form-box -->
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+                      <div class="form-box">
+                        <%= f.label :name %>
+                        <%= f.text_field :name%>
+                      </div>
+                      <div class="form-box">
+                        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                        <%= f.password_field :current_password, autocomplete: "current-password" %>
+                      </div>
+                      <div class="form-box">
+                        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                        <%= f.password_field :password, autocomplete: "new-password" %>
+                        <% if @minimum_password_length %>
+                          <br /><em>
+                            <%= @minimum_password_length %> characters minimum</em>
+                        <% end %>
+                      </div>
+                      <div class="form-box">
+                          <%= f.label :password_confirmation %><br />
+                          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                      </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+                      <div class="form-box">
+                        <%= f.label :stu_num %>
+                        <%= f.text_field :stu_num%>
+                      </div>
+                      <div class="form-box">
+                        <%= f.label :phone_num %>
+                        <%= f.text_field :phone_num%>
+                      </div>
+                      <!-- /.form-box -->
+                      <div class="btn-submit">
+                          <!-- <div class="actions"> -->
+                            <%= f.button "정보 수정",class:"bg-black register" %>
+                          <!-- </div> -->
+                        <!-- <button class="bg-black register" type="button">REGISTER</button> -->
+                      </div>
+                      <!-- <a href="#" class="create-account" title="">OR SIGN IN</a> -->
+                      <%= link_to '또는 회원 탈퇴',  registration_path(resource_name),data: { confirm: "정말 탈퇴하시겠습니까?" }, method: :delete ,class:"create-account" %>
+                    </div>
+                  <!-- </form> -->
+                  <% end %>
+                </div>
+                <!-- /.form-sign-in -->
+              </div>
+              <!-- /.wrap-sign-in -->
+            </div>
+            <!-- /.col-md-12 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </section>
+      <!-- /.flat-singin -->

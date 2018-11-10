@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  #유저로 로그인이 되어있어야 한다 . only ~ 얘네 액션을 할 때에는 . 
+  before_action :authenticate_user!, only: [:destroy,:new,:edit]
+
   # GET /items
   # GET /items.json
   def index
@@ -26,6 +29,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
+
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
@@ -69,6 +73,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :price, :item_image, :category,:content)
+      params.require(:item).permit(:name, :price, :item_image, :category,:content,item_images:[])
     end
 end

@@ -208,8 +208,7 @@
         </div>
       </section>
     <!-- /.header -->
-
-      <p class="notice"><%= notice %></p>
+      <%= flash_messages(:close, :fade) %>
       <p class="alert"><%= alert %></p>
       <%= yield %>
       <footer class="style2 bg-white">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_014700) do
+ActiveRecord::Schema.define(version: 2018_11_10_062828) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_014700) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "content"
+    t.json "item_images"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -31,6 +32,16 @@ ActiveRecord::Schema.define(version: 2018_11_08_014700) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_trades_on_item_id"
+    t.index ["user_id"], name: "index_trades_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -39,9 +50,14 @@ ActiveRecord::Schema.define(version: 2018_11_08_014700) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "stu_num"
+    t.integer "phone_num"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "items", "users"
+  add_foreign_key "trades", "items"
+  add_foreign_key "trades", "users"
 end
