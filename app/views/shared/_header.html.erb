@@ -1,0 +1,171 @@
+<section id="header" class="header style2 v7">
+  <div class="container-fluid">
+    <div id="logo" class="logo float-left">
+      <%= link_to :root do %>
+        ReUseMarket
+      <% end %>
+
+    </div>
+    <!-- /.logo -->
+    <div class="get-quote float-right">
+      <% if user_signed_in? %>
+        <%= link_to '로그아웃', destroy_user_session_path,method: :delete %>
+      <% else %>
+        <%= link_to '로그인', new_user_session_path %>
+        <%= link_to '회원가입', new_user_registration_path %>
+      <% end %>
+    </div>
+
+    <div class="menu-extra">
+      <div class="box-search">
+        <span class="icon_search"></span>
+        <form action="#" method="get" accept-charset="utf-8">
+          <div class="input-search">
+            <input type="text" name="search" placeholder="|Enter Your Search...">
+            <span class="ti-close delete"></span>
+          </div>
+        </form>
+      </div>
+      <div class="box-canvas">
+        <span class="ti-align-right"></span>
+      </div>
+    </div>
+    <!-- /.icon-header -->
+    <div class="nav-wrap">
+      <div class="btn-menu">
+        <span></span>
+      </div>
+      <!-- //mobile menu button -->
+      <div id="mainnav" class="mainnav">
+        <ul class="menu">
+          <li class="active has-menu-mega">
+            <a href="#" title="">
+              Home
+            </a>
+            <!-- /.submenu menu-mega -->
+          </li>
+          <!-- /.has-menu-mega -->
+          <li class="has-submenu">
+            <%= link_to items_path do %>
+              Shop
+            <%end%>
+            <div class="submenu">
+              <ul>
+                <li>
+                  <a href="#" title="">서브메뉴</a>
+                </li>
+                <li>
+                  <a href="#" title="">서브메뉴</a>
+                </li>
+                <li>
+                  <a href="#" title="">서브메뉴</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!-- /.has-menu-mega -->
+
+          <li class="has-submenu">
+            <a href="#" title="">
+              Log
+            </a>
+            <div class="submenu">
+              <ul>
+                <li>
+                  <a href="#" title="">서브메뉴</a>
+                </li>
+                <li>
+                  <a href="#" title="">서브메뉴</a>
+                </li>
+                <li>
+                  <a href="#" title="">서브메뉴</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!-- /.has-menu-mega -->
+
+          <li class="has-submenu">
+            <a href="#" title="">
+              Sell
+            </a>
+            <div class="submenu">
+              <ul>
+                <li>
+                  <a href="#" title="">서브메뉴</a>
+                </li>
+                <li>
+                  <a href="#" title="">서브메뉴</a>
+                </li>
+                <li>
+                  <a href="#" title="">서브메뉴</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!-- /.has-menu-mega -->
+
+
+        </ul>
+        <!-- /.menu -->
+      </div>
+      <!-- /.mainnav -->
+    </div>
+    <!-- /.nav-wrap -->
+    <div class="clearfix"></div>
+  </div>
+  <!-- /.container-fluid -->
+  <div class="menu-canvas">
+    <div class="close">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="widget-about">
+      <h5>We Are ReUseMarket</h5>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.</p>
+    </div>
+    <div class="widget-contact">
+      <h5>Contact Us</h5>
+      <ul>
+        <li>88 Landsriver St, Califonia, USA</li>
+        <li>(04) 122 00 111</li>
+        <li><a href="#" title="">support@elegant.com</a></li>
+      </ul>
+    </div>
+    <div class="share-link">
+      <ul class="social-ft">
+        <li>
+          <a href="" title="Facebook">
+            <i class="ti-facebook" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="" title="Twitter">
+            <i class="ti-twitter-alt" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="" title="Google Plus">
+            <i class="ti-google" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="" title="Instagram">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="" title="Dribble">
+            <i class="ti-dribbble" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a href="" title="Pinterest">
+            <i class="ti-pinterest" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+      <p class="copyright">Copyright ©2017 ReUseMarket. All Rights Reserved</p>
+    </div>
+  </div>
+</section>
+<!-- /.header -->

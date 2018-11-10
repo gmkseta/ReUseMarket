@@ -26,16 +26,12 @@
     <div class="row">
       <div class="col-lg-7">
         <div class="flexslider style1">
-          <ul class="slides">
-            <li data-thumb="images/flexslider/thumb/01.png">
-              <img src="/images/flexslider/01.png" alt="image flexslider" />
+          <ul class="slides" style="margin:0">
+            <% @item.item_images.each do  |img| %>
+            <li data-thumb="<%= img.url(:thumb) %>" style="margin:1px">
+              <img src="<%= img.url %>" alt="image flexslider" style="max-width:400px" />
             </li>
-            <li data-thumb="images/flexslider/thumb/02.png">
-              <img src="/images/flexslider/01.png" alt="image flexslider" />
-            </li>
-            <li data-thumb="images/flexslider/thumb/03.png">
-              <img src="/images/flexslider/01.png" alt="image flexslider" />
-            </li>
+            <% end %>
           </ul>
           <!-- /.slides -->
         </div>

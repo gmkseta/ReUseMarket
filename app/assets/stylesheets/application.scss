@@ -10,3 +10,15 @@ $navbar-default-link-hover-bg: black;
 @import "bootstrap";
 
 body { padding-top: 60px; }
+
+
+.alert.fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
+  -moz-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+.alert.fade.in {
+  opacity: 1;
+}

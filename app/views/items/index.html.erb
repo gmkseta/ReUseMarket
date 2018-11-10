@@ -161,7 +161,13 @@
               <div class="col-lg-4 col-md-6 col-sm-6 item-loadmore">
                 <div class="imagebox style1">
                   <div class="imagebox-header">
-                    <img src="/images/shop/11.jpg" alt=""><!--여기에 원래는 이미지 유알엘<#%= item.item_image %>-->
+                    <% if not item.item_images.empty?  %>
+                      <img src="<%= item.item_images[0].url%>" alt="" >
+                    <% else %>
+                      <img src="/images/shop/11.jpg" alt="" >
+                    <% end %>
+                    <!--여기에 원래는 이미지 유알엘<#%= item.item_image %>-->
+                    <!--  420 × 510 -->
                     <!-- <#%= item.user %> -->
                     <div class="add-cart">
                       <a href="#" class="shop-cart" title=""><span class="icon_cart_alt"></span></a>
