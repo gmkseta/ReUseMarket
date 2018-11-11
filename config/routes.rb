@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'trades/list'
+  get 'trades/:id/my_list'=>'trades#my_list'
   get 'trades/:id/detail'=>'trades#detail' ,as: 'trade_detail'
   post 'trades/mktr'=>'trades#mktr'
   get 'home/home'

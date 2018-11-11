@@ -1,7 +1,8 @@
 class CreateTrades < ActiveRecord::Migration[5.2]
   def change
     create_table :trades do |t|
-      t.references :user, foreign_key: true
+      t.references :seller
+      t.references :customer
       t.references :item, foreign_key: true
       t.integer :status
 

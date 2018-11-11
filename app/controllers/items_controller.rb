@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to @item, notice: '물품이 성공적으로 등록 되었습니다' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to @item, notice: '물품이 성공적으로 수정 되었습니다.' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to items_url, notice: '물품이 삭제 되었습니다.' }
       format.json { head :no_content }
     end
   end

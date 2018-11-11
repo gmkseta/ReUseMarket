@@ -3,6 +3,10 @@ class TradesController < ApplicationController
   def list
     @trades = Trade.all
   end
+  def my_list
+    @purchases = Trade.where(":user_id = #{current_user.id}")
+    @sell = Trade.where(":user_id = #{current_user.id}")
+  end
 
   def detail
     @trade = Trade.find(params[:id])

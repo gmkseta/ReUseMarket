@@ -83,7 +83,9 @@
                   <%= f.button "Log in",class:"bg-black" %>
                 <!-- <button class="bg-black" type="submit">SIGN IN</button> -->
               </div>
-              <a href="#" class="create-account" title="">OR CREATE AN ACCOUNT</a>
+              <%= link_to new_user_registration_path ,class:"create-account" do %>
+                OR CREATE AN ACCOUNT
+              <% end %>
             <% end %>
             <!-- </form> -->
           </div>
