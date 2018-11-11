@@ -4,7 +4,7 @@ class CreateTrades < ActiveRecord::Migration[5.2]
       t.references :seller
       t.references :customer
       t.references :item, foreign_key: true
-      t.integer :status
+      t.integer :status,default: 0
 
       t.timestamps
     end

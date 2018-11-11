@@ -32,26 +32,33 @@
                     </thead>
     								<tbody>
                       <%@trades.each do |t|%>
-      									<tr data-status="pagado" class="btn-success">
-      										<td>
-                            <%= image_tag t.item.item_images[0].url(:thumb) %>
-      										</td>
-                          <td>
-                            <%= t.item.name %>
-                          </td>
-                          <td>
-                            <%= t.item.category %>
-                          </td>
-                          <td>
-                            <%= t.item.price %> 원
-                          </td>
-                          <td>
-                            <%= t.item.user.name %>
-                          </td>
-                          <td>
-                            <%= t.user.name %>
-                          </td>
-      									</tr>
+
+          									<tr data-status="pagado" class="btn-success">
+
+          										<td>
+                                <%= image_tag t.item.item_images[0].url(:thumb) %>
+          										</td>
+                              <td>
+                                <%= t.item.name %>
+                              </td>
+                              <td>
+                                <%= t.item.category %>
+                              </td>
+                              <td>
+                                <%= t.item.price %> 원
+                              </td>
+                              <td>
+                                <%= t.seller.name %>
+                              </td>
+                              <td>
+                                <%= t.customer.name %>
+                              </td>
+                              <td>
+                                <%= link_to "상세보기", trade_detail_path(t)  %>
+                              </td>
+
+          									</tr>
+
                       <% end %>
     								</tbody>
     							</table>

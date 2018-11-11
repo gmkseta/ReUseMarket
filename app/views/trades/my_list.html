@@ -31,7 +31,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <%@trades.each do |t|%>
+                  <%@purchases.each do |t|%>
                   <tr data-status="pagado" class="btn-success">
                     <td>
                       <%= image_tag t.item.item_images[0].url(:thumb) %>
@@ -56,6 +56,45 @@
                 </tbody>
               </table>
             </div>
+            <div class="table-container">
+              <table class="table table-filter">
+                <thead>
+                  <tr>
+                    <td>미리보기</td>
+                    <td>제목</td>
+                    <td>분류</td>
+                    <td>가격</td>
+                    <td>판매자</td>
+                    <td>구매자</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%@sells.each do |t|%>
+                  <tr data-status="pagado" class="btn-success">
+                    <td>
+                      <%= image_tag t.item.item_images[0].url(:thumb) %>
+                    </td>
+                    <td>
+                      <%= t.item.name %>
+                    </td>
+                    <td>
+                      <%= t.item.category %>
+                    </td>
+                    <td>
+                      <%= t.item.price %> 원
+                    </td>
+                    <td>
+                      <%= t.item.user.name %>
+                    </td>
+                    <td>
+                      <%= t.user.name %>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+
           </div>
         </div>
       </div>
