@@ -14,12 +14,12 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: <%=ENV.fetch("MYSQL_PASS")%>
+  password: <%= ENV['MYSQL_PASS'] %>
   socket: /tmp/mysql.sock
 
 development:
   <<: *default
-  database: ReuseMarket_development
+  database: ReuseMarket_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -50,5 +50,4 @@ test:
 production:
   <<: *default
   database: ReuseMarket_production
-  username: ReuseMarket
-  password: <%= ENV['REUSEMARKET_DATABASE_PASSWORD'] %>
+  password: <%= ENV['MYSQL_PASS'] %>

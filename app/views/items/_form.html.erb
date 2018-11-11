@@ -1,31 +1,13 @@
-<section class="page-title parallax parallax2">
-  <div class="title-heading" >
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="box-title style1">
-            <h1>
-              Posting Form
-            </h1>
-            <div class="breadcrumbs">
-              <ul>
-                <li><a href="/index.html" title="">Home</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                <li><a href="/element.html" title="">Sell</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-              </ul>
-            </div>
-            <!-- /.breadcrumbs -->
-          </div>
-          <!-- /.box-title -->
-        </div>
-        <!-- /.col-md-12 -->
-      </div>
-      <!-- /.row -->
-    </div>
-    <!-- /.container -->
-  </div>
-  <!-- /.title-heading -->
-  <div class="overlay-black"></div>
-</section>
+
+
+<%= render partial:"shared/page_title" , locals: {
+  section_class: 'parallax parallax2',
+  ad_pre_html: "<div class='title-heading'>" ,
+  ad_post_html: "</div><div class='overlay-black'></div>",
+  title_html: "<h1>Sell Posting Form</h1>",
+
+  }%>
+
 <!-- /.page-title parallax -->
 <section class="flat-contact-form">
   <div class="container">
