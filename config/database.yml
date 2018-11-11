@@ -51,6 +51,6 @@ production:
   <<: *default
   database: ReuseMarket_production
   password: <%= ENV['YANG_PW'] %>
-  user: jhyang2362
+  username: jhyang2362
   host: dongguk-reuse.cbyukhtqmknp.us-east-1.rds.amazonaws.com
   port: 3306
