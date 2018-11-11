@@ -234,7 +234,7 @@ website:   	http://www.themepunch.com
 }
 
 .tp-caption.boxshadow,.boxshadow
-{		
+{
 	box-shadow:0 0 20px rgba(0,0,0,0.5);
 }
 
@@ -275,8 +275,8 @@ website:   	http://www.themepunch.com
 
 .tp-caption.largeblackbg,.largeblackbg
 {
-	
-	
+
+
 	background-color:#000;
 	border-radius:0;
 	color:#fff;
@@ -291,8 +291,8 @@ website:   	http://www.themepunch.com
 
 .tp-caption.largepinkbg,.largepinkbg
 {
-	
-	
+
+
 	background-color:#db4360;
 	border-radius:0;
 	color:#fff;
@@ -307,8 +307,8 @@ website:   	http://www.themepunch.com
 
 .tp-caption.largewhitebg,.largewhitebg
 {
-	
-	
+
+
 	background-color:#fff;
 	border-radius:0;
 	color:#000;
@@ -323,8 +323,8 @@ website:   	http://www.themepunch.com
 
 .tp-caption.largegreenbg,.largegreenbg
 {
-	
-	
+
+
 	background-color:#67ae73;
 	border-radius:0;
 	color:#fff;
@@ -2513,7 +2513,7 @@ website:   	http://www.themepunch.com
 .revtp-searchform input[type="text"],
 .revtp-searchform input[type="email"],
 .revtp-form input[type="text"],
-.revtp-form input[type="email"]{ 	
+.revtp-form input[type="email"]{
 	font-family: "Arial", sans-serif;
     font-size: 15px;
     color: #000;
@@ -2529,8 +2529,8 @@ website:   	http://www.themepunch.com
     -o-transition: background-color 0.5s;
     -ms-transition: background-color 0.5s;
     transition: background-color 0.5s;
-    
-    
+
+
     border-radius: 0px;
 }
 
@@ -3088,7 +3088,7 @@ website:   	http://www.themepunch.com
 }
 
 .revtp-searchform input[type="submit"],
-.revtp-form input[type="submit"] {	
+.revtp-form input[type="submit"] {
 	font-family: "Arial", sans-serif;
     line-height: 46px;
     letter-spacing: 1px;
@@ -3099,8 +3099,8 @@ website:   	http://www.themepunch.com
     border: 0;
     background: #009aee;
     color: #fff;
-    
-    
+
+
     border-radius: 0px;
 }
 
@@ -3432,9 +3432,9 @@ website:   	http://www.themepunch.com
     }
     .tp-caption.RedDot,
     .RedDot {
-        color: rgba(0, 0, 0, 1.00);        
+        color: rgba(0, 0, 0, 1.00);
         font-weight: 400;
-        font-style: normal;        
+        font-style: normal;
         padding: 0px 0px 0px 0px;
         text-decoration: none;
         text-align: left;
@@ -3506,7 +3506,7 @@ website:   	http://www.themepunch.com
         border-width: 0px;
         border-radius: 0 0 0 0px;
         text-align: center;
-        
+
     }
     .tp-caption.Woo-Rating,
     .Woo-Rating {
@@ -3524,7 +3524,7 @@ website:   	http://www.themepunch.com
         border-width: 0px;
         border-radius: 0 0 0 0px;
         text-align: left;
-        
+
     }
     .tp-caption.Woo-SubTitle,
     .Woo-SubTitle {
@@ -3543,7 +3543,7 @@ website:   	http://www.themepunch.com
         border-radius: 0 0 0 0px;
         text-align: center;
         letter-spacing: 2px;
-        
+
     }
     .tp-caption.Woo-PriceLarge,
     .Woo-PriceLarge {
@@ -3561,7 +3561,7 @@ website:   	http://www.themepunch.com
         border-width: 0px;
         border-radius: 0 0 0 0px;
         text-align: center;
-        
+
     }
     .tp-caption.Woo-ProductInfo,
     .Woo-ProductInfo {
@@ -3579,7 +3579,7 @@ website:   	http://www.themepunch.com
         border-width: 1px;
         border-radius: 4px 4px 4px 4px;
         text-align: left;
-        
+
     }
     .tp-caption.Woo-ProductInfo:hover,
     .Woo-ProductInfo:hover {
@@ -3607,7 +3607,7 @@ website:   	http://www.themepunch.com
         border-width: 1px;
         border-radius: 4px 4px 4px 4px;
         text-align: left;
-        
+
     }
     .tp-caption.Woo-AddToCart:hover,
     .Woo-AddToCart:hover {
@@ -3635,7 +3635,7 @@ website:   	http://www.themepunch.com
         border-width: 0px;
         border-radius: 0 0 0 0px;
         text-align: center;
-        
+
     }
     .tp-caption.Woo-SubTitle,
     .Woo-SubTitle {
@@ -3654,7 +3654,7 @@ website:   	http://www.themepunch.com
         border-radius: 0 0 0 0px;
         text-align: center;
         letter-spacing: 2px;
-        
+
     }
     .tp-caption.Woo-PriceLarge,
     .Woo-PriceLarge {
@@ -3672,7 +3672,7 @@ website:   	http://www.themepunch.com
         border-width: 0px;
         border-radius: 0 0 0 0px;
         text-align: center;
-        
+
     }
     .tp-caption.Woo-ProductInfo,
     .Woo-ProductInfo {
@@ -3690,7 +3690,7 @@ website:   	http://www.themepunch.com
         border-width: 1px;
         border-radius: 4px 4px 4px 4px;
         text-align: left;
-        
+
     }
     .tp-caption.Woo-ProductInfo:hover,
     .Woo-ProductInfo:hover {
@@ -3718,7 +3718,7 @@ website:   	http://www.themepunch.com
         border-width: 1px;
         border-radius: 4px 4px 4px 4px;
         text-align: left;
-        
+
     }
     .tp-caption.Woo-AddToCart:hover,
     .Woo-AddToCart:hover {
@@ -4271,9 +4271,9 @@ tp-caption.Team-Thumb,
 .tp-caption.SleekLanding-ButtonBG,
 .SleekLanding-ButtonBG {
     color: rgba(0, 0, 0, 1.00);
-        
+
     font-weight: 700;
-    font-style: normal;    
+    font-style: normal;
     padding: 0 0 0 0px;
     text-decoration: none;
     text-align: left;
@@ -4282,7 +4282,7 @@ tp-caption.Team-Thumb,
     border-style: solid;
     border-width: 0px;
     border-radius: 5px 5px 5px 5px;
-    text-align: left;    
+    text-align: left;
     box-shadow: inset 0px 2px 0px 0px rgba(0, 0, 0, 0.15)
 }
 .tp-caption.SleekLanding-SmallTitle,
@@ -4656,8 +4656,8 @@ tp-caption.Team-Thumb,
     -o-transition: background-color 0.5s;
     -ms-transition: background-color 0.5s;
     transition: background-color 0.5s;
-    
-    
+
+
     border-radius: 0px;
 }
 #mc_embed_signup input#mce-EMAIL[type="email"]:focus {
@@ -4677,8 +4677,8 @@ tp-caption.Team-Thumb,
     border: 1px solid #009aee;
     background: #009aee;
     color: #fff;
-    
-    
+
+
     border-radius: 0px;
 }
 #mc_embed_signup input#mc-embedded-subscribe:hover {
@@ -5641,13 +5641,13 @@ tp-caption.Team-Thumb,
     #tp-menubg {
         background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
         /* FF3.6-15 */
-        
+
         background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
         /* Chrome10-25,Safari5.1-6 */
-        
+
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        
+
         filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#d9000000', endColorstr='#00000000', GradientType=0);
         /* IE6-9 */
     }
@@ -5785,7 +5785,7 @@ tp-caption.Team-Thumb,
         display: none;
     }
 
-    .tp-caption.FullSiteBlock-Link, 
+    .tp-caption.FullSiteBlock-Link,
     .FullSiteBlock-Link {
     color: rgba(0,150,255,1.00);
     font-size: 25px;
@@ -5807,7 +5807,7 @@ tp-caption.Team-Thumb,
 
 /* Style text */
 /* Title */
-.tp-caption.title-slide {	
+.tp-caption.title-slide {
 	color: #1e1e27;
 	font-family: "poppins", sans-serif;
 	line-height: 60px;
@@ -5822,7 +5822,7 @@ tp-caption.Team-Thumb,
 }
 
 .tp-caption.title-slide span {
-	color: #1490d7;
+	color: #e38810;
 }
 
 .tp-caption.title-slide.ff-2 {
@@ -5856,14 +5856,14 @@ tp-caption.Team-Thumb,
 
 /* Sub title */
 .tp-caption.sub-title {
-	font-family: "Poppins", sans-serif;	  
+	font-family: "Poppins", sans-serif;
     /* color: #ffffff; */
 }
 
 /* Button */
 .tp-caption.flat-button-slider {
 	font-family: "poppins",sans-serif;
-	color: #fff;	
+	color: #fff;
 	text-align: center;
 	border-radius: 22px;
 	line-height: 46px;
@@ -5876,20 +5876,20 @@ tp-caption.Team-Thumb,
 		-moz-transition: all 0.3s ease-in-out;
 		-ms-transition: all 0.3s ease-in-out;
 		 -o-transition: all 0.3s ease-in-out;
-		    transition: all 0.3s ease-in-out;	
+		    transition: all 0.3s ease-in-out;
 }
 
-.tp-caption.flat-button-slider.bg-blue {
-	background-color: #1490d7;
+.tp-caption.flat-button-slider.bg-orange {
+	background-color: #e38810;
 }
 
 .tp-caption.flat-button-slider.bg-black  {
-    background: #222222;	
+    background: #222222;
 }
 
 .tp-caption.flat-button-slider.white  {
     border-color: #fff;
-    background: #fff;	
+    background: #fff;
     color: #222;
 }
 
@@ -5903,7 +5903,7 @@ tp-caption.Team-Thumb,
 
 .tp-caption.flat-button-slider.style1 {
 	border-radius: 2px;
-	border: 2px solid #1490d7;
+	border: 2px solid #e38810;
 }
 
 .tp-caption.flat-button-slider.border-radius-2 {
@@ -5944,7 +5944,7 @@ tp-caption.Team-Thumb,
 	transform: skew(-45deg) scaleX(1);
 } */
 
-.rev_slider .slotholder:after, 
+.rev_slider .slotholder:after,
 .rev_slider .slotholder .kenburnimg img:after {
     position: absolute;
     left: 0;

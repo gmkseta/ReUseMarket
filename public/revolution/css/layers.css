@@ -5822,7 +5822,7 @@ tp-caption.Team-Thumb,
 }
 
 .tp-caption.title-slide span {
-	color: #1490d7;
+	color: #e38810;
 }
 
 .tp-caption.title-slide.ff-2 {
@@ -5879,7 +5879,7 @@ tp-caption.Team-Thumb,
 		    transition: all 0.3s ease-in-out;
 }
 
-.tp-caption.flat-button-slider.bg-blue {
+.tp-caption.flat-button-slider.bg-orange {
 	background-color: #e78818;
 }
 

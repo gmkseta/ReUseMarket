@@ -188,7 +188,7 @@
         }; // Search button
 
         var menuCanvas = function() {
-            var buttonCavas = $('.box-canvas span.ti-align-right');
+            var buttonCavas = $('.box-canvas span.fa-bell');
             var closeCanvas = $('.menu-canvas .close');
             buttonCavas.on('click', function() {
                 $(this).closest('section').children('.menu-canvas').css({

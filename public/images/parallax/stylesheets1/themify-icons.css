@@ -602,7 +602,7 @@
 .ti-anchor:before {
 	content: "\e6c0";
 }
-.ti-align-right:before {
+.fa-bell:before {
 	content: "\e6c1";
 }
 .ti-align-left:before {

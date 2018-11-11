@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  #유저로 로그인이 되어있어야 한다 . only ~ 얘네 액션을 할 때에는 . 
+  #유저로 로그인이 되어있어야 한다 . only ~ 얘네 액션을 할 때에는 .
   before_action :authenticate_user!, only: [:destroy,:new,:edit]
 
   # GET /items

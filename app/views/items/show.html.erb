@@ -1,25 +1,5 @@
-<section class="page-title style3">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="box-title style2 color-black">
-          <div class="breadcrumbs">
-            <ul>
-              <li><a href="/index.html" title="">Home</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-              <li><a href="/element.html" title="">Shop</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-              <li>Shop Single</li>
-            </ul>
-          </div>
-          <!-- /.breadcrumbs -->
-        </div>
-        <!-- /.box-title -->
-      </div>
-      <!-- /.col-md-12 -->
-    </div>
-    <!-- /.row -->
-  </div>
-  <!-- /.container -->
-</section>
+
+<%= render partial:"shared/page_title" , locals: { section_class: 'style3' , ad_pre_html: "" , ad_post_html: "",title_html: "" }%>
 <!-- /.page-title -->
 <section class="flat-product-detail">
   <div class="container">
@@ -71,8 +51,12 @@
               <!-- <div class="quanlity float-left">
                 <input type="number" value="1" min="1" max="100" name="quanlity-product">
               </div> -->
-              <div class="btn-add-cart float-left">
-                <a href="#" class="base" title="">거래 걸기</a>
+              <div class="btn-submit">
+                <%= form_for(Trade.new, url: trades_mktr_path ,method: "post") do |f| %>
+                  <% f.hidden_field :item_id ,:value => @item.id%>
+                  <%= hidden_field_tag 'item_id', @item.id  %>
+                  <%= f.submit "거래 걸기",class:"base" %>
+                <% end %>
               </div>
             </div>
           </div>
