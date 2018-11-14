@@ -84,12 +84,13 @@
             </div> -->
           </li>
           <!-- /.has-menu-mega -->
-
-          <li class="has-submenu">
-            <%= link_to trades_my_list_path do %>
-              My_log
-            <% end %>
-          </li>
+          <% if user_signed_in? %>
+            <li class="has-submenu">
+              <%= link_to trades_my_list_path(current_user.id) do %>
+                My_log
+              <% end %>
+            </li>
+          <% end %>
           <li class="has-submenu">
 
 

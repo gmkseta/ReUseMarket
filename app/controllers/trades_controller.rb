@@ -4,8 +4,8 @@ class TradesController < ApplicationController
     @trades = Trade.all
   end
   def my_list
-    @purchases = Trade.where(":customer_id = #{current_user.id}")
-    @sells = Trade.where(":seller_id = #{current_user.id}")
+    @purchases = Trade.where("customer_id = #{current_user.id}")
+    @sells = Trade.where("seller_id = #{current_user.id}")
   end
 
   def detail
