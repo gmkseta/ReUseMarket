@@ -6,39 +6,6 @@
           <h3><%= @trade.item.user.name %></h3>
           <h4><%= @trade.item.user.stu_num %></h4>
           <h4><%= @trade.item.user.phone_num %></h4>
-          <!-- <p>Branding, Portfolio, digital</p> -->
-          <!-- <div class="share-link">
-            <span class="float-left">Share:</span>
-            <ul class="social-ft float-left">
-              <li>
-                <a href="" title="Facebook">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li>
-                <a href="" title="Twitter">
-                  <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li>
-                <a href="" title="Google Plus">
-                  <i class="fa fa-google-plus" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li>
-                <a href="" title="RSS">
-                  <i class="fa fa-rss" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li>
-                <a href="" title="heart">
-                  <i class="fa fa-heart" aria-hidden="true"></i>
-                </a>
-              </li>
-            </ul>
-            <!-- /.social-ft -->
-          <!-- </div> -->
-          <!-- /.share-link -->
         </div>
         <!-- /.single-simple -->
       </div>
@@ -62,7 +29,81 @@
       <!-- /.col-md-4 -->
     </div>
     <!-- /.row -->
+    <div class="row">
+      <div class="col-9 col-md-10 bg-light full-height">
+        <div class="container-fluid">
+          <div class="chat-box py-2">
+            <% @chats.each do |chat| %>
+              <div class="col-12">
+                <div class="chat bg-secondary d-inline-block text-left mb-2">
+                  <div class="chat-bubble">
+                    <%= chat.user.name %> : <%= chat.message %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="chat-text-input">
+            <%= form_with(model: @chat, remote: true, format: :json, id: 'chat-form') do |form| %>
+              <% if @chat.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@chat.errors.count, "error") %> prohibited this chat from being saved:</h2>
+                  <ul>
+                    <% @chat.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+              <div class="field position-relative">
+                <%= form.text_field :message, id: :message, class: "form-control" %>
+              </div>
+              <%= form.hidden_field :trade, id: :trade, class: "form-control",value: @trade.id %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
   </div>
   <!-- /.container -->
 </div>
 <!-- /.flat-portfolio-single -->
+
+
+<script>
+  //= require rails-ujs
+  //= require arctic_admin/base
+  //= require activeadmin_addons/all
+  //= require toastr
+  //= require micromodal
+  //= require pusher
+
+  jQuery(document).ready(function($) {
+    // document.getElementById("recommand_finance_memo").rows = "5";
+
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>', {
+      cluster: '<%= ENV["PUSHER_CLUSTER"] %>',
+      forceTLS: true
+    });
+
+    // current_user = parseInt($("#utility_nav #current_user a").attr("href").split("/").slice(-1)[0])
+    var channel = pusher.subscribe("trade-<%=@trade.id%>-channel");
+
+    channel.bind('send_message',function(data) {
+      $('.chat-box').append("\
+      <div class=\"col-12\">\
+        <div class=\"chat bg-secondary d-inline-block text-left mb-2\">\
+          <div class=\"chat-bubble\">"
+            +  data.user.name +" : "+ data.message +
+          "</div>\
+        </div>\
+      </div>"
+      );
+    });
+
+  });
+
+</script>

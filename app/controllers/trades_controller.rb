@@ -10,6 +10,8 @@ class TradesController < ApplicationController
 
   def detail
     @trade = Trade.find(params[:id])
+    @chats = @trade.chats
+    @chat = Chat.new
   end
 
   def mktr#make trade

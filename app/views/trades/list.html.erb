@@ -36,7 +36,7 @@
           									<tr data-status="pagado" class="btn-success">
 
           										<td>
-                                <%= image_tag t.item.item_images[0].url(:thumb) %>
+                                <%= image_tag t.item.item_images[0].url(:thumb) if t.item.item_images.present?%>
           										</td>
                               <td>
                                 <%= t.item.name %>
@@ -54,7 +54,9 @@
                                 <%= t.customer.name %>
                               </td>
                               <td>
-                                <%= link_to "상세보기", trade_detail_path(t)  %>
+                                <% if user_signed_in? && (current_user == t.seller || current_user == t.customer) %>
+                                  <%= link_to "상세보기", trade_detail_path(t)  %>
+                                <% end %>
                               </td>
 
           									</tr>
