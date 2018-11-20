@@ -30,21 +30,35 @@
     </div>
     <!-- /.row -->
     <div class="row">
-      <div class="col-9 col-md-10 bg-light full-height">
-        <div class="container-fluid">
-          <div class="chat-box py-2">
-            <% @chats.each do |chat| %>
-              <div class="col-12">
-                <div class="chat bg-secondary d-inline-block text-left mb-2">
-                  <div class="chat-bubble">
-                    <%= chat.user.name %> : <%= chat.message %>
-                  </div>
-                </div>
+      <div class="offset-md-1 col-md-10 bg-light full-height">
+        <h3 class=" text-center">메세지함</h3>
+        <div class="messaging">
+          <div class="inbox_msg">
+            <div class="mesgs">
+              <div class="msg_history">
+                <% @chats.each do |chat| %>
+                  <% if current_user.id == chat.user.id %>
+                    <div class="outgoing_msg">
+                      <div class="sent_msg">
+                        <p><%= chat.message %></p>
+                        <span class="time_date"> <%= chat.created_at.strftime("%y %b %d %I:%M %p") %></span>
+                      </div>
+                    </div>
+                  <% else %>
+                    <p><%= chat.user.name %></p>
+                    <div class="incoming_msg">
+                      <!-- <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div> -->
+                      <div class="received_msg">
+                        <div class="received_withd_msg">
+                          <p><%= chat.message %></p>
+                          <span class="time_date"> <%= chat.created_at.strftime("%y %b %d %I:%M %p") %></span>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
-            <% end %>
-          </div>
-          <div class="chat-text-input">
-            <%= form_with(model: @chat, remote: true, format: :json, id: 'chat-form') do |form| %>
+              <%= form_with(model: @chat, remote: true, format: :json, id: 'chat-form') do |form| %>
               <% if @chat.errors.any? %>
                 <div id="error_explanation">
                   <h2><%= pluralize(@chat.errors.count, "error") %> prohibited this chat from being saved:</h2>
@@ -55,13 +69,18 @@
                   </ul>
                 </div>
               <% end %>
-              <div class="field position-relative">
-                <%= form.text_field :message, id: :message, class: "form-control" %>
+                <div class="type_msg">
+                  <div class="input_msg_write">
+                    <%= form.text_field :message, id: :message, class: "write_msg" %>
+                    <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                    <%= form.hidden_field :trade, id: :trade, class: "form-control",value: @trade.id %>
+
+                  </div>
               </div>
-              <%= form.hidden_field :trade, id: :trade, class: "form-control",value: @trade.id %>
             <% end %>
           </div>
         </div>
+  </div>
       </div>
     </div>
     <!-- /.row -->
@@ -80,7 +99,17 @@
   //= require pusher
 
   jQuery(document).ready(function($) {
+    var height = $(".msg_history")[0].scrollHeight;
+
+    $(".msg_history").scrollTop(height);
+
     // document.getElementById("recommand_finance_memo").rows = "5";
+    $('.write_msg').keyup(function(event) {
+      if (event.keyCode === 13 && !event.shiftKey) {
+
+
+      }
+    });
 
     Pusher.logToConsole = true;
 
@@ -93,15 +122,33 @@
     var channel = pusher.subscribe("trade-<%=@trade.id%>-channel");
 
     channel.bind('send_message',function(data) {
-      $('.chat-box').append("\
-      <div class=\"col-12\">\
-        <div class=\"chat bg-secondary d-inline-block text-left mb-2\">\
-          <div class=\"chat-bubble\">"
-            +  data.user.name +" : "+ data.message +
-          "</div>\
+      if (<%= current_user.id %> == data.user.id ){
+      $('.msg_history').append("\
+      <div class=\"outgoing_msg\">\
+        <div class=\"sent_msg\">\
+          <p>"+ data.message +"</p>\
+          <span class=\"time_date\">"+ data.date+"</span>\
         </div>\
       </div>"
-      );
+      );}
+      else{
+        $('.msg_history').append("\
+        <p>"+data.user.name+"</p>\
+        <div class=\"incoming_msg\">\
+          <div class=\"received_msg\">\
+            <div class=\"received_withd_msg\">\
+              <p>"+data.message+"</p>\
+              <span class=\"time_date\">"+data.date+"</span>\
+            </div>\
+          </div>\
+        </div>"
+        );
+      }
+    var height = $(".msg_history")[0].scrollHeight;
+
+    $(".msg_history").scrollTop(height);
+    $("#message.write_msg").val("")
+
     });
 
   });

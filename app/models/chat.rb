@@ -6,7 +6,8 @@ class Chat < ApplicationRecord
   def notify_pusher
     Pusher.trigger("trade-#{self.trade.id}-channel", 'send_message', {
       message: self.message,
-      user: self.user
+      user: self.user,
+      date: self.created_at.strftime("%y %b %d %I:%M %p")
       })
 
   end
