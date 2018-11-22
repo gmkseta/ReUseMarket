@@ -12,10 +12,12 @@
 default: &default
   adapter: mysql2
   encoding: utf8
+  port: 3306
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: <%= ENV['MYSQL_PASS'] %>
+  username: jhyang2362
+  password: <%= ENV['YANG_PW'] %>
   socket: /tmp/mysql.sock
+  host: dongguk-reuse.cbyukhtqmknp.us-east-1.rds.amazonaws.com
 
 development:
   <<: *default
@@ -50,7 +52,3 @@ test:
 production:
   <<: *default
   database: ReuseMarket_production
-  password: <%= ENV['YANG_PW'] %>
-  username: jhyang2362
-  host: dongguk-reuse.cbyukhtqmknp.us-east-1.rds.amazonaws.com
-  port: 3306
