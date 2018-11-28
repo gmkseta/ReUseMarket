@@ -2,17 +2,32 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <div class="single-simple">
-          <h3><%= @trade.item.user.name %></h3>
-          <h4><%= @trade.item.user.stu_num %></h4>
-          <h4><%= @trade.item.user.phone_num %></h4>
+        <div class="single-simple-text">
+          <% if @is_seller %>
+            <h5>판매자 정보 ></h5>
+            <br>
+            <h3><%= @trade.seller.name %></h3>
+            <h4><%= @trade.seller.stu_num %></h4>
+            <h4><%= @trade.seller.phone_num %></h4>
+          <% else %>
+            <h5>구매자 정보 ></h5>
+            <br>
+            <h3><%= @trade.customer.name %></h3>
+            <h4><%= @trade.customer.stu_num %></h4>
+            <h4><%= @trade.customer.phone_num %></h4>
+
+          <% end %>
         </div>
         <!-- /.single-simple -->
       </div>
       <!-- /.col-md-4 -->
       <div class="col-md-4">
         <div class="single-simple-text">
-          <p>Efimer is a project based on the concept that fashion is ephemeral. To represent this idea I designed a haute couture collection made by vegetables, which are ephemeral too. I decided to paint the vegetables to give uniformity at the clothes and express the purity that provides.</p>
+          <h5>거래진행 현황 > </h5>
+          <br>
+          <h6><%= @print_text %></h6>
+          <p><%= @subline_text %></p>
+
         </div>
         <!-- /.single-simple-text -->
       </div>
@@ -30,7 +45,7 @@
     </div>
     <!-- /.row -->
     <div class="row">
-      <div class="offset-md-1 col-md-10 bg-light full-height">
+      <div class="offset-md-1 col-md-10 bg-light">
         <h3 class=" text-center">메세지함</h3>
         <div class="messaging">
           <div class="inbox_msg">
@@ -58,7 +73,7 @@
                   <% end %>
                 <% end %>
               </div>
-              <%= form_with(model: @chat, remote: true, format: :json, id: 'chat-form') do |form| %>
+              <%= form_with(model: @chat, remote: true, format: :js, id: 'chat-form') do |form| %>
               <% if @chat.errors.any? %>
                 <div id="error_explanation">
                   <h2><%= pluralize(@chat.errors.count, "error") %> prohibited this chat from being saved:</h2>
@@ -73,14 +88,33 @@
                   <div class="input_msg_write">
                     <%= form.text_field :message, id: :message, class: "write_msg" %>
                     <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                    <%= form.hidden_field :trade, id: :trade, class: "form-control",value: @trade.id %>
-
+                    <%= form.hidden_field :trade_id, id: :trade, class: "form-control",value: @trade.id %>
+                    <%= form.hidden_field :user_id, class: "form-control",value: current_user.id %>
+                    <%= form.hidden_field :user_name, class: "form-control",value: current_user.name %>
                   </div>
               </div>
             <% end %>
+            </div>
           </div>
         </div>
-  </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+      <div class="offset-md-3 col-md-3">
+        <%= link_to   do%>
+          <% if @is_seller%>
+            <button class=" line-black supper border-radius-2">물품 인수</button>
+          <% else %>
+            <button class=" line-black supper border-radius-2">물품 인수</button>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to   do%>
+          <button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)">거래 취소</button>
+        <% end %>
       </div>
     </div>
     <!-- /.row -->
@@ -89,62 +123,61 @@
 </div>
 <!-- /.flat-portfolio-single -->
 
+<script type="text/javascript">
 
-<script>
+    jQuery(document).ready(function($) {
+      var height = $(".msg_history")[0].scrollHeight;
 
-  jQuery(document).ready(function($) {
-    var height = $(".msg_history")[0].scrollHeight;
+      $(".msg_history").scrollTop(height);
 
-    $(".msg_history").scrollTop(height);
+      // document.getElementById("recommand_finance_memo").rows = "5";
+      $('.write_msg').keyup(function(event) {
+        if (event.keyCode === 13 && !event.shiftKey) {
+        }
+      });
 
-    // document.getElementById("recommand_finance_memo").rows = "5";
-    $('.write_msg').keyup(function(event) {
-      if (event.keyCode === 13 && !event.shiftKey) {
+      Pusher.logToConsole = true;
 
+      var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>', {
+        cluster: 'ap3',
+        forceTLS: true
+      });
 
-      }
-    });
+      // current_user = parseInt($("#utility_nav #current_user a").attr("href").split("/").slice(-1)[0])
+      var channel = pusher.subscribe("trade-<%=@trade.id%>-channel");
 
-    Pusher.logToConsole = true;
+      channel.bind('send_message',function(data) {
 
-    var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>', {
-      cluster: 'ap3',
-      forceTLS: true
-    });
-
-    // current_user = parseInt($("#utility_nav #current_user a").attr("href").split("/").slice(-1)[0])
-    var channel = pusher.subscribe("trade-<%=@trade.id%>-channel");
-
-    channel.bind('send_message',function(data) {
-      if (<%= current_user.id %> == data.user.id ){
-      $('.msg_history').append("\
-      <div class=\"outgoing_msg\">\
-        <div class=\"sent_msg\">\
-          <p>"+ data.message +"</p>\
-          <span class=\"time_date\">"+ data.date+"</span>\
-        </div>\
-      </div>"
-      );}
-      else{
+        if (<%= current_user.id %> == data.user.id ){
         $('.msg_history').append("\
-        <p>"+data.user.name+"</p>\
-        <div class=\"incoming_msg\">\
-          <div class=\"received_msg\">\
-            <div class=\"received_withd_msg\">\
-              <p>"+data.message+"</p>\
-              <span class=\"time_date\">"+data.date+"</span>\
-            </div>\
+        <div class=\"outgoing_msg\">\
+          <div class=\"sent_msg\">\
+            <p>"+ data.message +"</p>\
+            <span class=\"time_date\">"+ data.date+"</span>\
           </div>\
         </div>"
-        );
-      }
-    var height = $(".msg_history")[0].scrollHeight;
+        );}
+        else{
+          $('.msg_history').append("\
+          <p>"+data.user.name+"</p>\
+          <div class=\"incoming_msg\">\
+            <div class=\"received_msg\">\
+              <div class=\"received_withd_msg\">\
+                <p>"+data.message+"</p>\
+                <span class=\"time_date\">"+data.date+"</span>\
+              </div>\
+            </div>\
+          </div>"
+          );
+        }
+      var height = $(".msg_history")[0].scrollHeight;
 
-    $(".msg_history").scrollTop(height);
-    $("#message.write_msg").val("")
+      $(".msg_history").scrollTop(height);
+      $("#message.write_msg").val("")
+
+      });
 
     });
 
-  });
 
 </script>

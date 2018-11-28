@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'trades/:id/detail'=>'trades#detail' ,as: 'trade_detail'
   post 'trades/mktr'=>'trades#mktr'
   get 'home/home'
-
+  get 'trades/:id/update_status'=>'trades#update_status' ,as: 'trade_update_status'
 
   resources :chats
   resources :items
