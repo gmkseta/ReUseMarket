@@ -24,7 +24,15 @@
             <h4 class="name">
               <%= @item.name %>
             </h4>
-            <i class="fa fa-trash"></i>&nbsp&nbsp&nbsp<i class="fa fa-edit"></i>
+            <% if user_signed_in? and (@item.user==current_user) %>
+              <%= link_to edit_item_path(@item) do %>
+                <i class="fa fa-edit"></i>
+              <% end %>
+                &nbsp&nbsp&nbsp
+              <%= link_to item_path(@item) ,method: :delete do %>
+                <i class="fa fa-trash"></i>
+              <% end %>
+            <% end %>
             <div class="queue">
               <i class="fa fa-star" aria-hidden="true"></i>
               <i class="fa fa-star" aria-hidden="true"></i>
