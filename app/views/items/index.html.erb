@@ -15,7 +15,7 @@
                     </td>
 					          <td width="15%">
 						          <div align="center" class="txdiv">
-                        상품명 
+                        상품명
 							          <a href="#"><img src="/images/item/arrow_up.png" width="10" height="10"></a>
 							          <a href="#"><img src="/images/item/arrow_down.png" width="10" height="10"></a>
 						          </div>
@@ -82,9 +82,9 @@
                 <h3>제품명</h3>
                 <span class="meta"><%= item.name %></span>
               </section>
- 
+
               <section class="right">
-                <span class="price"><%= item.price $></span>
+                <span class="price"><%= item.price %></span>
                 <span class="util-cart">
                   <a href="javascript:void(0);" class="shop-cart"><span class="icon_cart_alt"></span></a>
                   <a href="javascript:void(0);" class="save-item"><span class="icon_heart_alt"></span></a>
@@ -105,7 +105,7 @@
                 <div class="imagebox style1">
                   <div class="imagebox-header">
                     <% if not item.item_images.empty?  %>
-                      <img src="<%= item.item_images[0].url%>" alt="" >
+                      <img src="<%= item.item_images[0].url(:thumb)%>" alt="" >
                     <% else %>
                       <img src="/images/shop/11.jpg" alt="" >
                     <% end %>
