@@ -20,3 +20,4 @@
 window.setTimeout(function() {
   $(".alert").addClass("in");
 }, 1000);
+

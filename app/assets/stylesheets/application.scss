@@ -11,6 +11,58 @@ $navbar-default-link-hover-bg: black;
 
 body { padding-top: 60px; }
 
+.align_table {
+  border: 1px solid black;
+  margin-bottom: 30px;
+}
+
+div.txdiv
+{
+  font-size: 1.2em;
+}
+
+.list_style_btn
+{
+  width: 30px;
+}
+
+.active
+{
+  filter: grayscale(100%)
+}
+
+/** 판매 탭 아이템 홀더 **/
+div.sellHolder 
+{ list-style: none; width: 100%;}
+div.sellHolder div 
+{ display: block; background: #effafc; padding: 10px 15px; border-radius:10px;
+  margin-bottom: 10px;  border: 1px solid black;}
+ 
+div.sellHolder div.alt 
+{ background: #d7dfe0; }
+ 
+div.sellHolder div section.left 
+{ display: block; float: left; width: 350px; position: relative; padding-left: 20px; }
+div.sellHolder div section.right 
+{ display: block; float: right; align-content: center; margin-right: 10px; width: 250px; text-align: right; }
+ 
+div.sellHolder div section.left img.thumb 
+{ float: left; margin-right: 10px; }
+div.sellHolder div section.left img.featured-banner 
+{ position: absolute; left: -18px; top: 35px; }
+ 
+div.sellHolder div section.left h3 
+{ font-family: "Trebuchet MS", Arial, sans-serif; font-weight: bold; text-transform: uppercase; color: #707375; font-size: 1.4em; line-height: 1.6em; }
+div.sellHolder div section.left span.meta 
+{ color: #93989b; font-weight: normal; font-size: 1.1em; }
+ 
+div.sellHolder div section.right span.price 
+{ font-weight: bold; margin-bottom: 15px; color: #ad3939; font-size: 1.6em; text-align: right; }
+
+
+
+
+
 
 .alert.fade {
   opacity: 0;
