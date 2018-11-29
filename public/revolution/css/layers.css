@@ -5445,6 +5445,7 @@ tp-caption.Team-Thumb,
     }
     .rev_slider {
         overflow: hidden;
+        width: 100px;
     }
     .effect_layer {
         position: absolute;
