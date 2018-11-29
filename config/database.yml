@@ -17,7 +17,7 @@ default: &default
   username: jhyang2362
   password: <%= ENV['YANG_PW'] %>
   socket: /tmp/mysql.sock
-  host: dongguk-reuse.cbyukhtqmknp.us-east-1.rds.amazonaws.com
+  host: dongguk-reuse.chlmmb1ouqst.ap-northeast-2.rds.amazonaws.com
 
 development:
   <<: *default

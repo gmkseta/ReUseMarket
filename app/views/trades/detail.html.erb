@@ -103,12 +103,8 @@
 
     <div class="row">
       <div class="offset-md-3 col-md-3">
-        <%= link_to   do%>
-          <% if @is_seller%>
-            <button class=" line-black supper border-radius-2">물품 인수</button>
-          <% else %>
-            <button class=" line-black supper border-radius-2">물품 인수</button>
-          <% end %>
+        <%= link_to  trade_update_status_path(@trade.id) do%>
+            <button class=" line-black supper border-radius-2">물품인수확인</button>
         <% end %>
       </div>
       <div class="col-md-3">
