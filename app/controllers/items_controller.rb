@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = Item.ransack(params[:q]).result
   end
 
   # GET /items/1
