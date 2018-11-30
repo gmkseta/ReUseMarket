@@ -7,7 +7,7 @@
                 <ul>
                   <li><a href="/index.html" title="">Home</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
                   <li><a href="/element.html" title="">Shop</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                  <li>My Account</li>
+                  <li>회  원  가  입</li>
                 </ul>
               </div>
               <!-- /.breadcrumbs -->
@@ -71,6 +71,10 @@
                           <%= f.label :password_confirmation %><br />
                           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
                         <!-- </div> -->
+                      </div>
+                      <div class="form-box">
+                        <%= f.label :major,value:"학과" %>
+                        <%= f.text_field :major%>
                       </div>
                       <div class="form-box">
                         <%= f.label :stu_num,value:"학번" %>
