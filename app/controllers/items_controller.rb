@@ -7,7 +7,10 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @q = Item.ransack(params[:q])
+    @items = @q.result
+    puts params[:q]
+
   end
 
   # GET /items/1
@@ -73,6 +76,8 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :price, :item_image, :category,:content,item_images:[])
+      pra = params.require(:item).permit(:name, :price, :item_image, :category,:content,item_images:[])
+      pra["category"]= pra["category"].to_i
+      return pra
     end
 end
