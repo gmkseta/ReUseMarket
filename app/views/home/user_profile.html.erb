@@ -1,15 +1,104 @@
 <section>
-    <div class="user_container">
-        <div class="avatar-flip">
-            <img src="https://postfiles.pstatic.net/20141012_48/puddled_14130992573110oRl6_JPEG/141004sg5.jpg?type=w1" height="150" width="150">
-            <img src="https://postfiles.pstatic.net/20150913_172/peachhpink_14420805222504KF1Q_GIF/%BD%BD%B1%E2-%C0%A2%B5%F0.gif?type=w1" height="150" width="150">
-        </div>
-        <h2><%= current_user.name %></h2>
-        <h4><%= current_user.stu_num %></h4>
-        <p><%= current_user.phone_num %></p>
+    <div style="display: inline-block; width: 40%;">
+        <div class="user_container">
+            <div class="avatar-flip">
+                <img src="https://postfiles.pstatic.net/20141012_48/puddled_14130992573110oRl6_JPEG/141004sg5.jpg?type=w1" height="150" width="150">
+                <img src="https://postfiles.pstatic.net/20150913_172/peachhpink_14420805222504KF1Q_GIF/%BD%BD%B1%E2-%C0%A2%B5%F0.gif?type=w1" height="150" width="150">
+            </div>
+            <h2><%= current_user.name %></h2>
+            <h4><%= current_user.stu_num %></h4>
+            <p><%= current_user.phone_num %></p>
         <p><%= current_user.email %></p>
+        </div>
     </div>
 
-    <p> <%=current_user.trades%></p>
-
+    
+    <div style="display: inline-block; width: 55%; vertical-align: top;">
+        <div class="" style="float: right;">
+                <div class="btn-group">
+                <button type="button" class="btn btn-success btn-filter" data-target="pagado">거래중</button>
+                <button type="button" class="btn btn-warning btn-filter" data-target="pendiente">거래완료</button>
+                <button type="button" class="btn btn-danger btn-filter" data-target="cancelado">거래취소</button>
+            </div>
+        </div>
+        <h3>구매</h3>
+        <div class="table-container">
+          <table class="table table-fixed">
+            <thead>
+              <tr>
+                <th class="col-xs-2">미리보기</th>
+                <th class="col-xs-3">제목</th>
+                <th class="col-xs-1">분류</th>
+                <th class="col-xs-2">가격</th>
+                <th class="col-xs-1">판매자</th>
+                <th class="col-xs-1">구매자</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% current_user.customer_trades.each do |t|%>
+                <tr data-status="pagado" class="btn-success">
+                    <td class="col-xs-2">
+                      <%= image_tag t.item.item_images[0].url(:thumb) %>
+                    </td>
+                    <td class="col-xs-3">
+                      <%= t.item.name %>
+                    </td>
+                    <td class="col-xs-1">
+                      <%= t.item.category %>
+                    </td>
+                    <td class="col-xs-2"
+                      <%= t.item.price %> 원
+                    </td>
+                    <td class="col-xs-1">
+                      <%= t.seller.name %>
+                    </td>
+                    <td class="col-xs-1">
+                      <%= t.customer.name %>
+                    </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <h3>판매</h3>
+        <div class="table-container">
+          <table class="table table-fixed">
+            <thead>
+                <tr>
+                    <th class="col-xs-2">미리보기</th>
+                    <th class="col-xs-3">제목</th>
+                    <th class="col-xs-1">분류</th>
+                    <th class="col-xs-2">가격</th>
+                    <th class="col-xs-1">판매자</th>
+                    <th class="col-xs-1">구매자</th>
+                </tr>
+            </thead>
+            <tbody>
+              <% current_user.seller_trades.each do |t|%>
+                <tr data-status="pagado" class="btn-success">
+                    <td class="col-xs-2">
+                      <%= image_tag t.item.item_images[0].url(:thumb) %>
+                    </td>
+                    <td class="col-xs-3">
+                      <%= t.item.name %>
+                    </td>
+                    <td class="col-xs-1">
+                      <%= t.item.category %>
+                    </td>
+                    <td class="col-xs-2">
+                      <%= t.item.price %> 원
+                    </td>
+                    <td class="col-xs-1">
+                      <%= t.seller.name %>
+                    </td>
+                    <td class="col-xs-1">
+                      <%= t.customer.name %>
+                    </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    
 </section>
