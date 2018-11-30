@@ -47,6 +47,7 @@
 .flexslider .slides > li {
   display: none;
   -webkit-backface-visibility: hidden;
+  align-items: center;
 }
 .flexslider .slides img {
   width: 100%;

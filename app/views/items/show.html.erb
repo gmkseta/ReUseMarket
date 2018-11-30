@@ -16,25 +16,36 @@
         <!-- /.flexslider -->
       </div>
       <!-- /.col-lg-7 -->
+        
       <div class="summary" style="height:700px; padding-bottom: 250px; border:1px solid black;">
-        <h1 class="item_detail_title"><%= @item.name %></h1>
+        <div class="edit_delete_"><i class="fa fa-trash fa-2x"></i>&nbsp&nbsp&nbsp&nbsp<i class="fa fa-edit fa-2x"></i></div>
+      
+        <div class="likes_alerts_">
+          <i class="fa fa-heart fa-2x"></i>&nbsp&nbsp&nbsp&nbsp
+          <i class="fa fa-bullhorn fa-2x"></i>&nbsp
+        </div>
+        <h3 class="item_detail_title"><%= @item.name %></h3>
         <p class="item_detail_category">
           <a href="#"> 생필품 </a>
         </p>
         <div class="item_detail_desc">
           <%= @item.content %>
         </div>
-        <div class="seller_area">
-          <div class="seller_info">
-            <span class="seller_name"><%= @item.user.name %></span>
-            <span class="seller_subj"><%= @item.user.phone_num %></span>
-            <span class="seller_sid"><%= @item.user.stu_num %></span>
-          </div>
-        </div>
         <div class="trades_area">
-          <p class="price">
-            <span>￦ <%= @item.price %></span>
-          </p>
+          <div class="seller_area">
+            <div class="seller_info">
+              <span class="seller_name"><%= @item.user.name %></span>
+              <span class="seller_subj"><%= @item.user.phone_num %></span>
+              <span class="seller_sid"><%= @item.user.stu_num %></span>
+            </div>
+          </div>
+
+          <div class="sell_area">
+            <p class="price">
+              <span>￦ <%= @item.price %></span>
+            </p>
+            <button class="purchase_btn">구매하기</button>
+          </div>
         </div>
       </div>
 

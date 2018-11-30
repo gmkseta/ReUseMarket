@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post 'trades/mktr'=>'trades#mktr'
   get 'home/home'
   get 'trades/:id/update_status'=>'trades#update_status' ,as: 'trade_update_status'
-
+  get 'home/user_profile',as: 'user_profile'
   resources :chats
   resources :items
   devise_for :users
