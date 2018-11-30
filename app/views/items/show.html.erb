@@ -1,15 +1,13 @@
-
-<%= render partial:"shared/page_title" , locals: { section_class: 'style3' , ad_pre_html: "" , ad_post_html: "",title_html: "" }%>
 <!-- /.page-title -->
 <section class="flat-product-detail">
   <div class="container">
     <div class="row">
       <div class="col-lg-7">
         <div class="flexslider style1">
-          <ul class="slides" style="margin:0">
+          <ul class="slides" style="margin:0;">
             <% @item.item_images.each do  |img| %>
-            <li data-thumb="<%= img.url(:thumb) %>" style="margin:1px">
-              <img src="<%= img.url %>" alt="image flexslider" style="max-width:400px" />
+            <li data-thumb="<%= img.url(:thumb) %>" style="margin:1px;">
+              <img src="<%= img.url %>" alt="image flexslider" style="max-width:400px; max-height:700px;" />
             </li>
             <% end %>
           </ul>
@@ -18,83 +16,29 @@
         <!-- /.flexslider -->
       </div>
       <!-- /.col-lg-7 -->
-      <div class="col-lg-5">
-        <div class="product-detail">
-          <div class="header-detail">
-            <h4 class="name">
-              <%= @item.name %>
-            </h4>
-            <i class="fa fa-trash"></i>&nbsp&nbsp&nbsp<i class="fa fa-edit"></i>
-            <div class="queue">
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star" aria-hidden="true"></i>
-              <i class="fa fa-star-o" aria-hidden="true"></i>
-            </div>
-            <div class="price">
-              ₩<%= @item.price %>
-            </div>
-          </div>
-          <!-- /.header-detail -->
-          <div class="content-detail">
-            <p> 판매자 정보 </p>
-            <ul>
-              <li>
-                <%= @item.user.name %>
-              </li>
-
-            </ul>
-            <p> 내용 </p>
-            <%= @item.content %>
-
-            <div class="quanlity-box overflow">
-              <!-- <div class="quanlity float-left">
-                <input type="number" value="1" min="1" max="100" name="quanlity-product">
-              </div> -->
-              <div class="btn-submit">
-                <%= form_for(Trade.new, url: trades_mktr_path ,method: "post") do |f| %>
-                  <% f.hidden_field :item_id ,:value => @item.id%>
-                  <%= hidden_field_tag 'item_id', @item.id  %>
-                  <%= f.submit "거래 걸기",class:"base" %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <!-- /.content-detail -->
-          <div class="footer-detail overflow">
-            <div class="wishlist float-left">
-              <a href="#" title=""><i class="fa fa-heart" aria-hidden="true"></i> Add to Wishlist</a>
-            </div>
-            <div class="share-link float-right">
-              Share Link:
-              <ul class="social-ft float-right">
-                <li>
-                  <a href="" title="Facebook">
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="" title="Twitter">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="" title="Google Plus">
-                    <i class="fa fa-google-plus" aria-hidden="true"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="" title="RSS">
-                    <i class="fa fa-rss" aria-hidden="true"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!-- /.share-link -->
-          </div>
-          <!-- /.footer-detail -->
+      <div class="summary" style="height:700px; padding-bottom: 250px; border:1px solid black;">
+        <h1 class="item_detail_title"><%= @item.name %></h1>
+        <p class="item_detail_category">
+          <a href="#"> 생필품 </a>
+        </p>
+        <div class="item_detail_desc">
+          <%= @item.content %>
         </div>
+        <div class="seller_area">
+          <div class="seller_info">
+            <span class="seller_name"><%= @item.user.name %></span>
+            <span class="seller_subj"><%= @item.user.phone_num %></span>
+            <span class="seller_sid"><%= @item.user.stu_num %></span>
+          </div>
+        </div>
+        <div class="trades_area">
+          <p class="price">
+            <span>￦ <%= @item.price %></span>
+          </p>
+        </div>
+      </div>
+
+      
         <!-- /.product-detail -->
       </div>
       <!-- /.col-lg-5 -->
@@ -104,147 +48,3 @@
   <!-- /.container -->
 </section>
 <!-- /.flat-product-detail -->
-
-
-<section class="flat-product-content">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="product-content">
-          <ul class="tab-detail-list">
-            <li class="active">판매자에 대한 리뷰 1</li>
-            <li>Description</li>
-            <li>Additional Information</li>
-
-          </ul>
-          <!-- /.tab-detail-list -->
-          <div class="tab-content">
-            <div class="reviews">
-              <ol class="review-list">
-                <li class="overflow">
-                  <div class="review-img float-left">
-                    <img src="/images/page/reviewer-1.jpg" alt="">
-                    <div class="queue center">
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star-o" aria-hidden="true"></i>
-                    </div>
-                  </div>
-                  <!-- /.review-img -->
-                  <div class="review-content overflow">
-                    <div class="date">
-                      27 AUG 2016
-                    </div>
-                    <div class="name">
-                      Brandon Kelley
-                    </div>
-                    <div class="text-review">
-                      <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore.</p>
-                    </div>
-                  </div>
-                  <!-- /.review-content -->
-                </li>
-              </ol>
-              <!-- /.review-list -->
-              <!-- <div class="review-respond">
-                <div class="title">
-                  <h6>Add Review</h6>
-                </div>
-                <form action="#" method="get" accept-charset="utf-8">
-                  <div class="review-form-box overflow">
-                    <div class="review-form-name one-half">
-                      <input type="text" name="review-name" placeholder="Name*">
-                    </div>
-                    <div class="review-form-email one-half">
-                      <input type="text" name="review-email" placeholder="Email*">
-                    </div>
-                  </div>
-                  <div class="rating">
-                    <span>Your Rating: </span>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                  </div>
-                  <div class="review-form-box review-form-comment">
-                    <textarea name="review-form-comment" placeholder="Your Review"></textarea>
-                  </div>
-                  <div class="btn-submit">
-                    <button class="base bg-black" type="submit">SUBMIT</button>
-                  </div>
-                </form>
-              </div> -->
-              <!-- /.review-respond -->
-            </div>
-            <!-- /.reviews -->
-            <div class="description">
-              <p>Denim collection, cotton fabric, dark wash, five pockets, zip and one button fastening, 16 cm hem. Smart Casual collection, cotton fabric, textured design, rounded neck, long sleeve, cable knit finish.</p>
-              <ul>
-                <li>- Front pocket</li>
-                <li>- Twin side pockets</li>
-                <li>- Lobster clasp</li>
-                <li>- Zip closure</li>
-                <li>- Contrast lining</li>
-                <li>-Inner pocket</li>
-              </ul>
-              <p class="size">20.08x13.39x5.12in (LengthxHeightxWidth)</p>
-            </div>
-            <!-- /.description -->
-            <div class="information">
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Weight</td>
-                    <td>60 kg</td>
-                  </tr>
-                  <tr>
-                    <td>Dimensions:</td>
-                    <td>90x60x90 cm</td>
-                  </tr>
-                  <tr>
-                    <td>Size:</td>
-                    <td>one size fits all</td>
-                  </tr>
-                  <tr>
-                    <td>Color</td>
-                    <td>White</td>
-                  </tr>
-                  <tr>
-                    <td>Guarantee:</td>
-                    <td>1 years</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.information -->
-
-          </div>
-          <!-- /.tab-content -->
-        </div>
-        <!-- /.product-content -->
-        <ul class="product-code center">
-          <li class="code">
-            SKU: <span>00012</span>
-          </li>
-          <li class="cat">
-            Categories: <a href="#" title="">Men</a>,
-            <a href="#" title="">T-Shirts</a>,
-            <a href="#" title="">T-Shirts</a>
-          </li>
-          <li class="tags">
-            Tags: <a href="#" title="">man</a>,
-            <a href="#" title="">t-shirt</a>
-          </li>
-        </ul>
-        <!-- /.product-code -->
-      </div>
-      <!-- /.col-md-12 -->
-    </div>
-    <!-- /.row -->
-  </div>
-  <!-- /.container -->
-</section>
-<!-- /.flat-product-content -->
