@@ -62,7 +62,9 @@ class TradesController < ApplicationController
   end
 
   def update_status
-
+    trade = Trade.find(params[:id])
+    trade.change_status(current_user)
+    redirect_to trade_detail_path(trade)
   end
   def cancel
 

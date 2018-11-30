@@ -8,7 +8,8 @@
 <section class="table">
       <div class="container">
       	<div class="row">
-    			<div class="col-md-8 col-md-offset-2">
+          <div class="col-2"></div>
+    			<div class="col-8">
     				<div class="panel panel-default">
     					<div class="panel-body">
     						<div class="pull-right">
@@ -32,9 +33,7 @@
                     </thead>
     								<tbody>
                       <%@trades.each do |t|%>
-
           									<tr data-status="pagado" class="btn-success">
-
           										<td>
                                 <%= image_tag t.item.item_images[0].url(:thumb) if t.item.item_images.present?%>
           										</td>
@@ -58,9 +57,7 @@
                                   <%= link_to "상세보기", trade_detail_path(t)  %>
                                 <% end %>
                               </td>
-
           									</tr>
-
                       <% end %>
     								</tbody>
     							</table>

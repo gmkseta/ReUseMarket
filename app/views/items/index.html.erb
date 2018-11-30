@@ -13,7 +13,31 @@
                   <tr>
                     <td width="5%">
                     </td>
+<<<<<<< HEAD
 					          <td width="10%">
+=======
+					          <td width="15%">
+						          <div align="center" class="txdiv">
+                        상품명
+							          <a href="#"><img src="/images/item/arrow_up.png" width="10" height="10"></a>
+							          <a href="#"><img src="/images/item/arrow_down.png" width="10" height="10"></a>
+						          </div>
+					          </td>
+						        <td width="3" class="tx_05">
+                      <img src="/images/item/list_cp.gif" width="3" height="33">
+					          </td>
+					          <td width="15%">
+						          <div align="center" class="txdiv">
+                        분야별
+							          <a href="#"><img src="/images/item/arrow_up.png" width="10" height="10"></a>
+							          <a href="#"><img src="/images/item/arrow_down.png" width="10" height="10"></a>
+						          </div>
+					          </td>
+					          <td width="3">
+						          <img src="/images/item/list_cp.gif" width="3" height="33">
+					          </td>
+					          <td width="15%">
+>>>>>>> 42f26b05bafbc4964d7f7dcccfb1b35767da9678
 						          <div align="center" class="txdiv">
                         가격별
 							          <a href="#"><img src="/images/item/arrow_up.png" width="10" height="10"></a>
@@ -48,6 +72,7 @@
 		      </tbody>
         </table>
 
+<<<<<<< HEAD
         <ul class="sell_items">
           <% @items.each do |item| %>
             <li class="sell_item">
@@ -57,6 +82,70 @@
               <% else %>
                 <div class="sell_item_thumb thumb1" style="background-image: url(http://dimg.donga.com/wps/NEWS/IMAGE/2018/11/29/93087313.2.jpg)">
               <% end %>
+=======
+
+
+        <% @items.each do |item| %>
+          <div id="products" class = "sellHolder">
+            <!-- row 1 -->
+            <div class="clearfix">
+              <section class="left">
+                <img src="images/products/list-default-thumb.png" alt="default thumb" class="thumb">
+                <h3>제품명</h3>
+                <span class="meta"><%= item.name %></span>
+              </section>
+
+              <section class="right">
+                <span class="price"><%= item.price %></span>
+                <span class="util-cart">
+                  <a href="javascript:void(0);" class="shop-cart"><span class="icon_cart_alt"></span></a>
+                  <a href="javascript:void(0);" class="save-item"><span class="icon_heart_alt"></span></a>
+                </span>
+              </section>
+            </div>
+          </div>
+        <% end %>
+
+        <!-- /.row -->
+        <div class="tab-product-content">
+          <div class="row first">
+        <!-- 실제 상품 플레이스홀더 -->
+            <% @items.each do |item| %>
+
+              <div class="col-lg-4 col-md-6 col-sm-6 item-loadmore">
+              <!-- 각 이미지 박스 내부 설정 -->
+                <div class="imagebox style1">
+                  <div class="imagebox-header">
+                    <% if not item.item_images.empty?  %>
+                      <img src="<%= item.item_images[0].url(:thumb)%>" alt="" >
+                    <% else %>
+                      <img src="/images/shop/11.jpg" alt="" >
+                    <% end %>
+                    <!--여기에 원래는 이미지 유알엘<#%= item.item_image %>-->
+                    <!--  420 × 510 -->
+                    <!-- <#%= item.user %> -->
+                    <div class="add-cart">
+                      <a href="#" class="shop-cart" title=""><span class="icon_cart_alt"></span></a>
+                      <a href="#" class="like" title=""><span class="icon_heart_alt"></span></a>
+                    </div>
+                    <div class="view center">
+                      <%= link_to item ,class:"bg-black color-white" do %>
+                      상세 내용
+                      <% end %>
+                    </div>
+                  </div>
+
+                  <!-- /.imagebox-header -->
+                  <div class="imagebox-content center">
+                    <div class="name">
+                      <a href="#" title=""><%= item.name %></a>
+                    </div>
+                    <div class="price">
+                      <%= item.price %> 원
+                    </div>
+                  </div>
+                  <!-- /.imagebox-content -->
+>>>>>>> 42f26b05bafbc4964d7f7dcccfb1b35767da9678
                 </div>
                 <div class="sell_item_thumb thumb2" style="background-image: url(https://search.pstatic.net/common?type=a&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F49%2F20160628134751541.jpg)"></div>
 

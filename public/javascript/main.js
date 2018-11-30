@@ -188,7 +188,7 @@
         }; // Search button
 
         var menuCanvas = function() {
-            var buttonCavas = $('.box-canvas span.fa-bell');
+            var buttonCavas = $('.box-canvas span.ti-align-right');
             var closeCanvas = $('.menu-canvas .close');
             buttonCavas.on('click', function() {
                 $(this).closest('section').children('.menu-canvas').css({
@@ -892,7 +892,7 @@
                     styledmaptype:{
                         id: "themesflat_style",
                         options:{
-                            name: "ReUseMarket Map"
+                            name: "Yolo Map"
                         },
                         styles:[
                             {
@@ -1108,7 +1108,7 @@
                     styledmaptype:{
                         id: "themesflat_style",
                         options:{
-                            name: "ReUseMarket Map"
+                            name: "Yolo Map"
                         },
                         styles:[
                             {

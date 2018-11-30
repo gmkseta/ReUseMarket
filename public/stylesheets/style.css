@@ -1,5 +1,5 @@
 /**
-  * Name: ReUseMarket
+  * Name: Yolo
   * Version: 1.0
   * Author: Themesflat
   * Author URI: http://www.themesflat.com
@@ -200,7 +200,7 @@ a {
 
 a:hover,
 a:focus {
-	color: #e38810;
+	color: #1490d7;
 	text-decoration: none;
 	outline: 0;
 	-webkit-transition: all 0.3s ease-in-out;
@@ -251,7 +251,7 @@ input[type="submit"] {
 	line-height: 42px;
 	font-size: 14px;
 	color: #ffffff;
-	background: #e38810;
+	background: #1490d7;
 	border-radius: 2px;
 	font-weight: 600;
 	font-family: "Poppins", sans-serif;
@@ -434,7 +434,7 @@ input[type="color"],
 button.flat-button-form {
 	height: 46px;
 	line-height: 46px;
-	background: #e38810;
+	background: #1490d7;
 	font-size: 12px;
 	color: #fff;
 	font-weight: 600;
@@ -456,7 +456,7 @@ blockquote > span {
 	font-family: 'Playfair Display';
 	font-weight: 400;
 	font-size: 100px;
-	color: #e38810;
+	color: #1490d7;
 	line-height: 42px;
 	display: block;
 }
@@ -588,7 +588,7 @@ h6 { font-size: 18px;line-height: 18px;}
 	padding-top: 0px;
 }
 
-.color-default {color: #e38810;}
+.color-default {color: #1490d7;}
 .color-white {color: #fff;}
 .color-black {color: #1e1e27;}
 .color-green {
@@ -598,7 +598,7 @@ h6 { font-size: 18px;line-height: 18px;}
 .bg-default {background-color: #1e1e27;}
 .bg-transparent {background-color: transparent;}
 .background {background-color: #f7f7f7;}
-.background-blue {background-color: #e38810;}
+.background-blue {background-color: #1490d7;}
 .bg-white {background-color: #fff;}
 .bg-green {background-color: #ebf1f7;}
 .bg-green-2 {background-color: #11d576;}
@@ -1375,7 +1375,7 @@ ul.flat-infomation,
 }
 
 .menu-extra > div > span:hover {
-	color: #e38810;
+	color: #1490d7;
 }
 
 .box-cart span i.numb-cart {
@@ -1491,15 +1491,15 @@ ul.flat-infomation,
 }
 
 .box-cart .subcart .btn-cart a.check-out {
-	background: #e38810;
-	border-color: #e38810;
+	background: #1490d7;
+	border-color: #1490d7;
 	color: #fff;
 	margin-bottom: 0px;
 }
 
 .box-cart .subcart .btn-cart a:hover {
 	color: #fff;
-	border-color: #f9ad3c;
+	border-color: #0073b5;
 }
 
 /* Box Search */
@@ -1708,7 +1708,7 @@ ul.flat-infomation > li.purchase a {
 	color: #fff;
 	display: inline-block;
 	line-height: 46px;
-	background: #e38810;
+	background: #1490d7;
 	width: 160px;
 	text-align: center;
 	border-radius: 2px;
@@ -2160,7 +2160,7 @@ ul.flat-infomation.style1 li.phone a {
 
 .blog-post .entry-post-title .top-post {
 	font-size: 12px;
-	color: #e38810;
+	color: #1490d7;
 	font-weight: 600;
 	letter-spacing: 6px;
 }
@@ -2176,7 +2176,7 @@ ul.flat-infomation.style1 li.phone a {
 }
 
 .blog-post .entry-post-title h2 a:hover {
-	color: #e38810;
+	color: #1490d7;
 }
 
 .blog-post .entry-post-title .post-date {
@@ -2648,8 +2648,8 @@ ul.flat-infomation.style1 li.phone a {
 
 .comment .comment-content .comment-data a:hover {
 	color: #fff;
-	background: #e38810;
-	border-color: #e38810;
+	background: #1490d7;
+	border-color: #1490d7;
 }
 
 .comment.style1 .comment-content .comment-text p {
@@ -2837,7 +2837,7 @@ footer {
 }
 
 .widget-ft h3.title {
-	color: #e38810;
+	color: #1490d7;
 	font-weight: 600;
 	line-height: 48px;
 	font-size: 14px;
@@ -3775,7 +3775,7 @@ footer.style8 {
 }
 
 #subscribe-msg {
-	color: #e38810;
+	color: #1490d7;
 }
 
 /* Preload
@@ -3898,7 +3898,7 @@ footer.style8 {
 	top: 0;
 	content: "\f104";
 	font-family: "FontAwesome";
-	color: #e38810;
+	color: #1490d7;
 	font-size: 22px;
 }
 
@@ -3914,7 +3914,7 @@ footer.style8 {
 .switcher-container h2 i {
    	margin-top: 10px;
    	font-size: 25px;
-   	color: #e38810;
+   	color: #1490d7;
     -webkit-animation: fa-spin 2s infinite linear;
             animation: fa-spin 2s infinite linear; 
     -webkit-transition: all 0.3s ease-in-out;
@@ -4058,7 +4058,7 @@ footer.style8 {
 }
 
 .sw-odd .ws-colors #color1 {
-	background-color: #e38810;
+	background-color: #1490d7;
 }
 
 .sw-odd .ws-colors #color2 {

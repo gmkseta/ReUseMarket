@@ -13,18 +13,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="form-contact-form padding-contact">
+        <div class="form-contact-form padding-contact ">
           <!-- <form id="contactform" action="./contact/contact-process.php" method="post" accept-charset="utf-8"> -->
 
           <%= form_with(model: item, local: true) do |form| %>
             <% if item.errors.any? %>
               <div id="error_explanation">
-                <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
-                  <ul>
+
                   <% item.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
+                    <h5 style="color:rgba(219, 150, 144, 0.95)"><%= message %></h5>
                   <% end %>
-                  </ul>
               </div>
             <% end %>
 
@@ -34,6 +32,12 @@
             </div>
             <div class="contact-form-comment contact-form">
               <%= form.text_area :content , placeholder:"Content"%>
+            </div>
+            <div class="field-one-third">
+              <div class="field-select">
+                <%= form.label :category %>
+                <%= form.select :category, Item.categories ,class:"bg-white"%>
+              </div>
             </div>
             <div class="contact-form">
               <%= form.label :price %>

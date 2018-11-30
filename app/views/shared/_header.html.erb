@@ -7,14 +7,14 @@
 
     </div>
     <!-- /.logo -->
-    <div class="get-quote float-right">
-      <% if user_signed_in? %>
-        <%= link_to '로그아웃', destroy_user_session_path,method: :delete %>
-      <% else %>
-        <%= link_to '로그인', new_user_session_path %>
-        <%= link_to '회원가입', new_user_registration_path %>
-      <% end %>
-    </div>
+    <!-- <div class="get-quote float-right">
+      <#% if user_signed_in? %>
+        <#%= link_to '로그아웃', destroy_user_session_path,method: :delete %>
+      <#% else %>
+        <#%= link_to '로그인', new_user_session_path %>
+        <#%= link_to '회원가입', new_user_registration_path %>
+      <#% end %>
+    </div> -->
 
     <div class="menu-extra">
       <div class="box-search">
@@ -92,8 +92,6 @@
             </li>
           <% end %>
           <li class="has-submenu">
-
-
             <%= link_to new_item_path do %>
               Sell
             <% end %>
@@ -112,8 +110,18 @@
             </div> -->
           </li>
           <!-- /.has-menu-mega -->
-
-
+          <% if user_signed_in? %>
+            <li class="has-submenu">
+              <%= link_to '로그아웃', destroy_user_session_path,method: :delete %>
+            </li>
+          <% else %>
+            <li class="has-submenu">
+              <%= link_to '로그인', new_user_session_path %>
+            </li>
+            <li class="has-submenu">
+              <%= link_to '회원가입', new_user_registration_path %>
+            </li>
+          <% end %>
         </ul>
         <!-- /.menu -->
       </div>
