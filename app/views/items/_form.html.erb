@@ -13,7 +13,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="form-contact-form padding-contact">
+        <div class="form-contact-form padding-contact ">
           <!-- <form id="contactform" action="./contact/contact-process.php" method="post" accept-charset="utf-8"> -->
 
           <%= form_with(model: item, local: true) do |form| %>
@@ -32,6 +32,12 @@
             </div>
             <div class="contact-form-comment contact-form">
               <%= form.text_area :content , placeholder:"Content"%>
+            </div>
+            <div class="field-one-third">
+              <div class="field-select">
+                <%= form.label :category %>
+                <%= form.select :category, Item.categories ,class:"bg-white"%>
+              </div>
             </div>
             <div class="contact-form">
               <%= form.label :price %>
