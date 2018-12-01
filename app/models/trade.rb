@@ -9,7 +9,7 @@ class Trade < ApplicationRecord
 
   def cal_score
 
-    self.seller.update(Trade.connection.select_one("select AVG(score) score from trades where seller_id=#{self.seller_id}"))
+    self.seller.update(Trade.connection.select_one("select AVG(score) score from trades where seller_id=#{self.seller_id} and status=3"))
 
   end
 
