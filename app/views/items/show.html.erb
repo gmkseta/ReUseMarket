@@ -16,10 +16,10 @@
         <!-- /.flexslider -->
       </div>
       <!-- /.col-lg-7 -->
-        
+
       <div class="summary" style="height:700px; padding-bottom: 250px; border:1px solid black;">
         <div class="edit_delete_"><i class="fa fa-trash fa-2x"></i>&nbsp&nbsp&nbsp&nbsp<i class="fa fa-edit fa-2x"></i></div>
-      
+
         <div class="likes_alerts_">
           <i class="fa fa-heart fa-2x"></i>&nbsp&nbsp&nbsp&nbsp
           <i class="fa fa-bullhorn fa-2x"></i>&nbsp
@@ -44,12 +44,20 @@
             <p class="price">
               <span>￦ <%= @item.price %></span>
             </p>
-            <button class="purchase_btn">구매하기</button>
+
+            <%= form_for(Trade.new, url: trades_mktr_path ,method: "post") do |f| %>
+              <% f.hidden_field :item_id ,:value => @item.id%>
+              <%= hidden_field_tag 'item_id', @item.id  %>
+              <%= f.button "거래 걸기",type:"submit",class:"purchase_btn" %>
+            <% end %>
+
+
+
           </div>
         </div>
       </div>
 
-      
+
         <!-- /.product-detail -->
       </div>
       <!-- /.col-lg-5 -->

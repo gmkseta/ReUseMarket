@@ -10,9 +10,14 @@
             <p><%= current_user.phone_num %></p>
         <p><%= current_user.email %></p>
         </div>
+        <div class="user_container">
+          <%= link_to edit_user_registration_path do%>
+            <button class="purchase_btn" style="width:50%; position:initial">개인 정보 수정</button>
+          <% end %>
+        </div>
     </div>
 
-    
+
     <div style="display: inline-block; width: 55%; vertical-align: top;">
         <div class="" style="float: right;">
                 <div class="btn-group">
@@ -100,5 +105,7 @@
           </table>
         </div>
     </div>
-    
+
+
+
 </section>

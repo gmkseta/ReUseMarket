@@ -50,7 +50,7 @@
 
                       <div class="form-box">
                         <%= f.label :name %>
-                        <%= f.text_field :name%>
+                        <%= f.text_field :name , :disabled => true%>
                       </div>
                       <div class="form-box">
                         <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
@@ -71,7 +71,11 @@
 
                       <div class="form-box">
                         <%= f.label :stu_num %>
-                        <%= f.text_field :stu_num%>
+                        <%= f.text_field :stu_num,:disabled => true%>
+                      </div>
+                      <div class="form-box">
+                        <%= f.label :major,value:"학과" %>
+                        <%= f.text_field :major%>
                       </div>
                       <div class="form-box">
                         <%= f.label :phone_num %>

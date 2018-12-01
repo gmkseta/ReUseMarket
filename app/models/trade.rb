@@ -4,6 +4,33 @@ class Trade < ApplicationRecord
   belongs_to :item
   has_many :chats
   enum status: ["거래 중","판매 완료","수령 완료","거래 완료","거래 취소"]
+  # after_create :send_sms, on: :create
+
+
+  def send_sms
+    if self.item.name==self.item.name[0..4]
+      content = self.item.name
+    else
+      content = self.item.name[0..4]+".."
+    end
+
+    uri = URI.parse('https://api.bluehouselab.com/smscenter/v1.0/sendsms')
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    req = Net::HTTP::Post.new(uri.request_uri, initheader={'Content-Type' =>'application/json; charset=utf-8'})
+    req.basic_auth ENV["SMS_APPID"], ENV["SMS_APIKEY"]
+    req.body = {
+      sender: ENV["SMS_SENDER"],
+      receivers: [self.seller.phone_num.to_s],
+      content: "ReUseMarket 입니다 \n '#{content}' 물품을 \n #{self.customer.name}님께서 거래요청 하셨습니다."
+    }.to_json
+
+    puts req.body
+    resp = http.request(req)
+    puts resp.code
+  end
+
+
   def change_status(user_is)
     if user_is == self.seller
       case self.status
