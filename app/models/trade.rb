@@ -5,7 +5,13 @@ class Trade < ApplicationRecord
   has_many :chats
   enum status: ["거래 중","판매 완료","수령 완료","거래 완료","거래 취소"]
   # after_create :send_sms, on: :create
+  after_update :cal_score, on: :update
 
+  def cal_score
+
+    self.seller.update(Trade.connection.select_one("select AVG(score) score from trades where seller_id=#{self.seller_id}"))
+
+  end
 
   def send_sms
     if self.item.name==self.item.name[0..4]
