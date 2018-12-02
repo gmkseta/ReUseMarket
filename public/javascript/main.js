@@ -1,79 +1,7 @@
-/**
-  * responsiveMenu
-  * searchButton
-  * menuCanvas
-  * Filterbox
-  * slidePartner
-  * slideTestimonial
-  * slideTestimonial_S2
-  * slideTestimonial_S3
-  * slideTestimonial_S4
-  * slideCarousel
-  * slideClients
-  * slideRelated
-  * slideSingleSimple
-  * slidePhotography
-  * slidePhotography_s2
-  * slideVideo
-  * slideVideo_S2
-  * slideProject
-  * slideImagebox
-  * slideImagebox_s2
-  * slideOurwork
-  * slideOwl_carousel
-  * slideImagebox_s3
-  * slidePartner_s2
-  * tabAbout
-  * counterAbout
-  * progressBar
-  * countdown_1
-  * CountDown
-  * CountDown_S2
-  * videoPopup
-  * accordionToggle
-  * portfolioIsotope
-  * googleMap
-  * googleMap_S2
-  * parallax
-  * heights
-  * flexProduct
-  * tabProduct
-  * tabDetailProduct
-  * detectViewport
-  * gridPhotography
-  * shopMetroIpsotope
-  * ajaxSubscribe.eventLoad
-  * ajaxContactForm
-  * swClick
-  * goTop
-  * scroll
-  * removePreloader
-*/
 
 ;(function($) {
 
    'use strict'
-        var isMobile = {
-            Android: function() {
-                return navigator.userAgent.match(/Android/i);
-            },
-            BlackBerry: function() {
-                return navigator.userAgent.match(/BlackBerry/i);
-            },
-            iOS: function() {
-                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-            },
-            Opera: function() {
-                return navigator.userAgent.match(/Opera Mini/i);
-            },
-            Windows: function() {
-                return navigator.userAgent.match(/IEMobile/i);
-            },
-            any: function() {
-                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-            }
-        }; // is Mobile
-
         var responsiveMenu = function() {
             var menuType = 'desktop';
 
@@ -117,7 +45,7 @@
                 }
             });
 
-            $('.btn-menu').on('click', function() {         
+            $('.btn-menu').on('click', function() {
                 $('#mainnav-mobi').slideToggle(300);
                 $(this).toggleClass('active');
                 return false;
@@ -142,17 +70,17 @@
             if ( $('body').hasClass('header_sticky') ) {
                 var nav = $('.header');
                 if ( nav.size() != 0 ) {
-                    
+
                     var offsetTop = $('.header').offset().top,
                         headerHeight = $('.header').height(),
-                        injectSpace = $('<div />', { height: headerHeight }).insertAfter(nav);   
-                        injectSpace.hide();                 
+                        injectSpace = $('<div />', { height: headerHeight }).insertAfter(nav);
+                        injectSpace.hide();
 
                     $(window).on('load scroll', function(){
                         if ( $(window).scrollTop() > offsetTop + 100 ) {
                             injectSpace.show();
                             $('.header').addClass('downscrolled');
-                            
+
                         } else {
                             $('.header').removeClass('downscrolled');
                             injectSpace.hide();
@@ -167,25 +95,6 @@
                 }
             }
         }; // Header Fixed
-
-        var searchButton = function() {
-            var showsearch = $('.box-search .icon_search');
-            var closesearch = $('.box-search form .input-search .delete');
-            showsearch.on('click',function() {
-                $(this).parent('.box-search').children('form').css({
-                    opacity: '1',
-                    visibility: 'visible',
-                    width: '100%'
-                });
-            });
-            closesearch.on('click', function() {
-                $(this).closest('.box-search').children('form').css({
-                    opacity: '0',
-                    visibility: 'visible',
-                    width: '0%'
-                });
-            });
-        }; // Search button
 
         var menuCanvas = function() {
             var buttonCavas = $('.box-canvas span.ti-align-right');
@@ -220,513 +129,6 @@
             });
         };  // Filterbox
 
-        var slidePartner = function() {
-            $(".owl-carousel").owlCarousel({
-                autoplay:true,
-                dots:false,
-                margin:30,
-                loop:true,
-                items:6,
-                responsive:{
-                    0:{
-                        items: 2
-                    },
-
-                    479:{
-                        items: 3
-                    },
-                    768:{
-                        items: 4
-                    },
-                    991:{
-                        items: 5
-                    },
-                    1200: {
-                        items: 6
-                    }
-                }
-            });
-        };// slide Partner
-
-        var slideTestimonial = function() {
-            $(".owl-carousel-1").owlCarousel({
-                autoplay:true,
-                dots:true,
-                margin: 28,
-                loop:true,
-                items:1,
-            });
-        };// slide Testimonial
-
-        var slideTestimonial_S2 = function() {
-            $(".owl-carousel-2").owlCarousel({
-                autoplay:true,
-                dots:false,
-                nav:true,
-                loop:true,
-                items:1,
-                responsive:{
-                    0:{
-                        items: 1,
-                        nav: false
-                    },
-                    479:{
-                        items: 1,
-                        nav: false
-                    },
-                    768:{
-                        items: 1,
-                        nav: false
-                    },
-                    991:{
-                        items: 1
-                    },
-                    1200: {
-                        items: 1
-                    }
-                }
-            });
-        };// slide Testimonial s2
-
-        var slideTestimonial_S3 = function() {
-            $(".owl-carousel-3").owlCarousel({
-                autoplay:true,
-                dots:true,
-                margin: 28,
-                loop:true,
-                items:2,
-                responsive:{
-                    0:{
-                        items: 1
-                    },
-
-                    479:{
-                        items: 1
-                    },
-                    768:{
-                        items: 1
-                    },
-                    991:{
-                        items: 2
-                    },
-                    1200: {
-                        items: 2
-                    }
-                }
-            });
-        };// slide Testimonial s3
-
-        var slideTestimonial_S4 = function() {
-            $(".owl-carousel-4").owlCarousel({
-                autoplay:true,
-                dots:false,
-                nav: true,
-                margin: 28,
-                loop:true,
-                items:1,
-            });
-        };// slide Testimonial s4
-
-        var slideCarousel = function() {
-            $(".owl-carousel-5").owlCarousel({
-                autoplay:true,
-                dots:true,
-                margin: 30,
-                loop:true,
-                items:3,
-            });
-        };// slide Carousel
-
-        var slideClients = function() {
-            $(".owl-carousel-6").owlCarousel({
-                autoplay:true,
-                dots:false,
-                margin: 0,
-                loop:true,
-                items:6,
-                responsive:{
-                    0:{
-                        items: 2
-                    },
-
-                    479:{
-                        items: 3
-                    },
-                    768:{
-                        items: 4
-                    },
-                    991:{
-                        items: 5
-                    },
-                    1200: {
-                        items: 6
-                    }
-                }
-            });
-        };// slide Clients
-
-        var slideRelated = function() {
-            $(".owl-carousel-7").owlCarousel({
-                autoplay:true,
-                nav:true,
-                dots: false,
-                margin: 30,
-                loop:true,
-                items:4,
-                responsive:{
-                    0:{
-                        items: 1
-                    },
-
-                    479:{
-                        items: 2
-                    },
-                    768:{
-                        items: 3
-                    },
-                    991:{
-                        items: 4
-                    },
-                    1200: {
-                        items: 4
-                    }
-                }
-            });
-        };// slide Related
-
-        var slideSingleSimple = function() {
-            $(".owl-carousel-8").owlCarousel({
-                autoplay:true,
-                nav:true,
-                dots: true,
-                margin: 10,
-                loop:true,
-                items:1,
-                responsive:{
-                    0:{
-                        nav: false,
-                    },
-
-                    479:{
-                        nav: false,
-                    },
-                    768:{
-                        items: 1
-                    },
-                    991:{
-                        items: 1
-                    },
-                    1200: {
-                        items: 1
-                    }
-                }
-            });
-        };// slide Singlesimple
-
-        var slidePhotography = function() {
-            $(".owl-carousel-9").owlCarousel({
-                autoplay:false,
-                nav:false,
-                dots: false,
-                margin: 20,
-                loop: true,
-                items:1,
-            });
-        };// slide Photography
-
-        var slidePhotography_s2 = function() {
-            $(".owl-carousel-10").owlCarousel({
-                autoplay:false,
-                nav:true,
-                dots: false,
-                margin: 0,
-                loop:true,
-                items:1,
-                responsive:{
-                    0:{
-                        items: 1,
-                        nav: false
-                    },
-                    479:{
-                        items: 1,
-                        nav: false
-                    },
-                    576:{
-                        items: 1,
-                        nav: false
-                    },
-                    768:{
-                        items: 1,
-                    },
-                    991:{
-                        items: 1
-                    },
-                    1200: {
-                        items: 1
-                    }
-                }
-            });
-        };// slide Photography_S2
-
-        var slideVideo = function() {
-            $(".owl-carousel-11").owlCarousel({
-                autoplay:true,
-                nav:false,
-                dots: true,
-                margin: 0,
-                loop:true,
-                items:1,
-            });
-        };// slide video
-
-        var slideVideo_S2 = function() {
-            $(".owl-carousel-12").owlCarousel({
-                autoplay:true,
-                nav:true,
-                dots: false,
-                margin: 30,
-                loop:true,
-                items:4,
-                responsive:{
-                    0:{
-                        items: 1
-                    },
-                    479:{
-                        items: 2
-                    },
-                    576:{
-                        items: 2
-                    },
-                    768:{
-                        items: 3
-                    },
-                    991:{
-                        items: 4
-                    },
-                    1200: {
-                        items: 4
-                    }
-                }
-            });
-        };// slide video S2
-
-        var slideProject = function() {
-            $(".owl-carousel-13").owlCarousel({
-                autoplay:true,
-                nav:false,
-                dots: false,
-                margin: 30,
-                loop:true,
-                items:3,
-                responsive:{
-                    0:{
-                        items: 1
-                    },
-                    479:{
-                        items: 1
-                    },
-                    576:{
-                        items: 2
-                    },
-                    768:{
-                        items: 2
-                    },
-                    991:{
-                        items: 3
-                    },
-                    1200: {
-                        items: 3
-                    }
-                }
-            });
-        };// slide Project
-
-        var slideImagebox = function() {
-            $(".owl-carousel-14").owlCarousel({
-                autoplay:true,
-                nav:false,
-                dots: true,
-                margin: 30,
-                loop:true,
-                items:3,
-                responsive:{
-                    0:{
-                        items: 1
-                    },
-                    479:{
-                        items: 1
-                    },
-                    576:{
-                        items: 2
-                    },
-                    768:{
-                        items: 2
-                    },
-                    991:{
-                        items: 3
-                    },
-                    1200: {
-                        items: 3
-                    }
-                }
-            });
-        };// slide Imagebox
-
-        var slideImagebox_s2 = function() {
-            $(".owl-carousel-15").owlCarousel({
-                autoplay:true,
-                nav:false,
-                dots: false,
-                margin: 0,
-                loop:true,
-                items:3,
-                 responsive:{
-                    0:{
-                        items: 1
-                    },
-                    479:{
-                        items: 1
-                    },
-                    576:{
-                        items: 1
-                    },
-                    768:{
-                        items: 2
-                    },
-                    991:{
-                        items: 2
-                    },
-                    1200: {
-                        items: 3
-                    }
-                }
-            });
-        };// slide Imagebox S2
-
-        var slideOurwork = function() {
-            $(".owl-carousel-16").owlCarousel({
-                autoplay:true,
-                nav:false,
-                dots: false,
-                margin: 0,
-                loop:true,
-                items:4,
-                 responsive:{
-                    0:{
-                        items: 1
-                    },
-                    479:{
-                        items: 1
-                    },
-                    576:{
-                        items: 2
-                    },
-                    768:{
-                        items: 3
-                    },
-                    991:{
-                        items: 3
-                    },
-                    1200: {
-                        items: 4
-                    }
-                }
-            });
-        };// slide ourwork
-
-        var slideOwl_carousel = function() {
-            $(".owl-carousel-17").owlCarousel({
-                autoplay:true,
-                nav:false,
-                dots: true,
-                margin: 30,
-                loop:true,
-                items:3,
-                 responsive:{
-                    0:{
-                        items: 1
-                    },
-                    479:{
-                        items: 1
-                    },
-                    576:{
-                        items: 1
-                    },
-                    768:{
-                        items: 2
-                    },
-                    991:{
-                        items: 2
-                    },
-                    1200: {
-                        items: 3
-                    }
-                }
-            });
-        };// slide Owl carousel
-
-        var slideImagebox_s3 = function() {
-            $(".owl-carousel-18").owlCarousel({
-                autoplay:true,
-                nav:false,
-                dots: false,
-                margin: 30,
-                loop:true,
-                items:4,
-                responsive:{
-                    0:{
-                        items: 1
-                    },
-                    479:{
-                        items: 1
-                    },
-                    576:{
-                        items: 2
-                    },
-                    768:{
-                        items: 3
-                    },
-                    991:{
-                        items: 4
-                    },
-                    1200: {
-                        items: 4
-                    }
-                }
-            });
-        };// slide Imagebox S3
-
-        var slidePartner_s2 = function() {
-            $(".owl-carousel-19").owlCarousel({
-                autoplay:true,
-                nav:false,
-                dots: false,
-                margin: 0,
-                loop:true,
-                items:5,
-                responsive:{
-                    0:{
-                        items: 2
-                    },
-                    479:{
-                        items: 2
-                    },
-                    576:{
-                        items: 3
-                    },
-                    768:{
-                        items: 4
-                    },
-                    991:{
-                        items: 4
-                    },
-                    1200: {
-                        items: 5
-                    }
-                }
-            });
-        };// slide Partner S3
-
         var tabAbout = function() {
             $('.tab-about').each(function() {
             $(this).children('.content-tab').children().hide();
@@ -741,13 +143,13 @@
             });
         }; // Tab About
 
-        var counterAbout = function() {      
+        var counterAbout = function() {
             if ( $().countTo ) {
                 $('.wrap-counter').on('on-appear', function() {
                     $(this).find('.numb-count').each(function() {
                         var to = parseInt( $(this).data('to'), 10 ),
                             speed = parseInt( $(this).data('speed'), 10 );
-                            
+
                         $(this).countTo({
                             to: to,
                             speen: speed
@@ -757,11 +159,11 @@
             };
         }; // Counter About
 
-        var progressBar = function() {        
+        var progressBar = function() {
             $('.progress-bar').on('on-appear', function() {
                 $(this).each(function() {
                     $(this).css("overflow", "inherit");
-                    var percent = $(this).data('percent');                
+                    var percent = $(this).data('percent');
                     $(this).find('.progress-animate').animate({
                         "overflow":"inherit",
                         "width": percent + '%'
@@ -774,10 +176,6 @@
                 });
             });
         }; // Progress Bar
-
-        var countdown_1 = function() {
-            $('.countdown-1').final_countdown();
-        }// Countdown 1 
 
         var CountDown = function() {
             var before = '<div class="square"><div class="numb">',
@@ -805,24 +203,13 @@
                 };
         }; // Count Down s2
 
-        var detectViewport = function() {
-            $('[data-waypoint-active="yes"]').waypoint(function() {
-                $(this).trigger('on-appear');
-            }, { offset: '95%', triggerOnce: true });
-             $(window).on('load', function() {
-                setTimeout(function() {
-                    $.waypoints('refresh');
-                }, 100);
-            });
-        }; // Detect Viewport
-
         var videoPopup =  function() {
             $(".fancybox").on("click", function(){
                 $.fancybox({
                   href: this.href,
                   type: $(this).data("type")
                 }); // fancybox
-                return false   
+                return false
             }); // on
         }; // Video Popup
 
@@ -841,8 +228,8 @@
             });
         }; // Accordion Toggle
 
-        var portfolioIsotope = function() { 
-            if ( $().isotope ) {           
+        var portfolioIsotope = function() {
+            if ( $().isotope ) {
                 var $container = $('.wrap-portfolio');
                 $container.imagesLoaded(function(){
                     $container.isotope({
@@ -851,460 +238,18 @@
                     });
                 });
 
-                $('.tab-product-list li').on('click',function() {                           
+                $('.tab-product-list li').on('click',function() {
                     var selector = $(this).attr('data-filter');
                     $('.tab-product-list li').removeClass('active');
                     $(this).addClass('active');
                     $container.isotope({ filter: selector });
                     return false;
-                });            
+                });
             };
         }; // Portfolio Isotope
 
-        var googleMap = function() {            
-            if ( $().gmap3 ) {  
-                $(".map").gmap3({
-                    map:{
-                        options:{
-                            zoom: 11,
-                            mapTypeId: 'themesflat_style',
-                            mapTypeControlOptions: {
-                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]
-                            },
-                            scrollwheel: false
-                        }
-                    },
-                    getlatlng:{
-                        address:  $('.flat-maps').data('address'),
-                        callback: function(results) {
-                            if ( !results ) return;
-                            $(this).gmap3('get').setCenter(new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng()));
-                            $(this).gmap3({
-                                marker:{
-                                    latLng:results[0].geometry.location,
-                                    options:{
-                                        icon: $('.flat-maps').data('image')
-                                    }
-                                }
-                            });
-                        }
-                    },
-                    styledmaptype:{
-                        id: "themesflat_style",
-                        options:{
-                            name: "Yolo Map"
-                        },
-                        styles:[
-                            {
-                                "featureType": "water",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#e9e9e9"
-                                    },
-                                    {
-                                        "lightness": 17
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "landscape",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#f5f5f5"
-                                    },
-                                    {
-                                        "lightness": 20
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.highway",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    },
-                                    {
-                                        "lightness": 17
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.highway",
-                                "elementType": "geometry.stroke",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    },
-                                    {
-                                        "lightness": 29
-                                    },
-                                    {
-                                        "weight": 0.2
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.arterial",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    },
-                                    {
-                                        "lightness": 18
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.local",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#ffffff"
-                                    },
-                                    {
-                                        "lightness": 16
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#f5f5f5"
-                                    },
-                                    {
-                                        "lightness": 21
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi.park",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#dedede"
-                                    },
-                                    {
-                                        "lightness": 21
-                                    }
-                                ]
-                            },
-                            {
-                                "elementType": "labels.text.stroke",
-                                "stylers": [
-                                    {
-                                        "visibility": "on"
-                                    },
-                                    {
-                                        "color": "#ffffff"
-                                    },
-                                    {
-                                        "lightness": 16
-                                    }
-                                ]
-                            },
-                            {
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "saturation": 36
-                                    },
-                                    {
-                                        "color": "#333333"
-                                    },
-                                    {
-                                        "lightness": 40
-                                    }
-                                ]
-                            },
-                            {
-                                "elementType": "labels.icon",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "transit",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#f2f2f2"
-                                    },
-                                    {
-                                        "lightness": 19
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "administrative",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#fefefe"
-                                    },
-                                    {
-                                        "lightness": 20
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "administrative",
-                                "elementType": "geometry.stroke",
-                                "stylers": [
-                                    {
-                                        "color": "#fefefe"
-                                    },
-                                    {
-                                        "lightness": 17
-                                    },
-                                    {
-                                        "weight": 1.2
-                                    }
-                                ]
-                            }
-                        ]
-                        
-                    },  
-                });
-            }
-            $('.map').css( 'height', $('.flat-maps').data('height') );
-        }; // Google Map
-
-        var googleMap_S2 = function() {            
-            if ( $().gmap3 ) {  
-                $(".map-2").gmap3({
-                    map:{
-                        options:{
-                            zoom: 16,
-                            mapTypeId: 'themesflat_style',
-                            mapTypeControlOptions: {
-                                mapTypeIds: ['themesflat_style', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]
-                            },
-                            scrollwheel: false
-                        }
-                    },
-                    getlatlng:{
-                        address:  $('.flat-maps-2').data('address'),
-                        callback: function(results) {
-                            if ( !results ) return;
-                            $(this).gmap3('get').setCenter(new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng()));
-                            $(this).gmap3({
-                                marker:{
-                                    latLng:results[0].geometry.location,
-                                    options:{
-                                        icon: $('.flat-maps-2').data('image')
-                                    }
-                                }
-                            });
-                        }
-                    },
-                    styledmaptype:{
-                        id: "themesflat_style",
-                        options:{
-                            name: "Yolo Map"
-                        },
-                        styles:[
-                            {
-                                "featureType": "all",
-                                "elementType": "labels.text.fill",
-                                "stylers": [
-                                    {
-                                        "saturation": 36
-                                    },
-                                    {
-                                        "color": "#000000"
-                                    },
-                                    {
-                                        "lightness": 40
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "all",
-                                "elementType": "labels.text.stroke",
-                                "stylers": [
-                                    {
-                                        "visibility": "on"
-                                    },
-                                    {
-                                        "color": "#000000"
-                                    },
-                                    {
-                                        "lightness": 16
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "all",
-                                "elementType": "labels.icon",
-                                "stylers": [
-                                    {
-                                        "visibility": "off"
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "administrative",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#000000"
-                                    },
-                                    {
-                                        "lightness": 20
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "administrative",
-                                "elementType": "geometry.stroke",
-                                "stylers": [
-                                    {
-                                        "color": "#000000"
-                                    },
-                                    {
-                                        "lightness": 17
-                                    },
-                                    {
-                                        "weight": 1.2
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "landscape",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#000000"
-                                    },
-                                    {
-                                        "lightness": 20
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "poi",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#000000"
-                                    },
-                                    {
-                                        "lightness": 21
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.highway",
-                                "elementType": "geometry.fill",
-                                "stylers": [
-                                    {
-                                        "color": "#000000"
-                                    },
-                                    {
-                                        "lightness": 17
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.highway",
-                                "elementType": "geometry.stroke",
-                                "stylers": [
-                                    {
-                                        "color": "#000000"
-                                    },
-                                    {
-                                        "lightness": 29
-                                    },
-                                    {
-                                        "weight": 0.2
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.arterial",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#000000"
-                                    },
-                                    {
-                                        "lightness": 18
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "road.local",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#000000"
-                                    },
-                                    {
-                                        "lightness": 16
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "transit",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#000000"
-                                    },
-                                    {
-                                        "lightness": 19
-                                    }
-                                ]
-                            },
-                            {
-                                "featureType": "water",
-                                "elementType": "geometry",
-                                "stylers": [
-                                    {
-                                        "color": "#000000"
-                                    },
-                                    {
-                                        "lightness": 17
-                                    }
-                                ]
-                            }
-                        ]
-                        
-                    },  
-                });
-            }
-            $('.map-2').css( 'height', $('.flat-maps-2').data('height') );
-        }; // Google Map S2
-
-        var parallax = function() {
-            if ( $().parallax && isMobile.any() === null ) {
-                $('.parallax1').parallax("50%", 0.3);
-                $('.parallax2').parallax("30%", 0.5);
-                $('.parallax3').parallax("50%", 0.5);
-                $('.parallax4').parallax("50%", 0.5);  
-                $('.parallax5').parallax("50%", 0.7);
-                $('.parallax6').parallax("50%", 0.5);
-                $('.parallax7').parallax("50%", 0.5); 
-                $('.parallax8').parallax("50%", 0.5);
-                $('.parallax9').parallax("50%", 0.5);
-                $('.parallax10').parallax("50%", 0.4);
-                $('.parallax11').parallax("50%", 0.4); 
-                $('.parallax12').parallax("100%", 0.5);
-                $('.parallax13').parallax("50%", 0.5);
-                $('.parallax15').parallax("50%", 0.6); 
-            }
-        }; // Parallax
-
         var heights = function() {
-            $(window).on('load', function() { 
+            $(window).on('load', function() {
                 $('.row-box').each(function() {
                     var h = $(".info-image").height();
                     $(".info-text").css({
@@ -1353,8 +298,8 @@
             });
         }; // Flex Product
 
-        var gridPhotography = function() { 
-            if ( $().isotope ) {           
+        var gridPhotography = function() {
+            if ( $().isotope ) {
                 var $grid = $('.wrap-portfolio.padding-5');
                 $grid.imagesLoaded(function(){
                     $grid.isotope({
@@ -1365,12 +310,12 @@
                             columnWidth: '.wrap-portfolio.padding-5'
                         }
                     });
-                });          
+                });
             }; // Portfolio Isotope
         }; // Grid Photography
 
-        var shopMetroIpsotope = function() { 
-            if ( $().isotope ) {           
+        var shopMetroIpsotope = function() {
+            if ( $().isotope ) {
                 var $container = $('.wrap-portfolio.style5.v1');
                 $container.imagesLoaded(function(){
                     $container.isotope({
@@ -1380,7 +325,7 @@
                         masonry: {
                             columnWidth: '.wrap-portfolio.style5.v1 .portfolio-item.one-four'
                         }
-                    });          
+                    });
                 }); // Portfolio Isotope
             };
         }; // Grid Photography
@@ -1466,57 +411,12 @@
             } // ajaxCall
         }; // ajax Subscribe
 
-        var ajaxContactForm = function() {  
-            $('#contactform').each(function() {
-                $(this).validate({
-                    submitHandler: function( form ) {
-                        var $form = $(form),
-                            str = $form.serialize(),
-                            loading = $('<div />', { 'class': 'loading' });
-
-                        $.ajax({
-                            type: "POST",
-                            url:  $form.attr('action'),
-                            data: str,
-                            beforeSend: function () {
-                                $form.find('.form-submit').append(loading);
-                            },
-                            success: function( msg ) {
-                                var result, cls;                            
-                                if ( msg === 'Success' ) {                                
-                                    result == 'Message Sent Successfully To Email Administrator. ( You can change the email management a very easy way to get the message of customers in the user manual )';
-                                    cls == 'msg-success';
-                                } else {
-                                    result == 'Error sending email.';
-                                    cls == 'msg-error';
-                                }
-
-                                $form.prepend(
-                                    $('<div />', {
-                                        'class': 'flat-alert ' + cls,
-                                        'text' : result
-                                    }).append(
-                                        $('<a class="close" href="#"><i class="fa fa-close"></i></a>')
-                                    )
-                                );
-
-                                $form.find(':input').not('.submit').val('');
-                            },
-                            complete: function (xhr, status, error_thrown) {
-                                $form.find('.loading').remove();
-                            }
-                        });
-                    }
-                });
-            }); // each contactform
-        };   // ajax ContactForm
-
         var swClick = function () {
             function activeLayout () {
                 $(".switcher-container" ).on( "click", "a.sw-light", function() {
                     $(this).toggleClass( "active" );
-                    $('body').addClass('home-boxed');  
-                    $('body').css({'background': '#f6f6f6' });                
+                    $('body').addClass('home-boxed');
+                    $('body').css({'background': '#f6f6f6' });
                     $('.sw-pattern.pattern').css ({ "top": "100%", "opacity": 1, "z-index": "10"});
                 }).on( "click", "a.sw-dark", function() {
                     $('.sw-pattern.pattern').css ({ "top": "98%", "opacity": 0, "z-index": "-1"});
@@ -1524,7 +424,7 @@
                     $('body').removeClass('home-boxed');
                     $('body').css({'background': '#fff' });
                     return false;
-                })       
+                })
             }
 
             function activePattern () {
@@ -1535,7 +435,7 @@
                     return false;
                 })
             }
-            activeLayout(); 
+            activeLayout();
             activePattern();
         } // Swicher Click
 
@@ -1562,7 +462,7 @@
             });
         } // Scroll
 
-        var removePreloader = function() {        
+        var removePreloader = function() {
             $('.preloader').fadeOut('2s',function () {
                 $(this).remove();
             });
@@ -1572,50 +472,23 @@
     $(function() {
         responsiveMenu();
         headerFixed();
-        searchButton();
         menuCanvas();
         Filterbox();
-        slidePartner();
-        slideTestimonial();
-        slideTestimonial_S2();
-        slideTestimonial_S3();
-        slideTestimonial_S4();
-        slideCarousel();
-        slideClients();
-        slideRelated();
-        slideSingleSimple();
-        slidePhotography();
-        slidePhotography_s2();
-        slideVideo();
-        slideVideo_S2();
-        slideProject();
-        slideImagebox();
-        slideImagebox_s2();
-        slideOurwork();
-        slideOwl_carousel();
-        slideImagebox_s3();
-        slidePartner_s2();
         tabAbout();
         counterAbout();
         progressBar();
-        countdown_1();
         CountDown();
         CountDown_S2();
         videoPopup();
         accordionToggle();
         portfolioIsotope();
-        googleMap();
-        googleMap_S2();
-        parallax();
         heights();
         flexProduct();
         tabProduct();
         tabDetailProduct();
-        detectViewport();
         gridPhotography();
         shopMetroIpsotope();
         ajaxSubscribe.eventLoad();
-        ajaxContactForm();
         swClick();
         goTop();
         scroll();
