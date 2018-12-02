@@ -187,7 +187,7 @@ p {
 .table-fixed tr,
 .table-fixed td,
 .table-fixed th 
-{ display: block; }
+{ display: block; text-align: center;}
 
 .table-fixed tr:after 
 { content: ""; display: block; visibility: hidden; clear: both; }

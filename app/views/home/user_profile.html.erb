@@ -3,7 +3,7 @@
         <div class="user_container">
             <div class="avatar-flip">
                 <img src="https://postfiles.pstatic.net/20141012_48/puddled_14130992573110oRl6_JPEG/141004sg5.jpg?type=w1" height="150" width="150">
-                <img src="https://postfiles.pstatic.net/20150913_172/peachhpink_14420805222504KF1Q_GIF/%BD%BD%B1%E2-%C0%A2%B5%F0.gif?type=w1" height="150" width="150">
+                <img src="https://postfiles.pstatic.net/MjAxNzA3MDlfODcg/MDAxNDk5NTc5NDQ1NjMz.oJt-n77ukCfK2QZHFlVRiXjqd8_rY-D31Mxfvu28brog.C0VAzt5UsSvO7cwv8KJtCtF5qiB3ssDhRFIn9o0G0ykg.GIF.jinjin_black/AC_20170709-143537.gif?type=w1" height="150" width="150">
             </div>
             <h2><%= current_user.name %></h2>
             <h4><%= current_user.stu_num %></h4>
@@ -30,8 +30,8 @@
                 <th class="col-xs-3">제목</th>
                 <th class="col-xs-1">분류</th>
                 <th class="col-xs-2">가격</th>
-                <th class="col-xs-1">판매자</th>
-                <th class="col-xs-1">구매자</th>
+                <th class="col-xs-2">판매자</th>
+                <th class="col-xs-2">구매자</th>
               </tr>
             </thead>
             <tbody>
@@ -49,10 +49,10 @@
                     <td class="col-xs-2"
                       <%= t.item.price %> 원
                     </td>
-                    <td class="col-xs-1">
+                    <td class="col-xs-2">
                       <%= t.seller.name %>
                     </td>
-                    <td class="col-xs-1">
+                    <td class="col-xs-2">
                       <%= t.customer.name %>
                     </td>
                 </tr>
@@ -69,8 +69,8 @@
                     <th class="col-xs-3">제목</th>
                     <th class="col-xs-1">분류</th>
                     <th class="col-xs-2">가격</th>
-                    <th class="col-xs-1">판매자</th>
-                    <th class="col-xs-1">구매자</th>
+                    <th class="col-xs-2">판매자</th>
+                    <th class="col-xs-2">구매자</th>
                 </tr>
             </thead>
             <tbody>
@@ -88,10 +88,10 @@
                     <td class="col-xs-2">
                       <%= t.item.price %> 원
                     </td>
-                    <td class="col-xs-1">
+                    <td class="col-xs-2">
                       <%= t.seller.name %>
                     </td>
-                    <td class="col-xs-1">
+                    <td class="col-xs-2">
                       <%= t.customer.name %>
                     </td>
                 </tr>
