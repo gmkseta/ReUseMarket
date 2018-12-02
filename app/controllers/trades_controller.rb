@@ -77,6 +77,9 @@ class TradesController < ApplicationController
     redirect_to trade_detail_path(trade)
   end
   def cancel
+    trade = Trade.find(params[:id])
+    trade.cancel_trade()
+    redirect_to trade_detail_path(trade)
 
   end
   def update_review

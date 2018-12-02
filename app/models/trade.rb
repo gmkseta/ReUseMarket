@@ -61,7 +61,7 @@ class Trade < ApplicationRecord
     end
   end
 
-  def self.cancel_trade
+  def cancel_trade
     self.update(status: "거래 취소")
   end
 end

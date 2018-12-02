@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'trades/mktr'=>'trades#mktr'
   get 'home/home'
   get 'trades/:id/update_status'=>'trades#update_status' ,as: 'trade_update_status'
+  get 'trades/:id/cancel'=>'trades#cancel' ,as: 'trade_cancel'
   get 'home/user_profile',as: 'user_profile'
 
   patch 'trade/:id'=>'trades#update_review',as: 'trade'

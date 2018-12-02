@@ -45,6 +45,7 @@ gem 'jquery-rails'
 gem 'fog-aws'
 gem 'ransack'
 gem 'httparty', '~> 0.16.2'
+gem 'csv'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

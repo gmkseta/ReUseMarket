@@ -85,6 +85,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.1)
     crass (1.0.4)
+    csv (3.0.0)
     devise (4.5.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -268,6 +269,7 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
+  csv
   devise
   figaro
   fog-aws

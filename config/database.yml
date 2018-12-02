@@ -16,7 +16,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: jhyang2362
   password: <%=ENV["YANG_PW"]%>
-  socket: /tmp/mysql.sock 
+  socket: /tmp/mysql.sock
   host: dongguk-reuse.chlmmb1ouqst.ap-northeast-2.rds.amazonaws.com
 
 development:
