@@ -11,6 +11,7 @@ csv = CSV.parse(csv_text, :headers => true, :encoding => 'utf-8')
 csv.each do |row|
   a = row.to_hash.without(row.to_hash.first[0])
   a["email"] = row[0]
+  a["profile_img"] = File.open(File.join(Rails.root,"lib","seeds","img",a["profile_img"]))
   User.create(a)
 end
 
