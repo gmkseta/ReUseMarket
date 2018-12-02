@@ -8,6 +8,8 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @q = Item.ransack(params[:q])
+    @q.sorts = ['created_at desc'] if @q.sorts.empty?
+
     @items = @q.result
     puts params[:q]
 

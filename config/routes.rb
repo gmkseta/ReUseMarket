@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'home/home'
   get 'trades/:id/update_status'=>'trades#update_status' ,as: 'trade_update_status'
   get 'home/user_profile',as: 'user_profile'
+
+  patch 'trade/:id'=>'trades#update_review',as: 'trade'
   resources :chats
   resources :items
   devise_for :users

@@ -118,8 +118,11 @@
             <button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)" disabled>거래 취소 됨</button>
           </div>
         <% elsif @trade.status=="거래 완료"%>
-          <div class="offset-md-4 col-md-4">
+          <div class="offset-md-3 col-md-3">
             <button class=" line-black supper border-radius-2" style="background:rgb(25, 235, 65);border:rgb(40, 129, 9)" disabled>거래 완료 됨</button>
+          </div>
+          <div class="col-md-3">
+            <button class=" line-black supper border-radius-2" style="background:rgb(25, 235, 65);border:rgb(40, 129, 9)" disabled>리뷰 쓰기</button>
           </div>
         <% else %>
 
@@ -133,8 +136,101 @@
           </div>
 
         <% end %>
-      </div>
+    </div>
 
+    <!--이쪽 부분 모달 폼 만들어서 버튼도 리뷰 널값일꺠 넣는거로-->
+
+    <%if @trade.status=="거래 완료"%>
+      <div class="row">
+        <%= form_with(model: @trade, local: true) do |form| %>
+          <div class="contact-form-name contact-form">
+              <%= form.text_area :review_content, placeholder:"리뷰 작성" %>
+          </div>
+              <%= form.hidden_field :score ,id:"score"%>
+              <span class="star-input">
+              	<span class="input">
+                  	<input type="radio" name="star-input" value="1" id="p1">
+                  	<label for="p1">1</label>
+                  	<input type="radio" name="star-input" value="2" id="p2">
+                  	<label for="p2">2</label>
+                  	<input type="radio" name="star-input" value="3" id="p3">
+                  	<label for="p3">3</label>
+                  	<input type="radio" name="star-input" value="4" id="p4">
+                  	<label for="p4">4</label>
+                  	<input type="radio" name="star-input" value="5" id="p5">
+                  	<label for="p5">5</label>
+                	</span>
+              </span>
+          <div class="btn-contact-form center">
+            <%= form.button class:"flat-button-form" %>
+          </div>
+        <% end %>
+      </div>
+    <% elsif @trade.status=="거래 완료"  %>
+    <%= @trade.review_content %>
+    <%= @trade.score %>
+
+    <% end %>
+
+<!--별점 스크립트-->
+<script type="text/javascript">
+  var starRating = function(){
+  var $star = $(".star-input"),
+      $result = $("#score");
+    	$(document)
+  	.on("focusin", ".star-input>.input",
+  		function(){
+     		 $(this).addClass("focus");
+   	})
+     	.on("focusout", ".star-input>.input", function(){
+      	var $this = $(this);
+      	setTimeout(function(){
+        		if($this.find(":focus").length === 0){
+         			$this.removeClass("focus");
+       	 	}
+     		}, 100);
+   	 })
+
+      .on("change", ".star-input :radio", function(){
+      	$result.attr("value",
+          $(this).next().text()
+        );
+    	})
+      .on("mouseover", ".star-input label", function(){
+      	$result.attr("value",$(this).text());
+      })
+      .on("mouseleave", ".star-input>.input", function(){
+      	var $checked = $star.find(":checked");
+      		if($checked.length === 0){
+       	 		$result.attr("value","0");
+     		 	} else {
+       	 		$result.attr("value",$checked.next().text());
+      		}
+    	});
+  };
+  starRating();
+</script>
+<style>
+.star-input>.input,
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{display: inline-block;vertical-align:middle;background:url('/images/grade_img.png')no-repeat;}
+.star-input{display:inline-block; white-space:nowrap;width:225px;height:40px;padding:25px;line-height:30px;}
+.star-input>.input{display:inline-block;width:150px;background-size:150px;height:28px;white-space:nowrap;overflow:hidden;position: relative;}
+.star-input>.input>input{position:absolute;width:1px;height:1px;opacity:0;}
+star-input>.input.focus{outline:1px dotted #ddd;}
+.star-input>.input>label{width:30px;height:0;padding:28px 0 0 0;overflow: hidden;float:left;cursor: pointer;position: absolute;top: 0;left: 0;}
+.star-input>.input>label:hover,
+.star-input>.input>input:focus+label,
+.star-input>.input>input:checked+label{background-size: 150px;background-position: 0 bottom;}
+.star-input>.input>label:hover~label{background-image: none;}
+.star-input>.input>label[for="p1"]{width:30px;z-index:5;}
+.star-input>.input>label[for="p2"]{width:60px;z-index:4;}
+.star-input>.input>label[for="p3"]{width:90px;z-index:3;}
+.star-input>.input>label[for="p4"]{width:120px;z-index:2;}
+.star-input>.input>label[for="p5"]{width:150px;z-index:1;}
+.star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+</style>
     </div>
     <!-- /.row -->
   </div>
@@ -142,6 +238,7 @@
 </div>
 <!-- /.flat-portfolio-single -->
 
+<!--챗팅 스크립트-->
 <script type="text/javascript">
 
     jQuery(document).ready(function($) {
