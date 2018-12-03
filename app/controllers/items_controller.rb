@@ -10,7 +10,8 @@ class ItemsController < ApplicationController
     @q = Item.ransack(params[:q])
     @q.sorts = ['created_at desc'] if @q.sorts.empty?
 
-    @items = @q.result
+    @items = @q.result.page(params[:page])
+
     puts params[:q]
 
   end

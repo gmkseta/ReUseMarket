@@ -9968,43 +9968,6 @@ label.error {
 	color: red;
 }
 
-/* Go Top
----------------------------------------------------------------*/
-.go-top {
-	position: fixed !important;
-	bottom: 20px;
-	right: 20px;
-	background-color: #1490d7;
-	border-radius: 50%;
-	line-height: 40px;
-	width: 40px;
-	height: 40px;
-	text-align: center;
-	display: block;
-	font-size: 16px;
-	z-index: 9999;
-	visibility: hidden;
-	opacity: 0;
-	transform: translateX(50%);
-}
-
-.go-top i {
-	color: #ffffff;
-	font-size: 14px;
-	font-weight: 600;
-}
-
-.go-top:hover {
-	background-color: #222222;
-	color: #ffffff;
-}
-
-.go-top.show {
-	opacity: 1;
-	visibility: visible;
-	transform: translateX(0%);
-}
-
 /* Parallax
 -------------------------------------------------------------- */
 .parallax {
