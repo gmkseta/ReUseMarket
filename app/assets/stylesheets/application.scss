@@ -9,9 +9,104 @@ $navbar-default-link-hover-bg: black;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body { padding-top: 100px; }
+body { padding-top: 100px; margin: 0px;}
 
 a { color: inherit; }
+
+// 상단 nav bar
+* {
+  box-sizing: border-box;
+}
+
+.ico_introduce
+{ margin: 0; padding-top: 30px; }
+
+.nav {
+  height: 100px;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 10%;
+  padding-top: 30px;
+}
+
+.nav > .nav-header { width: 25%; text-align: center; }
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 2.2rem;
+  color: black;
+  font-weight: 700;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-items { width: 25%; text-align: right; }
+
+.nav > .nav-items > div { display: inline-block; margin: 5px; }
+.nav > .nav-items > div > span { margin-right: 5px; }
+
+.menu_ref_users
+{ font-size: 1rem; letter-spacing: 0.06rem;  }
+
+.nav > .nav-links { width: 50%; text-align: center; }
+
+.nav > .nav-links > span {
+  display: inline-block;
+  position: relative;
+  font-size: 1rem;
+  letter-spacing: 0.06rem;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+  color: black;
+  margin-right: 10px;
+}
+
+/*effect-underline*/
+.text_effect_box:after {
+	content: '';
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  height: 1em;
+  width: 100%;
+  border-bottom: 1px solid;
+  margin-top: 10px;
+  opacity: 0;
+	-webkit-transition: opacity 0.25s, -webkit-transform 0.25s;
+	transition: opacity 0.25s, transform 0.25s;
+	-webkit-transform: scale(0,1);
+	transform: scale(0,1);
+}
+
+.text_effect_box:hover:after {
+  opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+@media (max-width:600px) {
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+
+// 상단 nav bar END
 
 ul.sell_items
 { list-style: none; margin: 0; padding: 0; line-height: 0; }

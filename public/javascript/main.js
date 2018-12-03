@@ -186,9 +186,9 @@
         }; // Search button
 
         var menuCanvas = function() {
-            var buttonCavas = $('.box-canvas span.ti-align-right');
+            var buttonCanvas = $('.box-canvas span.ti-align-right');
             var closeCanvas = $('.menu-canvas .close');
-            buttonCavas.on('click', function() {
+            buttonCanvas.on('click', function() {
                 $(this).closest('section').children('.menu-canvas').css({
                     opacity: '1',
                     visibility: 'visible',
