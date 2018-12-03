@@ -26,14 +26,10 @@ csv.each do |row|
 end
 
 
-
-
-
-
-
-
-#
-# pi = ProductImage.create!(:product => product)
-# pi.image.store!(File.open(File.join(Rails.root, 'test.jpg')))
-# product.product_images << pi
-# product.save!
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'trade_seeds.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'utf-8')
+csv.each do |row|
+  a = row.to_hash.without(row.to_hash.first[0])
+  a["seller_id"] = row[0]
+  Trade.create(a)
+end
