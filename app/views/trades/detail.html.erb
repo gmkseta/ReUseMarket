@@ -86,7 +86,7 @@
                 <div class="type_msg">
                   <div class="input_msg_write">
                     <%= form.text_field :message, id: :message, class: "write_msg" %>
-                    <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                    <button class="msg_send_btn" type="button"><em class="fa fa-paper-plane-o" aria-hidden="true"></em></button>
                     <%= form.hidden_field :trade_id, id: :trade, class: "form-control",value: @trade.id %>
                     <%= form.hidden_field :user_id, class: "form-control",value: current_user.id %>
                     <%= form.hidden_field :user_name, class: "form-control",value: current_user.name %>
