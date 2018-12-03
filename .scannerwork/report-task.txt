@@ -1,0 +1,7 @@
+organization=gmkseta-github
+projectKey=gmkseta_ReUseMarket
+serverUrl=https://sonarcloud.io
+serverVersion=7.5.0.19741
+dashboardUrl=https://sonarcloud.io/dashboard?id=gmkseta_ReUseMarket
+ceTaskId=AWdz_lKf3bMjuFYSE7jP
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWdz_lKf3bMjuFYSE7jP

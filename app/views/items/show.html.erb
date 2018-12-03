@@ -6,9 +6,9 @@
         <div class="flexslider style1">
           <ul class="slides" style="margin:0;">
             <% @item.item_images.each do  |img| %>
-            <li data-thumb="<%= img.url(:thumb) %>" style="margin:1px;">
-              <img src="<%= img.url %>" alt="image flexslider" style="max-width:400px; max-height:700px;" />
-            </li>
+              <li data-thumb="<%= img.url(:thumb) %>" style="margin:1px;">
+                <img src="<%= img.url %>" alt="image flexslider" style="max-width:400px; max-height:700px;" />
+              </li>
             <% end %>
           </ul>
           <!-- /.slides -->
@@ -16,54 +16,52 @@
         <!-- /.flexslider -->
       </div>
       <!-- /.col-lg-7 -->
-        
-      <div class="summary" style="height:700px; padding-bottom: 250px;">
-        <div class="edit_delete_"><i class="fa fa-trash fa-2x"></i>&nbsp&nbsp&nbsp&nbsp<i class="fa fa-edit fa-2x"></i></div>
 
-        <div class="likes_alerts_">
-          <i class="fa fa-heart fa-2x"></i>&nbsp&nbsp&nbsp&nbsp
-          <i class="fa fa-bullhorn fa-2x" ></i>&nbsp
-        </div>
-        <h3 class="item_detail_title"><%= @item.name %></h3>
-        <p class="item_detail_category">
-          <a href="#"><%= @item.category %> </a>
-        </p>
-        <pre class="item_detail_desc">
-          <%= @item.content %>
-        </pre>
-        <div class="trades_area">
-          <div class="seller_area">
-            <div class="seller_info">
-              <span class="seller_name"><%= @item.user.name %></span>
-              <span class="seller_subj"><%= @item.user.phone_num %></span>
-              <span class="seller_sid"><%= @item.user.stu_num %></span>
+      <div class="summary" style="height:700px; padding-bottom: 250px;">
+          <div class="edit_delete_">
+            <em class="fa fa-trash fa-2x"></em>&nbsp&nbsp&nbsp&nbsp
+            <em class="fa fa-edit fa-2x"></em>
+          </div>
+          <div class="likes_alerts_">
+            <em class="fa fa-heart fa-2x"></em>&nbsp&nbsp&nbsp&nbsp
+            <em class="fa fa-bullhorn fa-2x" ></em>&nbsp
+          </div>
+          <h3 class="item_detail_title"><%= @item.name %></h3>
+          <p class="item_detail_category">
+            <a href="#"><%= @item.category %> </a>
+          </p>
+          <pre class="item_detail_desc">
+            <%= @item.content %>
+          </pre>
+          <div class="trades_area">
+            <div class="seller_area">
+              <div class="seller_info">
+                <span class="seller_name"><%= @item.user.name %></span>
+                <span class="seller_subj"><%= @item.user.phone_num %></span>
+                <span class="seller_sid"><%= @item.user.stu_num %></span>
+              </div>
+            </div>
+
+            <div class="sell_area">
+              <p class="price">
+                <span>￦ <%= @item.price %></span>
+              </p>
+
+              <%= form_for(Trade.new, url: trades_mktr_path ,method: "post") do |f| %>
+                <% f.hidden_field :item_id ,:value => @item.id%>
+                <%= hidden_field_tag 'item_id', @item.id  %>
+                <%= f.button "거래 걸기",type:"submit",class:"purchase_btn" %>
+              <% end %>
+
+
+
             </div>
           </div>
-
-          <div class="sell_area">
-            <p class="price">
-              <span>￦ <%= @item.price %></span>
-            </p>
-
-            <%= form_for(Trade.new, url: trades_mktr_path ,method: "post") do |f| %>
-              <% f.hidden_field :item_id ,:value => @item.id%>
-              <%= hidden_field_tag 'item_id', @item.id  %>
-              <%= f.button "거래 걸기",type:"submit",class:"purchase_btn" %>
-            <% end %>
-
-
-
-          </div>
-        </div>
       </div>
 
-
-        <!-- /.product-detail -->
-      </div>
-      <!-- /.col-lg-5 -->
     </div>
-    <!-- /.row -->
+      <!-- /.row -->
   </div>
   <!-- /.container -->
 </section>
-<!-- /.flat-product-detail -->
+<!-- /.detail -->
