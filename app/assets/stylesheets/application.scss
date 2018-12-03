@@ -60,7 +60,7 @@ ul.sell_items li.sell_item a:hover .sell_item_meta
 
 /** 샵 메뉴 **/
 .align_table 
-{ border: 1px solid black; margin-bottom: 30px; }
+{ margin-bottom: 30px; }
 div.txdiv 
 { font-size: 1.2em; }
 .list_style_btn
@@ -202,6 +202,82 @@ p {
 // 여기까지 유저 개인 로그
 
 
+// 신고 모달 start
+
+
+
+
+// 신고 모달 end
+
+
+// 서치폼 start
+div#select_box {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 20px;
+  background: url("/images/item/arrow_down.png") 180px center no-repeat; /* 화살표 이미지 */
+  border: 1px solid #E9DDDD;
+  top:10px;
+}
+div#select_box label {
+  position: absolute;
+  font-size: 14px;
+  color: #a97228;
+  top: -2px;
+  left: 10px;
+  letter-spacing: 1px;
+}
+div#select_box select#se_cate {
+  width: 100%;
+  height: 40px;
+  min-height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  opacity: 0;
+  filter: alpha(opacity=0); /* IE 8 */
+}
+
+.search_option
+{ float: right; margin-right: 15%; }
+
+.se_category { display: inline-block; border: 1px solid black;}
+
+.se_option
+{ display: block; font-size:16px; font-weight: 500;}
+
+.container-search{
+  top: 5px;
+  width: 600px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  margin-left: 15%;
+}
+
+.container-search input#search{
+  width: 600px;
+  height: 50px;
+  border: 0.5px solid black;
+  font-size: 10pt;
+  float: left;
+  color: #63717f;
+  padding-left: 55px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.container-search .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 10px;
+  z-index: 1;
+  color: #4f5b66;
+}
+
+// 서치폼 end
 
 .alert.fade {
   opacity: 0;

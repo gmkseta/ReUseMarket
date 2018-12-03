@@ -1,12 +1,44 @@
 <section>
   <div class="container wrap-product">
     <div class="row">
-      <div class="col-4"></div>
+      <div class="col-4">
+      </div>
       <div class="col-4">
         <%= search_form_for @q do |f| %>
           <%= f.search_field :name_cont %>
           <%= f.submit "search" %>
         <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div style="width:100%; height: 150px; margin:0 auto;">	
+        <div class="search_box">
+          <div class="container-search">
+            <span class="icon"><i class="fa fa-search fa-2x"></i></span>
+            <input type="search" id="search" placeholder="Search..." />
+          </div>
+        </div>
+        <div class="search_option">
+          <div class="se_option">
+            <div class="">
+              <p style="display: inline-block">가격대</p>
+              <input type="text" name="fromPrice" placeholder="최저금액" style="width:80px; height:20px; padding: 0 0 0 10px; display: inline-block;"> ~ <input type="text" name="toPrice" placeholder="최대금액" style="width:80px; height:20px; padding: 0 0 0 10px; display: inline-block;"> 
+            </div>
+          </div>
+          <div class="se_option">
+            <p style="display: inline-block">분야&nbsp&nbsp&nbsp&nbsp</p>
+            <div id="select_box">
+              <label for="se_cate">분야 선택</label>
+              <select id="se_cate" title="고추참치 고르기">
+                <option selected="selected">--선택--</option>
+                <option>고추</option>
+                <option>참치</option>
+                <option>고추참치</option>
+                <option>참치고추</option>
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -24,7 +56,7 @@
                     </td>
 					          <td width="10%">
 						          <div align="center" class="txdiv">
-                        가격별
+                        가격 순 정렬
 							          <a href="#"><img src="/images/item/arrow_up.png" width="10" height="10"></a>
 							          <a href="#"><img src="/images/item/arrow_down.png" width="10" height="10"></a>
                       </div>
