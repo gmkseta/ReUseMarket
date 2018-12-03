@@ -3,7 +3,15 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
   <head>
-    <%= render 'shared/head' %>
+    <title>ReuseMarket</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application'%>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/custom.css">
+    <link href="/./images/icons/favicon.png" rel="shortcut icon">
   </head>
   <body class = "header_sticky">
     <div class="preloader">
