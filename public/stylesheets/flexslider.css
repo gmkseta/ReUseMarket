@@ -128,10 +128,10 @@ html[xmlns] .flexslider .slides {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  display: none;
+  /* display: none; */
 }
 .flex-direction-nav a:before {
-  font-family: "fontawesome";
+  /* font-family: "fontawesome"; */
   font-size: 16px;
   display: inline-block;
   content: '\f053';
@@ -178,7 +178,7 @@ html[xmlns] .flexslider .slides {
   color: #000;
 }
 .flex-pauseplay a:before {
-  font-family: "flexslider-icon";
+  /* font-family: "flexslider-icon"; */
   font-size: 20px;
   display: inline-block;
   content: '\f004';
@@ -199,7 +199,7 @@ html[xmlns] .flexslider .slides {
   margin: 0 6px;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  /* *display: inline; */
 }
 .flex-control-paging li a {
   width: 11px;
@@ -250,7 +250,7 @@ html[xmlns] .flexslider .slides {
   -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
-  height: 85px;
+  /* height: 85px; */
   border: 2px solid #e5e5e5;
   border-radius: 10px;
 }
