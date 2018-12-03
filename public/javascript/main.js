@@ -2,7 +2,12 @@
 ;(function($) {
 
    'use strict'
-
+         var flexProduct = function() {
+             $('.flexslider').flexslider({
+                 animation: "slide",
+                 controlNav: "thumbnails"
+             });
+         }; // Flex Product
         var goTop = function(){
             var gotop = $('.go-top');
             $(window).on('scroll', function() {
@@ -34,7 +39,7 @@
 
     // Dom Ready
     $(function() {
-
+        flexProduct();
         goTop();
         scroll();
         removePreloader();

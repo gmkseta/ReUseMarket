@@ -6,47 +6,41 @@
     			<div class="col-8">
     				<div class="panel panel-default">
     					<div class="panel-body">
-    						<div class="pull-right">
-    							<div class="btn-group">
-    								<button type="button" class="btn btn-success btn-filter" data-target="pagado">거래중</button>
-    								<button type="button" class="btn btn-warning btn-filter" data-target="pendiente">거래완료</button>
-    								<button type="button" class="btn btn-danger btn-filter" data-target="cancelado">거래취소</button>
-    							</div>
-    						</div>
-    						<div class="table-container">
-    							<table class="table table-filter">
+    						<div class="table-container" >
+    							<table class="table table-fixed">
                     <thead>
                       <tr>
-                        <td>미리보기</td>
-                        <td>제목</td>
-                        <td>분류</td>
-                        <td>가격</td>
-                        <td>판매자</td>
-                        <td>구매자</td>
+                        <th class="col-xs-2">미리보기</th>
+                        <th class="col-xs-3">제목</th>
+                        <th class="col-xs-1">분류</th>
+                        <th class="col-xs-2">가격</th>
+                        <th class="col-xs-1">판매자</th>
+                        <th class="col-xs-1">구매자</th>
+                        <th class="col-xs-2">진행상태</th>
                       </tr>
                     </thead>
     								<tbody>
                       <%@trades.each do |t|%>
           									<tr data-status="pagado" class="btn-success">
-          										<td>
+          										<td class="col-xs-2">
                                 <%= image_tag t.item.item_images[0].url(:thumb) if t.item.item_images.present?%>
           										</td>
-                              <td>
+                              <td class="col-xs-3">
                                 <%= t.item.name %>
                               </td>
-                              <td>
+                              <td class="col-xs-1">
                                 <%= t.item.category %>
                               </td>
-                              <td>
+                              <td class="col-xs-2">
                                 <%= t.item.price %> 원
                               </td>
-                              <td>
+                              <td class="col-xs-1">
                                 <%= t.seller.name %>
                               </td>
-                              <td>
+                              <td class="col-xs-1">
                                 <%= t.customer.name %>
                               </td>
-                              <td>
+                              <td class="col-xs-2">
                                 <% if user_signed_in? && (current_user == t.seller || current_user == t.customer) %>
                                   <%= link_to "상세보기", trade_detail_path(t)  %>
                                 <% end %>

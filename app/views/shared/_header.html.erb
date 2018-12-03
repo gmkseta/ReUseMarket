@@ -23,6 +23,7 @@
         <% end %>
       </div>
       <div class="box-canvas">
+      `
         <span class="fa fa-bell"> </span>
       </div>
     </div>
@@ -34,87 +35,34 @@
       <!-- //mobile menu button -->
       <div id="mainnav" class="mainnav">
         <ul class="menu">
-          <li class="active has-menu-mega">
-            <%= link_to :root do %>
-              Home
-            <% end %>
-            <!-- /.submenu menu-mega -->
-          </li>
           <!-- /.has-menu-mega -->
           <li class="has-submenu">
             <%= link_to items_path do %>
-              Shop
+              중고물품 구매
             <%end%>
-            <!-- <div class="submenu">
-              <ul>
-                <li>
-                  <a href="#" title="">서브메뉴</a>
-                </li>
-                <li>
-                  <a href="#" title="">서브메뉴</a>
-                </li>
-                <li>
-                  <a href="#" title="">서브메뉴</a>
-                </li>
-              </ul>
-            </div> -->
           </li>
-          <!-- /.has-menu-mega -->
 
           <li class="has-submenu">
             <%= link_to trades_list_path do %>
-              Log
+              중고거래 기록
             <% end %>
-            <!-- <div class="submenu">
-              <ul>
-                <li>
-                  <a href="#" title="">서브메뉴</a>
-                </li>
-                <li>
-                  <a href="#" title="">서브메뉴</a>
-                </li>
-                <li>
-                  <a href="#" title="">서브메뉴</a>
-                </li>
-              </ul>
-            </div> -->
           </li>
-          <!-- /.has-menu-mega -->
-          <% if user_signed_in? %>
-            <li class="has-submenu">
-              <%= link_to trades_my_list_path(current_user.id) do %>
-                My_log
-              <% end %>
-            </li>
-          <% end %>
+          
           <li class="has-submenu">
             <%= link_to new_item_path do %>
-              Sell
+              중고물품 판매 
             <% end %>
-            <!-- <div class="submenu">
-              <ul>
-                <li>
-                  <a href="#" title="">서브메뉴</a>
-                </li>
-                <li>
-                  <a href="#" title="">서브메뉴</a>
-                </li>
-                <li>
-                  <a href="#" title="">서브메뉴</a>
-                </li>
-              </ul>
-            </div> -->
           </li>
-          <!-- /.has-menu-mega -->
+          
           <% if user_signed_in? %>
-            <li class="has-submenu">
+            <li class="has-submenu" style="float:right">
               <%= link_to '로그아웃', destroy_user_session_path,method: :delete %>
             </li>
           <% else %>
-            <li class="has-submenu">
+            <li class="has-submenu" style="float:right">
               <%= link_to '로그인', new_user_session_path %>
             </li>
-            <li class="has-submenu">
+            <li class="has-submenu" style="float:right">
               <%= link_to '회원가입', new_user_registration_path %>
             </li>
           <% end %>
