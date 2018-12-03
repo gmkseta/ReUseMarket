@@ -1,4 +1,28 @@
 <div class="flat-portfolio-single">
+
+  <!-- 리뷰 모달 -->
+	<div class="mask_rev" role="dialog"></div>
+	<div class="review_modal" role="alert">
+		<button class="rev_close" role="button">X</button>
+		<!-- 내용 -->
+		<h1 class="rev_modal_title">거래 평가</h1>
+		<hr class="rev_modal_guideline">
+		<p class="paragraph-modal">
+			<div class="">
+				<p> 평점과 의견을 남겨주세요 </p>
+			</div>
+			<div class="rev_star_container">
+				<div class="rating">
+					<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+				</div>
+			</div>
+			<div class="rev_text_container">
+				<textarea name="rev_text_txtarea" cols="40" rows="10" class="text_nonsizable"></textarea>
+			</div>
+		</p>
+		<button class="rev_btn_close">평가하기</button>
+	</div>
+
   <div class="container">
     <div class="row">
       <div class="col-md-4">
@@ -17,6 +41,8 @@
             <h4><%= @trade.seller.phone_num %></h4>
           <% end %>
         </div>
+        <!-- 리뷰하기 모달 -->
+        <button class="btn_review" aria-haspopup="true">리뷰</button>
         <!-- /.single-simple -->
       </div>
       <!-- /.col-md-4 -->
@@ -245,6 +271,31 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
 <!--챗팅 스크립트-->
 <script type="text/javascript">
+
+// 리뷰주기 버튼 이벤트 ( 모달 오픈 )
+  $(".btn_review").on("click", function(){
+    $(".mask_rev").addClass("active"); 
+  });
+  
+  function closeModal(){
+    $(".mask_rev").removeClass("active"); // active 지워서 모달 클로즈
+  }
+
+  $(".rev_close, .mask_rev").on("click", function(){
+    closeModal();
+  });
+
+  $(".rev_btn_close").click(function(){
+	  closeModal();
+  });
+
+// 키보드 esc 키 리스너
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) {
+      closeModal();
+    }
+  });
+
 
     jQuery(document).ready(function($) {
       var height = $(".msg_history")[0].scrollHeight;

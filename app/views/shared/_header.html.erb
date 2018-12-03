@@ -1,79 +1,47 @@
 <section id="header" class="header style2 v7">
   <div class="container-fluid">
-    <div id="logo" class="logo float-left">
-      <%= link_to :root do %>
-        ReUseMarket
-      <% end %>
-
-    </div>
-    <!-- /.logo -->
-    <!-- <div class="get-quote float-right">
-      <#% if user_signed_in? %>
-        <#%= link_to '로그아웃', destroy_user_session_path,method: :delete %>
-      <#% else %>
-        <#%= link_to '로그인', new_user_session_path %>
-        <#%= link_to '회원가입', new_user_registration_path %>
-      <#% end %>
-    </div> -->
-
-    <div class="menu-extra">
-      <div class="box-canvas">
-        <%= link_to user_profile_path do %>
-        <span class="fa fa-user"></span>
-        <% end %>
-      </div>
-      <div class="box-canvas">
-        <span class="fa fa-bell"> </span>
-      </div>
-    </div>
-    <!-- /.icon-header -->
-    <div class="nav-wrap">
-      <div class="btn-menu">
-        <span></span>
-      </div>
-      <!-- //mobile menu button -->
-      <div id="mainnav" class="mainnav">
-        <ul class="menu">
-          <!-- /.has-menu-mega -->
-          <li class="has-submenu">
-            <%= link_to items_path do %>
-              중고물품 구매
-            <%end%>
-          </li>
-
-          <li class="has-submenu">
-            <%= link_to trades_list_path do %>
-              중고거래 기록
-            <% end %>
-          </li>
-
-          <li class="has-submenu">
-            <%= link_to new_item_path do %>
-              중고물품 판매
-            <% end %>
-          </li>
-
-          <% if user_signed_in? %>
-            <li class="has-submenu" style="float:right">
-              <%= link_to '로그아웃', destroy_user_session_path,method: :delete %>
-            </li>
-          <% else %>
-            <li class="has-submenu" style="float:right">
-              <%= link_to '로그인', new_user_session_path %>
-            </li>
-            <li class="has-submenu" style="float:right">
-              <%= link_to '회원가입', new_user_registration_path %>
-            </li>
+    <div class="nav">
+      <div class="nav-header">
+        <div class="nav-title">
+          <%= link_to :root do %>
+          ReUseMarket
           <% end %>
-        </ul>
-        <!-- /.menu -->
+        </div>
       </div>
-      <!-- /.mainnav -->
+      <div class="nav-links">
+        <span class="text_effect_box"><%= link_to items_path do %>중고물품 구매<% end %></span>
+        <span class="text_effect_box"><%= link_to trades_list_path do %>중고거래 기록<% end %></span>
+        <span class="text_effect_box"><%= link_to new_item_path do %>중고물품 판매<% end %></span>
+      </div>
+      <div class="nav-items">
+        <div class="menu_ref_users">
+        <% if user_signed_in? %>
+          <span>
+          <%= link_to '로그아웃', destroy_user_session_path,method: :delete %>
+          </span>
+        <% else %>
+          <span>
+          <%= link_to '회원가입', new_user_registration_path %>
+          </span>
+          <span>
+          <%= link_to '로그인', new_user_session_path %>
+          </span>
+        <% end %>
+        </div>
+        <% if user_signed_in? %>
+        <div class="ico_profile">
+          <%= link_to user_profile_path do %>
+          <span class="fa fa-user fa-2x"></span>
+          <% end %>
+        </div>
+        <% end %>
+        <div class="box-canvas">
+          <span class="fa fa-bell fa-2x ti-align-right"> </span>
+        </div>
+      </div>
     </div>
-    <!-- /.nav-wrap -->
-    <div class="clearfix"></div>
   </div>
-  <!-- /.container-fluid -->
+
   <div class="menu-canvas">
     <div class="close">
       <em class="fa fa-times" aria-hidden="true"></em>
@@ -129,7 +97,9 @@
 </section>
 <!-- /.header -->
 
-<section>
+<script>
+  $(document).ready(function() {
 
+   });
 
-</section>
+</script>
