@@ -1,5 +1,35 @@
 <!-- /.page-title -->
 <section class="flat-product-detail">
+ <!-- Modal Box -->
+	<div class="mask" role="dialog"></div>
+	<div class="singo-modal" role="alert">
+		<button class="close_modal" role="button">X</button>
+		<!-- Content -->
+		<h1 class="title-modal">게시글 신고</h1>
+		<hr class="line-modal">
+		<p class="paragraph-modal">
+			<div class="mktoCheckboxList mktoHasWidth" style="width: 400px; margin-left: 100px;">
+				<p>
+				<input type="radio" id="r1" name="rr" />
+    		<label for="r1"><span></span>판매자의 프로필이 불쾌감을 주고있습니다</label>
+    		<p>
+    		<input type="radio" id="r2" name="rr" />
+    		<label for="r2"><span></span>판매글의 내용이 부적절하다고 생각됩니다</label>
+				<p>
+				<input type="radio" id="r3" name="rr" />
+    		<label for="r3"><span></span>판매글의 제품 정보가 부족히거나없습니다</label>
+    		<p>
+    		<input type="radio" id="r4" name="rr" />
+    		<label for="r4"><span></span>김성준 새끼가 너무나도 괴롭힙니다...ㅠㅠ</label>
+				<p>
+				상세내용
+				<p>
+				<textarea id="other_reasons" style="width:100%; height: 100px; resize: none;"> </textarea></label>
+			</div>
+		</p>
+		<button class="content-button-singo">신고하기</button>
+	</div>
+
   <div class="container">
     <div class="row">
       <div class="col-lg-7">
@@ -18,11 +48,14 @@
       <!-- /.col-lg-7 -->
         
       <div class="summary" style="height:700px; padding-bottom: 250px;">
-        <div class="edit_delete_"><i class="fa fa-trash fa-2x"></i>&nbsp&nbsp&nbsp&nbsp<i class="fa fa-edit fa-2x"></i></div>
+        <div class="edit_delete_">
+        <i class="fa fa-trash fa-2x "></i>&nbsp&nbsp&nbsp&nbsp
+        <i class="fa fa-edit fa-2x"></i>
+        </div>
 
         <div class="likes_alerts_">
           <i class="fa fa-heart fa-2x"></i>&nbsp&nbsp&nbsp&nbsp
-          <i class="fa fa-bullhorn fa-2x" ></i>&nbsp
+          <button class="btn_singo"><i class="fa fa-bullhorn fa-2x" ></i></button>&nbsp
         </div>
         <h3 class="item_detail_title"><%= @item.name %></h3>
         <p class="item_detail_category">
@@ -67,3 +100,34 @@
   <!-- /.container -->
 </section>
 <!-- /.flat-product-detail -->
+
+
+<script>
+
+// 신고 버튼에 모달 호출 액션 부여
+$(".btn_singo").on("click", function(){
+  $(".mask").addClass("active"); // 모달 래퍼 클래스 찾아서 액티브 부여할거
+});
+
+function closeModal(){
+  $(".mask").removeClass("active"); // 모달 창 닫기
+}
+
+// Function to close the modal screen
+$(".close_modal, .mask").on("click", function(){
+  closeModal();
+});
+
+// Closes the modal with the button within the content
+$(".content-button-singo").click(function(){
+	closeModal();
+});
+
+// or the keyboard (esc)
+$(document).keyup(function(e) {
+  if (e.keyCode == 27) {
+    closeModal();
+  }
+});
+
+</script>
