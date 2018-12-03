@@ -4,43 +4,91 @@
       <div class="col-4">
       </div>
       <div class="col-4">
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :name_cont %>
-          <%= f.submit "search" %>
-        <% end %>
+
       </div>
     </div>
     <div class="row">
-      <div style="width:100%; height: 150px; margin:0 auto;">	
+      <div style="width:100%; height: 150px; margin:0 auto;">
+        <%= search_form_for @q do |f| %>
         <div class="search_box">
           <div class="container-search">
             <span class="icon"><i class="fa fa-search fa-2x"></i></span>
-            <input type="search" id="search" placeholder="Search..." />
+            <%= f.search_field :name_cont ,id:"search",placeholder:"Search..."%>
           </div>
         </div>
-        <div class="search_option">
-          <div class="se_option">
-            <div class="">
-              <p style="display: inline-block">가격대</p>
-              <input type="text" name="fromPrice" placeholder="최저금액" style="width:80px; height:20px; padding: 0 0 0 10px; display: inline-block;"> ~ <input type="text" name="toPrice" placeholder="최대금액" style="width:80px; height:20px; padding: 0 0 0 10px; display: inline-block;"> 
-            </div>
-          </div>
-          <div class="se_option">
-            <p style="display: inline-block">분야&nbsp&nbsp&nbsp&nbsp</p>
-            <div id="select_box">
-              <label for="se_cate">분야 선택</label>
-              <select id="se_cate" title="고추참치 고르기">
-                <option selected="selected">--선택--</option>
-                <option>고추</option>
-                <option>참치</option>
-                <option>고추참치</option>
-                <option>참치고추</option>
-              </select>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
+    <div class="row">
+            <div class="col-md-12">
+              <div class="sort-product style3">
+
+                <div class="filter float-right">
+                  Filters <i class="fa fa-angle-down" aria-hidden="true"></i>
+              </div>
+              </div>
+              <!-- /.sort-product -->
+              <div class="box-filter shop">
+                <div class="hider">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <div class="widget widget-sort-by">
+                  <div class="widget-title">
+                    <h4>정렬 하기</h4>
+                  </div>
+                  <ul>
+                    <li>
+                      <a href="#" title="">가격</a>
+                    </li>
+                    <li>
+                      <a href="#" title="">등록</a>
+                    </li>
+                    <li>
+                      <a href="#" title="">이름</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /.widget widget-sort-by -->
+                <div class="widget widget-tags">
+                  <div class="widget-title">
+                    <h4>가격대</h4>
+                  </div>
+                  <div class="se_option">
+                    <div class="">
+                      <%= f.search_field :price_gteq ,placeholder:"최저금액" ,style:"width:80px; height:20px; padding: 0 0 0 10px; display: inline-block;"%>
+                      <!-- <input type="text" name="fromPrice" placeholder="최저금액" style="width:80px; height:20px; padding: 0 0 0 10px; display: inline-block;"> -->
+                      ~
+                      <%= f.search_field :price_lteq ,placeholder:"최대금액" ,style:"width:80px; height:20px; padding: 0 0 0 10px; display: inline-block;"%>
+                    </div>
+                  </div>
+                </div>
+                <div class="widget widget-tags">
+                  <div class="se_option">
+                    <div class="widget-title">
+                      <h4>카테고리</h4>
+                    </div>
+
+                      <select id="se_cate" title="고추참치 고르기">
+                        <option selected="selected">--선택--</option>
+                        <option>고추</option>
+                        <option>참치</option>
+                        <option>고추참치</option>
+                        <option>참치고추</option>
+                      </select>
+
+                  </div>
+                </div>
+                <!-- /.widget widget-price -->
+
+                <!-- /.widget widget-size -->
+
+                <!-- /.widget widget-tags -->
+              </div>
+              <!-- /.box-filter shop -->
+            </div>
+            <!-- /.col-md-12 -->
+    </div>
+    <% end %>
     <div class="row">
       <!-- /.col-md-3 -->
       <!-- 정렬 옵션 테이블 -->
