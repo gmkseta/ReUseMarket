@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_02_093352) do
+ActiveRecord::Schema.define(version: 2018_12_03_164746) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "message"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 2018_12_02_093352) do
     t.text "content"
     t.json "item_images"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "singos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.integer "sel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_singos_on_item_id"
+    t.index ["user_id"], name: "index_singos_on_user_id"
   end
 
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -69,5 +80,7 @@ ActiveRecord::Schema.define(version: 2018_12_02_093352) do
   add_foreign_key "chats", "trades"
   add_foreign_key "chats", "users"
   add_foreign_key "items", "users"
+  add_foreign_key "singos", "items"
+  add_foreign_key "singos", "users"
   add_foreign_key "trades", "items"
 end

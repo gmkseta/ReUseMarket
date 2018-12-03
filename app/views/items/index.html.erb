@@ -54,31 +54,50 @@
                   <%= f.search_field :price_lteq ,placeholder:"최대금액" ,style:"width:80px; height:20px; padding: 0 0 0 10px; display: inline-block;"%>
                 </div>
               </div>
+              
+                <%= f.submit "search",style:"display: inline-block; height: 30px; line-height: 30px; color: #5a596a; background: #f1f2f5; border-radius: 1px;" %>
+
             </div>
             <div class="widget widget-tags">
-              <div class="se_option">
-                <div class="widget-title">
-                  <h4>카테고리</h4>
-                </div>
-                <div id="select_box">
-                  <select id="se_cate" title="고추참치 고르기">
-                    <option selected="selected">--선택--</option>
-                    <option>고추</option>
-                    <option>참치</option>
-                    <option>고추참치</option>
-                    <option>참치고추</option>
-                  </select>
-                </div>
+              <div class="widget-title">
+                <h4>카테고리</h4>
               </div>
+              <ul class="tags-list">
+                <li>
+                  <%= f.radio_button :category_eq,'*',:checked => true %>
+                  <label for="q_category_eq_checkedtrue"><a title="">All products</a></label>
+                </li>
+                <li>
+                  <%= f.radio_button :category_eq, 0,id:"category_0" %>
+                  <label for="category_0"><a title="">도서</a></label>
+                </li>
+                <li>
+                  <%= f.radio_button :category_eq, 1,id:"category_1" %>
+                  <label for="category_1"><a title="">의류</a></label>
+                </li>
+                <li>
+                  <%= f.radio_button :category_eq, 2,id:"category_2" %>
+                  <label for="category_2"><a title="">전자기기</a></label>
+                </li>
+                <li>
+                  <%= f.radio_button :category_eq, 3,id:"category_3" %>
+                  <label for="category_3"><a title="">신발</a></label>
+                </li>
+                <li>
+                  <%= f.radio_button :category_eq, 4,id:"category_4" %>
+                  <label for="category_4"><a title="">스포츠용품</a></label>
+                </li>
+                <li>
+                  <%= f.radio_button :category_eq, 5,id:"category_5" %>
+                  <label for="category_5"><a title="">가전제품</a></label>
+                </li>
+                <li>
+                  <%= f.radio_button :category_eq, 6,id:"category_6" %>
+                  <label for="category_6"><a title="">기타</a></label>
+                </li>
+              </ul>
             </div>
-            <!-- /.widget widget-price -->
-
-            <!-- /.widget widget-size -->
-
-            <!-- /.widget widget-tags -->
           </div>
-
-          <%= f.submit "search",style:"display:none" %>
         <% end %>
       </div>
     </div>
@@ -151,9 +170,7 @@
               <% end %>
             </li>
           <% end %>
-        </div>
-
-        <!-- /.tab-product-content -->
+        </ul>
       </div>
       <!-- /.col-md-9 -->
     </div>

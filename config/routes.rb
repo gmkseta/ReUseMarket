@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :singos
   get 'trades/list'
   get 'trades/:id/my_list'=>'trades#my_list',as: 'trades_my_list'
   get 'trades/:id/detail'=>'trades#detail' ,as: 'trade_detail'

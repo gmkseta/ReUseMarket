@@ -1,0 +1,37 @@
+<%= form_with(model: singo, local: true) do |form| %>
+  <% if singo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(singo.errors.count, "error") %> prohibited this singo from being saved:</h2>
+
+      <ul>
+      <% singo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :item_id %>
+    <%= form.text_field :item_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sel %>
+    <%= form.number_field :sel %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @singo.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @singo.user %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @singo.item %>
+</p>
+
+<p>
+  <strong>Sel:</strong>
+  <%= @singo.sel %>
+</p>
+
+<%= link_to 'Edit', edit_singo_path(@singo) %> |
+<%= link_to 'Back', singos_path %>
