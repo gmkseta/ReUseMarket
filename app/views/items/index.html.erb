@@ -8,15 +8,15 @@
       </div>
     </div>
     <div class="row">
-      <div style="width:100%; height: 150px; margin:0 auto;">
+      <div style="width:100%; height: 150px; padding: 50px; margin:0 auto;">
         <%= search_form_for @q do |f| %>
           <div class="sort-product style3">
             <div class="search_box">
               <div class="container-search">
                 <span class="icon"><em class="fa fa-search fa-2x"></em></span>
                 <%= f.search_field :name_cont ,id:"search",placeholder:"Search..."%>
-                <div class="filter float-right">
-                  Filters <em class="fa fa-angle-down" aria-hidden="true"></em>
+                <div class="filter float-right" style="display: block; font-size: 2em;">
+                  검색 필터 <em class="fa fa-angle-down" aria-hidden="true"></em>
                 </div>
               </div>
             </div>
@@ -113,31 +113,10 @@
               <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
 				        <tbody>
                   <tr>
-                    <td width="5%">
-                    </td>
-					          <td width="10%">
-						          <div align="center" class="txdiv">
-
-							          <!-- <a href="#"><img src="/images/item/arrow_up.png" width="10" height="10"></a> -->
-							          <!-- <a href="#"><img src="/images/item/arrow_down.png" width="10" height="10"></a> -->
-                      </div>
-                    </td>
-					          <td width="3" class="tx_05">
-						          <img src="/images/item/list_cp.gif" width="3" height="33" alt="">
-					          </td>
-                    <td width="20%"></td>
-                    <td width="20%">
-                      <div align="center" class="txdiv">
-                        <!-- <a href="#">모든 물품</a> -->
-                        <img src="/images/item/list_cp.gif" width="3" height="33" alt="">
-                        <!-- <a href="#">신 상 품</a> -->
-                      </div>
-                    </td>
+                    <td width="25%"></td>
                     <td width="30%"></td>
-					          <td width="3" class="tx_05">
-						          <img src="/images/item/list_cp.gif" width="3" height="33" alt="">
-					          </td>
-                    <td width="15%">
+                    <td width="15%"></td>
+                    <td width="30%">
                       <div align="center">
                         <%= paginate @items %>
                       </div>
@@ -155,7 +134,6 @@
             <li class="sell_item">
               <%= link_to item, class:"link-to-target" do %>
               <% if not item.item_images.empty?  %>
-
                 <div class="sell_item_thumb thumb1 lazy" data-src='<%= item.item_images[0].url(:list)%>'>
               <% else %>
                 <div class="sell_item_thumb thumb1 lazy" data-src='http://dimg.donga.com/wps/NEWS/IMAGE/2018/11/29/93087313.2.jpg'>

@@ -151,7 +151,7 @@
                     
                     var offsetTop = $('.header').offset().top,
                         headerHeight = $('.header').height(),
-                        injectSpace = $('<div />', { height: headerHeight }).insertAfter(nav);   
+                        injectSpace = $('<div />', { height: headerHeight*3 }).insertAfter(nav);   
                         injectSpace.hide();                 
 
                     $(window).on('load scroll', function(){
@@ -216,12 +216,15 @@
 
         var Filterbox = function(){
             var buttonFilter = $('.filter');
-            var buttonHideFilter = $('.box-filter .hide');
+            var buttonHideFilter = $('.box-filter .hider');
             $('.box-filter').hide();
             buttonFilter.on('click',function(){
-                $('.box-filter').slideDown();
+                if ( $('.box-filter').css("display") != "none" )
+                { $('.box-filter').slideUp(); }
+                else
+                { $('.box-filter').slideDown(); }
             });
-
+            
             buttonHideFilter.on('click',function(){
                 $('.box-filter').slideUp();
             });
