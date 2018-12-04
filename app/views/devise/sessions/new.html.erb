@@ -27,7 +27,6 @@
   <!-- /.container -->
 </section>
 <!-- /.page-title -->
-
 <section class="flat-signin">
   <div class="container">
     <div class="row">
@@ -35,53 +34,30 @@
         <div class="wrap-sign-in center">
           <h4>Sign In</h4>
           <div class="form-sign-in">
-
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <!-- <form action="#" method="get" accept-charset="utf-8"> -->
               <div class="form-box">
                   <%= f.label :email %><br/>
                   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-
-                <!-- <label for="username"> -->
-                  <!-- Username or email address * -->
-                <!-- </label> -->
-                <!-- <input type="text" id="username" name="username"> -->
-
               </div>
               <!-- /.form-box -->
               <div class="form-box">
-
-                <!-- <label for="password">
-                  Password *
-                </label>
-                <input type="text" id="password" name="password"> -->
                 <div class="field">
                   <%= f.label :password %><br/>
                   <%= f.password_field :password, autocomplete: "current-password" %>
                 </div>
-
               </div>
               <!-- /.form-box -->
               <div class="save-forget overflow">
-
                 <% if devise_mapping.rememberable? -%>
                   <div class="field">
                     <%= f.check_box :remember_me %>
                     <%= f.label :remember_me %>
                   </div>
                 <% end -%>
-                <!-- <div class="checkbox float-left">
-                  <input type="checkbox" id="save-password" name="save-password">
-                  <label for="save-password">Save Password</label>
-                </div>
-                <a href="#" class="forget float-right" title="">Foget your Password</a> -->
-
-
               </div>
               <!-- /.save-forget -->
               <div class="btn-submit">
                   <%= f.button "Log in",class:"bg-black" %>
-                <!-- <button class="bg-black" type="submit">SIGN IN</button> -->
               </div>
               <%= link_to new_user_registration_path ,class:"create-account" do %>
                 OR CREATE AN ACCOUNT
@@ -100,9 +76,3 @@
   <!-- /.container -->
 </section>
 <!-- /.flat-singin -->
-
-
-
-
-
-<!-- # <#%= render "devise/shared/links" %> -->

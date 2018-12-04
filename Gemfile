@@ -50,7 +50,9 @@ gem 'kaminari'
 gem "font-awesome-rails"
 gem 'jquery-ui-rails'
 gem 'toastr-rails'
-
+gem 'activeadmin'
+gem 'active_admin_theme'
+gem 'exception_handler'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    #어차피 private에 있음 . 코드스멜 그켬~
   end
 
   # POST /items

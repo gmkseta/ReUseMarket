@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :singos
   get 'trades/list'
   get 'trades/:id/my_list'=>'trades#my_list',as: 'trades_my_list'

@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery3
-//= require rails-ujs
 //= require activestorage
 //= require jquery-ui
 //= require toastr

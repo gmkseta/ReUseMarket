@@ -38,3 +38,4 @@ csv.each do |row|
   puts "create"+a.to_s
 end
 Trade.update_item_status();
+AdminUser.create!(email: 'admin@reusemarket.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

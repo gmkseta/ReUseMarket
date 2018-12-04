@@ -10,6 +10,8 @@ class SingosController < ApplicationController
   # GET /singos/1
   # GET /singos/1.json
   def show
+    raise ActionController::RoutingError.new('Not Found')
+    #scaffold 로 자동생성
   end
 
   # GET /singos/new
@@ -19,6 +21,7 @@ class SingosController < ApplicationController
 
   # GET /singos/1/edit
   def edit
+    #scaffold 로 자동생성
   end
 
   # POST /singos

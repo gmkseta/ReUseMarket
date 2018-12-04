@@ -64,8 +64,8 @@
               </div>
               <ul class="tags-list">
                 <li>
-                  <%= f.radio_button :category_eq,'',:checked => true %>
-                  <label for="q_category_eq_checkedtrue"><a title="">All products</a></label>
+                  <%= f.radio_button :category_eq,'',:checked => true,id:"category_default" %>
+                  <label for="category_default"><a title="">All products</a></label>
                 </li>
                 <li>
                   <%= f.radio_button :category_eq, 0,id:"category_0" %>
