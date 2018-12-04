@@ -7,10 +7,21 @@ class Trade < ApplicationRecord
   # after_create :send_sms, on: :create
   after_update :cal_score, on: :update
 
+  def self.update_item_status
+    self.all.each do |t|
+      if t.status == "거래 완료"
+        t.item.update(status:1)
+
+        puts("change"+t.item.name)
+      end
+    end
+  end
+
   def cal_score
-
-    self.seller.update(Trade.connection.select_one("select AVG(score) score from trades where seller_id=#{self.seller_id} and status=3"))
-
+    if self.status =="거래 완료"
+      self.seller.update(Trade.connection.select_one("select AVG(score) score from trades where seller_id=#{self.seller_id} and status=3"))
+      self.item.status = 1
+    end
   end
 
   def send_sms
@@ -28,7 +39,7 @@ class Trade < ApplicationRecord
     req.body = {
       sender: ENV["SMS_SENDER"],
       receivers: [self.seller.phone_num.to_s],
-      content: "ReUseMarket 입니다 \n '#{content}' 물품을 \n #{self.customer.name}님께서 거래요청 하셨습니다."
+      content: "ReUseMarket \n '#{content}' 물품을 \n #{self.customer.name}님께서 거래요청 하셨습니다."
     }.to_json
 
     puts req.body

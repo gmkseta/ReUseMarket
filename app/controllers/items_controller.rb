@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     @q = Item.ransack(params[:q])
     @q.sorts = ['created_at desc'] if @q.sorts.empty?
 
-    @items = @q.result.page(params[:page])
+    @items = @q.result.where(status:0).page(params[:page])
 
     puts params[:q]
 
@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @trades = @item.user.seller_trades
   end
 
   # GET /items/new

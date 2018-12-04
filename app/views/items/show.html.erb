@@ -88,7 +88,51 @@
       </div>
     </div>
       <!-- /.row -->
-  </div>
+	</div>
+</section>
+<section class="flat-product-content">
+	<div class="container">
+
+			<h3>판매자에 대한 리뷰</h3>
+			<br>
+
+		<div class="row">
+					<div class="reviews active" style="display: block;">
+	          <ol class="review-list">
+							<% @trades.each do |r| %>
+							<li class="overflow">
+		            <div class="review-img float-left" style="float: left!important;">
+		              <%= image_tag r.customer.profile_img.url,style:"width:50px;height:50px;" %>
+									
+		              <div class="queue center">
+		                <i class="fa fa-star" aria-hidden="true"></i>
+		                <i class="fa fa-star" aria-hidden="true"></i>
+		                <i class="fa fa-star" aria-hidden="true"></i>
+		                <i class="fa fa-star" aria-hidden="true"></i>
+		                <i class="fa fa-star-o" aria-hidden="true"></i>
+		              </div>
+		            </div>
+	            <!-- /.review-img -->
+		            <div class="review-content overflow" style="float: right!important;">
+		              <div class="date">
+		                <%=  %>
+		              </div>
+			            <div class="name">
+			                Brandon Kelley
+			            </div>
+			            <div class="text-review">
+			              <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore.</p>
+			            </div>
+		          	</div>
+	        	  <!-- /.review-content -->
+	          	</li>
+							<% end %>
+
+	          </ol>
+	          <!-- /.review-list -->
+	        </div>
+		</div>
+	</div>
   <!-- /.container -->
 </section>
 <!-- /.flat-product-detail -->

@@ -13,6 +13,7 @@ csv.each do |row|
   a["email"] = row[0]
   a["profile_img"] = File.open(File.join(Rails.root,"lib","seeds","img",a["profile_img"]))
   User.create(a)
+  puts "create"+a.to_s
 end
 
 
@@ -23,6 +24,7 @@ csv.each do |row|
   a["name"] = row[0]
   a["item_images"] = [File.open(File.join(Rails.root,"lib","seeds","img",a["item_images"]))]
   Item.create(a)
+  puts "create"+a.to_s
 end
 
 
@@ -32,4 +34,6 @@ csv.each do |row|
   a = row.to_hash.without(row.to_hash.first[0])
   a["seller_id"] = row[0]
   Trade.create(a)
+  puts "create"+a.to_s
 end
+Trade.update_item_status();
