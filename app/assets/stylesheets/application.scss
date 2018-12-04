@@ -308,8 +308,6 @@ p {
   position: absolute;
   left:0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
   bottom: 2%;
   background: white;
   color: #0B1847;
@@ -464,7 +462,6 @@ input[type="radio"]:checked + label a{
   width: 200px;
   position: relative;
   top: 150px;
-  text-align: center;
   margin: 0 auto;
 }
 
@@ -473,8 +470,6 @@ input[type="radio"]:checked + label a{
   padding: 13px 30px;
   left:0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
   bottom: 2%;
   background: white;
   color: #0B1847;
