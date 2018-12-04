@@ -17,7 +17,7 @@ class TradesController < ApplicationController
     case @trade.status
     when "거래 중"
       @print_text="현재 판매자와 거래중입니다."
-      @subline_text="판매자 정보를 통해 판매자와 연락 후 거래하세요, 통화가 어려울 경우 1:1 대화함 서비스를 이용하세요."
+      @subline_text="판매자 정보를 통해 판매자와 연락 후 거래하세요 통화가 어려울 경우 1:1 대화함 서비스를 이용하세요."
     when "수령 완료"
       if current_user == @trade.seller
         @print_text="구매자가 물품 수령 완료 하였습니다."

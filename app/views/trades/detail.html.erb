@@ -58,20 +58,24 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <div class="single-simple-text">
-          <% if @is_seller %>
-            <h5>구매자 정보 ></h5>
-            <br>
-            <h3><%= @trade.customer.name %></h3>
-            <h4><%= @trade.customer.stu_num %></h4>
-            <h4><%= @trade.customer.phone_num %></h4>
+        <div class="single-simple-text" style="text-align: center;">
+          <% if @trade.customer.name == current_user.id %>
+            <h5> 구매자 ( 나 ) </h5>
           <% else %>
-            <h5>판매자 정보 ></h5>
-            <br>
-            <h3><%= @trade.seller.name %></h3>
-            <h4><%= @trade.seller.stu_num %></h4>
-            <h4><%= @trade.seller.phone_num %></h4>
+            <h5> 구매자</h5>
           <% end %>
+          <div class="user_container">
+            <div class="avatar-flip">
+                <img src="<%= @trade.seller.profile_img%>" height="150" width="150" alt="">
+                <img src="/images/item/irin.gif" height="150" width="150" alt="">
+            </div>
+            <h2><%= @trade.customer.name %></h2>
+            <br>
+            <h5><%= @trade.customer.major %></h5>
+            <h5><%= @trade.customer.stu_num %></h5>
+            <br>
+            <h6>연락처 : <%= @trade.customer.phone_num %></h6>
+            </div>
         </div>
         <!-- 리뷰하기 모달 -->
 
@@ -79,31 +83,82 @@
       </div>
       <!-- /.col-md-4 -->
       <div class="col-md-4">
-        <div class="single-simple-text">
-          <h5>거래진행 현황 > </h5>
-          <br>
+        <div class="single-simple-text" style=" text-align:center;">
+          <h3 style="color: red;">━━━━━━━━＞</h3>
+          <br><br><br><br>
+          <h5> 거래진행 현황 </h5>
+          <br><br><br><br>
           <h6><%= @print_text %></h6>
           <p><%= @subline_text %></p>
-
         </div>
         <!-- /.single-simple-text -->
       </div>
       <!-- /.col-md-4 -->
       <div class="col-md-4">
-        <ul class="list-info padding-left-100">
-          <li>Client: <span>DANIEL CRAWLER</span></li>
-          <li>Date: <span>07 May 2016</span></li>
-          <li>Location: <span>United States</span></li>
-          <li>Author: <span>Kawhi Leonard</span></li>
-        </ul>
+        <div class="single-simple-text" style="text-align: center;">
+          <% if @is_seller %>
+            <h5> 판매자 ( 나 ) </h5>
+          <% else %>
+            <h5> 판매자 </h5>
+          <% end %>
+            <div class="user_container">
+            <div class="avatar-flip">
+                <img src="<%= @trade.seller.profile_img%>" height="150" width="150" alt="">
+                <img src="/images/item/irin.gif" height="150" width="150" alt="">
+            </div>
+            <h2><%= @trade.seller.name %></h2>
+            <br>
+            <h5><%= @trade.seller.major %></h5>
+            <h5><%= @trade.seller.stu_num %></h5>
+            <br>
+            <h6>연락처 : <%= @trade.seller.phone_num %></h6>
+            </div>
+        </div>
         <!-- /.list-info -->
       </div>
       <!-- /.col-md-4 -->
     </div>
     <!-- /.row -->
     <div class="row">
+			<% if (@trade.status=="거래 중") or ( not @is_seller and @trade.status=="판매 완료") or ( @is_seller and @trade.status=="수령 완료") %>
+					<div class="col-md-3"></div>
+					<div class="col-md-3">
+						<%= link_to  trade_update_status_path(@trade.id) do%>
+							<button class=" line-black supper border-radius-2">물품인수확인</button>
+						<% end %>
+					</div>
+					<div class="col-md-3">
+						<%= link_to trade_cancel_path(@trade) do%>
+							<button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)">거래 취소</button>
+						<% end %>
+					</div>
+			<% elsif @trade.status=="거래 취소"%>
+        <div style="text-align:center">
+				  <button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)" disabled>거래 취소 됨</button>
+        </div>
+      <% elsif @trade.status=="거래 완료"%>
+				<div class="offset-md-3 col-md-3">
+					<button class="supper border-radius-2" style="background:rgb(25, 235, 65);border:rgb(40, 129, 9); color:black" disabled>거래 완료 됨</button>
+				</div>
+				<div class="col-md-3">
+					<button class="btn_review" aria-haspopup="true">리뷰</button>
+				</div>
+			<% else %>
+				<div class="col-md-3"></div>
+				<div class="col-md-3">
+					<button class="supper border-radius-2" style="background:rgb(25, 235, 65);border:rgb(40, 129, 9);color:black" disabled >인수 확인 완료</button>
+				</div>
+				<div class="col-md-3">
+					<%= link_to trade_cancel_path(@trade)  do%>
+						<button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)">거래 취소</button>
+					<% end %>
+				</div>
+			<% end %>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
       <div class="bg-light">
-        <h3 class=" text-center">메세지함</h3>
         <div class="messaging">
           <div class="inbox_msg">
 						<button class="btn_singo"> <span class="icon"><em class="fa fa-ban fa-2x"></em></span></button>
@@ -157,41 +212,7 @@
         </div>
       </div>
     </div>
-    <!-- /.row -->
-    <div class="row">
-			<% if (@trade.status=="거래 중") or ( not @is_seller and @trade.status=="판매 완료") or ( @is_seller and @trade.status=="수령 완료") %>
-					<div class="col-md-3"></div>
-					<div class="col-md-3">
-						<%= link_to  trade_update_status_path(@trade.id) do%>
-							<button class=" line-black supper border-radius-2">물품인수확인</button>
-						<% end %>
-					</div>
-					<div class="col-md-3">
-						<%= link_to trade_cancel_path(@trade) do%>
-							<button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)">거래 취소</button>
-						<% end %>
-					</div>
-			<% elsif @trade.status=="거래 취소"%>
-				<button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)" disabled>거래 취소 됨</button>
-			<% elsif @trade.status=="거래 완료"%>
-				<div class="offset-md-3 col-md-3">
-					<button class="supper border-radius-2" style="background:rgb(25, 235, 65);border:rgb(40, 129, 9); color:black" disabled>거래 완료 됨</button>
-				</div>
-				<div class="col-md-3">
-					<button class="btn_review" aria-haspopup="true">리뷰</button>
-				</div>
-			<% else %>
-				<div class="col-md-3"></div>
-				<div class="col-md-3">
-					<button class="supper border-radius-2" style="background:rgb(25, 235, 65);border:rgb(40, 129, 9);color:black" disabled >인수 확인 완료</button>
-				</div>
-				<div class="col-md-3">
-					<%= link_to trade_cancel_path(@trade)  do%>
-						<button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)">거래 취소</button>
-					<% end %>
-				</div>
-			<% end %>
-    </div>
+    
 
 
     <!--이쪽 부분 모달 폼 만들어서 버튼도 리뷰 널값일꺠 넣는거로-->
@@ -248,7 +269,6 @@
        	 	}
      		}, 100);
    	 })
-
       .on("change", ".star-input :radio", function(){
       	$result.attr("value",
           $(this).next().text()
