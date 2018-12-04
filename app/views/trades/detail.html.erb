@@ -2,26 +2,49 @@
 
   <!-- 리뷰 모달 -->
 	<div class="mask_rev" role="dialog"></div>
-	<div class="review_modal" role="alert">
-		<button class="rev_close" role="button">X</button>
-		<!-- 내용 -->
-		<h1 class="rev_modal_title">거래 평가</h1>
-		<hr class="rev_modal_guideline">
-		<p class="paragraph-modal">
-			<div class="">
-				<p> 평점과 의견을 남겨주세요 </p>
-			</div>
-			<div class="rev_star_container">
-				<div class="rating">
-					<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-				</div>
-			</div>
-			<div class="rev_text_container">
-				<textarea name="rev_text_txtarea" cols="40" rows="10" class="text_nonsizable"></textarea>
-			</div>
-		</p>
-		<button class="rev_btn_close">평가하기</button>
-	</div>
+	<%if @trade.status=="거래 완료"%>
+		<div class="review_modal" role="alert">
+			<button class="rev_close" role="button">X</button>
+			<h1 class="rev_modal_title">거래 평가</h1>
+			<hr class="rev_modal_guideline">
+				<%= form_with(model: @trade, local: true) do |form| %>
+				<p class="paragraph-modal">
+					<div class="">
+						<p> 평점과 의견을 남겨주세요 </p>
+					</div>
+					<%= form.hidden_field :score ,id:"score"%>
+					<div class="rev_star_container">
+						<div class="rating">
+							<span class="star-input">
+								<span class="input">
+										<input type="radio" name="star-input" value="1" id="p1">
+										<label for="p1">1</label>
+										<input type="radio" name="star-input" value="2" id="p2">
+										<label for="p2">2</label>
+										<input type="radio" name="star-input" value="3" id="p3">
+										<label for="p3">3</label>
+										<input type="radio" name="star-input" value="4" id="p4">
+										<label for="p4">4</label>
+										<input type="radio" name="star-input" value="5" id="p5">
+										<label for="p5">5</label>
+									</span>
+							</span>
+						</div>
+					</div>
+					<div class="rev_text_container">
+						<%= form.text_area :review_content, placeholder:"리뷰 작성" ,cols:"40",rows:"10",class:"text_nonsizable" %>
+					</div>
+				</p>
+			<%= form.button class:"rev_btn_close" do %> 리뷰 남기기<% end %>
+
+		</div>
+			<% end %>
+
+	<% elsif @trade.status=="거래 완료"  %>
+		<%= @trade.review_content %>
+		<%= @trade.score %>
+	<% end %>
+
 	<div class="mask" role="dialog"></div>
 	<div class="singo-modal" role="alert">
 		<button class="close_modal" role="button">X</button>
@@ -59,14 +82,14 @@
     <div class="row">
       <div class="col-md-4">
         <div class="single-simple-text" style="text-align: center;">
-          <% if @trade.customer.name == current_user.id %>
+          <% if @trade.customer.id == current_user.id %>
             <h5> 구매자 ( 나 ) </h5>
           <% else %>
             <h5> 구매자</h5>
           <% end %>
           <div class="user_container">
             <div class="avatar-flip">
-                <img src="<%= @trade.seller.profile_img%>" height="150" width="150" alt="">
+                <img src="<%= @trade.customer.profile_img%>" height="150" width="150" alt="">
                 <img src="/images/item/irin.gif" height="150" width="150" alt="">
             </div>
             <h2><%= @trade.customer.name %></h2>
@@ -137,11 +160,12 @@
 				  <button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)" disabled>거래 취소 됨</button>
         </div>
       <% elsif @trade.status=="거래 완료"%>
-				<div class="offset-md-3 col-md-3">
+				<div class="col-md-3"></div>
+				<div class="col-md-3">
 					<button class="supper border-radius-2" style="background:rgb(25, 235, 65);border:rgb(40, 129, 9); color:black" disabled>거래 완료 됨</button>
 				</div>
 				<div class="col-md-3">
-					<button class="btn_review" aria-haspopup="true">리뷰</button>
+					<button class="supper border-radius-2 btn_review" aria-haspopup="true" style="top:0;padding:0;">리뷰</button>
 				</div>
 			<% else %>
 				<div class="col-md-3"></div>
@@ -212,42 +236,11 @@
         </div>
       </div>
     </div>
-    
+
 
 
     <!--이쪽 부분 모달 폼 만들어서 버튼도 리뷰 널값일꺠 넣는거로-->
 
-    <%if @trade.status=="거래 완료"%>
-      <div class="row">
-        <%= form_with(model: @trade, local: true) do |form| %>
-          <div class="contact-form-name contact-form">
-              <%= form.text_area :review_content, placeholder:"리뷰 작성" %>
-          </div>
-              <%= form.hidden_field :score ,id:"score"%>
-              <span class="star-input">
-              	<span class="input">
-                  	<input type="radio" name="star-input" value="1" id="p1">
-                  	<label for="p1">1</label>
-                  	<input type="radio" name="star-input" value="2" id="p2">
-                  	<label for="p2">2</label>
-                  	<input type="radio" name="star-input" value="3" id="p3">
-                  	<label for="p3">3</label>
-                  	<input type="radio" name="star-input" value="4" id="p4">
-                  	<label for="p4">4</label>
-                  	<input type="radio" name="star-input" value="5" id="p5">
-                  	<label for="p5">5</label>
-                	</span>
-              </span>
-          <div class="btn-contact-form center">
-            <%= form.button class:"flat-button-form" %>
-          </div>
-        <% end %>
-      </div>
-    <% elsif @trade.status=="거래 완료"  %>
-    <%= @trade.review_content %>
-    <%= @trade.score %>
-
-    <% end %>
 
 
 
@@ -319,32 +312,6 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
 <!--챗팅 스크립트-->
 <script type="text/javascript">
-
-// 리뷰주기 버튼 이벤트 ( 모달 오픈 )
-  $(".btn_review").on("click", function(){
-    $(".mask_rev").addClass("active");
-  });
-
-  function closeModal(){
-    $(".mask_rev").removeClass("active"); // active 지워서 모달 클로즈
-  }
-
-  $(".rev_close, .mask_rev").on("click", function(){
-    closeModal();
-  });
-
-  $(".rev_btn_close").click(function(){
-	  closeModal();
-  });
-
-// 키보드 esc 키 리스너
-  $(document).keyup(function(e) {
-    if (e.keyCode == 27) {
-      closeModal();
-    }
-  });
-
-
     jQuery(document).ready(function($) {
       var height = $(".msg_history")[0].scrollHeight;
 
@@ -426,5 +393,29 @@ $(document).keyup(function(e) {
     closeModal();
   }
 });
+
+// 리뷰주기 버튼 이벤트 ( 모달 오픈 )
+$(".btn_review").on("click", function(){
+  $(".mask_rev").addClass("active");
+});
+function closeModal_rev(){
+  $(".mask_rev").removeClass("active"); // active 지워서 모달 클로즈
+};
+
+  $(".rev_close, .mask_rev").on("click", function(){
+    closeModal_rev();
+  });
+
+  $(".rev_btn_close").click(function(){
+	  closeModal_rev();
+  });
+
+// 키보드 esc 키 리스너
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) {
+      closeModal_rev();
+    }
+  });
+
 
 </script>

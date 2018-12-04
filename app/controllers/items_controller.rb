@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    @trades = @item.user.seller_trades
+    @trades = @item.user.seller_trades.where("status=3 and review_content is not null")
   end
 
   # GET /items/new
