@@ -22,6 +22,38 @@
 		</p>
 		<button class="rev_btn_close">평가하기</button>
 	</div>
+	<div class="mask" role="dialog"></div>
+	<div class="singo-modal" role="alert">
+		<button class="close_modal" role="button">X</button>
+		<!-- Content -->
+		<h1 class="title-modal"><em class="fa fa-warning" style="font-size:48px;color:red"></em> &nbsp 신고 &nbsp <em class="fa fa-warning" style="font-size:48px;color:red"></em> </h1>
+		<hr class="line-modal">
+		<p class="paragraph-modal">
+			<div class="mktoCheckboxList mktoHasWidth" style="width: 400px; margin-left: 100px;">
+				<%= form_with(model: Singo.new, local: true) do |form| %>
+					<%= form.hidden_field :user_id, class: "form-control",value: current_user.id %>
+					<%= form.hidden_field :item_id, class: "form-control",value: @trade.item.id %>
+					<p>
+					<%= form.radio_button :sel, 0, :checked => true,id:"singo_sel_0" %>
+					<label for="singo_sel_0"><span></span>판매자의 프로필이 불쾌감을 주고있습니다</label>
+					<p>
+					<%= form.radio_button :sel, 1,id:"singo_sel_1" %>
+					<label for="singo_sel_1"><span></span>판매글의 내용이 부적절하다고 생각됩니다</label>
+					<p>
+					<%= form.radio_button :sel, 2 ,id:"singo_sel_2"%>
+					<label for="singo_sel_2"><span></span>판매글의 제품 정보가 부족히거나없습니다</label>
+					<p>
+					<%= form.radio_button :sel, 3 ,id:"singo_sel_3"%>
+					<label for="singo_sel_3"><span></span>기 타</label>
+					<p>
+					상세내용
+					<p>
+						<%= form.text_area :content,id:"other_reasons",style:"width:100%; height: 100px; resize: none;" %>
+					</p>
+						<%= form.button class:"content-button-singo"%>
+				<% end %>
+			</div>
+	</div>
 
   <div class="container">
     <div class="row">
@@ -42,7 +74,7 @@
           <% end %>
         </div>
         <!-- 리뷰하기 모달 -->
-        <button class="btn_review" aria-haspopup="true">리뷰</button>
+
         <!-- /.single-simple -->
       </div>
       <!-- /.col-md-4 -->
@@ -70,10 +102,11 @@
     </div>
     <!-- /.row -->
     <div class="row">
-      <div class="offset-md-1 col-md-10 bg-light">
+      <div class="bg-light">
         <h3 class=" text-center">메세지함</h3>
         <div class="messaging">
           <div class="inbox_msg">
+						<button class="btn_singo"> <span class="icon"><em class="fa fa-ban fa-2x"></em></span></button>
             <div class="mesgs">
               <div class="msg_history">
                 <% @chats.each do |chat| %>
@@ -125,44 +158,41 @@
       </div>
     </div>
     <!-- /.row -->
-
     <div class="row">
-
-        <% if (@trade.status=="거래 중") or ( not @is_seller and @trade.status=="판매 완료") or ( @is_seller and @trade.status=="수령 완료") %>
-            <div class="offset-md-3 col-md-3">
-              <%= link_to  trade_update_status_path(@trade.id) do%>
-                <button class=" line-black supper border-radius-2">물품인수확인</button>
-              <% end %>
-            </div>
-            <div class="col-md-3">
-              <%= link_to   do%>
-                <button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)">거래 취소</button>
-              <% end %>
-            </div>
-        <% elsif @trade.status=="거래 취소"%>
-          <div class="offset-md-4 col-md-4">
-            <button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)" disabled>거래 취소 됨</button>
-          </div>
-        <% elsif @trade.status=="거래 완료"%>
-          <div class="offset-md-3 col-md-3">
-            <button class=" line-black supper border-radius-2" style="background:rgb(25, 235, 65);border:rgb(40, 129, 9)" disabled>거래 완료 됨</button>
-          </div>
-          <div class="col-md-3">
-            <button class=" line-black supper border-radius-2" style="background:rgb(25, 235, 65);border:rgb(40, 129, 9)" disabled>리뷰 쓰기</button>
-          </div>
-        <% else %>
-
-          <div class="offset-md-3 col-md-3">
-            <button class=" line-black supper border-radius-2" disabled >물품인수확인</button>
-          </div>
-          <div class="col-md-3">
-            <%= link_to   do%>
-              <button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)">거래 취소</button>
-            <% end %>
-          </div>
-
-        <% end %>
+			<% if (@trade.status=="거래 중") or ( not @is_seller and @trade.status=="판매 완료") or ( @is_seller and @trade.status=="수령 완료") %>
+					<div class="col-md-3"></div>
+					<div class="col-md-3">
+						<%= link_to  trade_update_status_path(@trade.id) do%>
+							<button class=" line-black supper border-radius-2">물품인수확인</button>
+						<% end %>
+					</div>
+					<div class="col-md-3">
+						<%= link_to trade_cancel_path(@trade) do%>
+							<button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)">거래 취소</button>
+						<% end %>
+					</div>
+			<% elsif @trade.status=="거래 취소"%>
+				<center><button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)" disabled>거래 취소 됨</button></center>
+			<% elsif @trade.status=="거래 완료"%>
+				<div class="offset-md-3 col-md-3">
+					<button class="supper border-radius-2" style="background:rgb(25, 235, 65);border:rgb(40, 129, 9); color:black" disabled>거래 완료 됨</button>
+				</div>
+				<div class="col-md-3">
+					<button class="btn_review" aria-haspopup="true">리뷰</button>
+				</div>
+			<% else %>
+				<div class="col-md-3"></div>
+				<div class="col-md-3">
+					<button class="supper border-radius-2" style="background:rgb(25, 235, 65);border:rgb(40, 129, 9);color:black" disabled >인수 확인 완료</button>
+				</div>
+				<div class="col-md-3">
+					<%= link_to trade_cancel_path(@trade)  do%>
+						<button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)">거래 취소</button>
+					<% end %>
+				</div>
+			<% end %>
     </div>
+
 
     <!--이쪽 부분 모달 폼 만들어서 버튼도 리뷰 널값일꺠 넣는거로-->
 
@@ -198,9 +228,7 @@
 
     <% end %>
 
-    <%= link_to  trade_cancel_path(@trade) do%>
-      <button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)">거래 취소</button>
-    <% end %>
+
 
 <!--별점 스크립트-->
 <script type="text/javascript">
@@ -274,9 +302,9 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 
 // 리뷰주기 버튼 이벤트 ( 모달 오픈 )
   $(".btn_review").on("click", function(){
-    $(".mask_rev").addClass("active"); 
+    $(".mask_rev").addClass("active");
   });
-  
+
   function closeModal(){
     $(".mask_rev").removeClass("active"); // active 지워서 모달 클로즈
   }
@@ -349,5 +377,34 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 
     });
 
+
+</script>
+<script>
+
+// 신고 버튼에 모달 호출 액션 부여
+$(".btn_singo").on("click", function(){
+  $(".mask").addClass("active"); // 모달 래퍼 클래스 찾아서 액티브 부여할거
+});
+
+function closeModal(){
+  $(".mask").removeClass("active"); // 모달 창 닫기
+}
+
+// Function to close the modal screen
+$(".close_modal, .mask").on("click", function(){
+  closeModal();
+});
+
+// Closes the modal with the button within the content
+$(".content-button-singo").click(function(){
+	closeModal();
+});
+
+// or the keyboard (esc)
+$(document).keyup(function(e) {
+  if (e.keyCode == 27) {
+    closeModal();
+  }
+});
 
 </script>

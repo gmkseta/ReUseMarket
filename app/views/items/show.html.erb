@@ -50,13 +50,14 @@
       </div>
       <!-- /.col-lg-7 -->
       <div class="summary" style="height:700px; padding-bottom: 250px;">
+				<% if user_signed_in? && @item.user==current_user %>
         <div class="edit_delete_">
 	        <em class="fa fa-trash fa-2x "></em>&nbsp&nbsp&nbsp&nbsp
 	        <em class="fa fa-edit fa-2x"></em>
         </div>
+				<% end %>
         <div class="likes_alerts_">
-          <em class="fa fa-heart fa-2x"></em>&nbsp&nbsp&nbsp&nbsp
-          <button class="btn_singo"><em class="fa fa-bullhorn fa-2x" ></em></button>&nbsp
+          <button class="btn_singo"><em class="fa fa-ban fa-2x" ></em></button>&nbsp
         </div>
         <h3 class="item_detail_title"><%= @item.name %></h3>
         <p class="item_detail_category">
