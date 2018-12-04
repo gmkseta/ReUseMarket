@@ -23,6 +23,7 @@ csv.each do |row|
   a = row.to_hash.without(row.to_hash.first[0])
   a["name"] = row[0]
   a["item_images"] = [File.open(File.join(Rails.root,"lib","seeds","img",a["item_images"]))]
+  a["content"]=a["content"].gsub("\\\\","\\")
   Item.create(a)
   puts "create"+a.to_s
 end
