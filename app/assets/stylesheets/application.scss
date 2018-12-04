@@ -306,8 +306,6 @@ p {
   position: absolute;
   left:0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
   bottom: 2%;
   background: white;
   color: #0B1847;
@@ -319,7 +317,6 @@ p {
   text-transform: uppercase;
   transition: all 0.2s;
   text-align: center;
-  font-size: 30px;
   width: 200px;
   margin: 60px auto 0 auto;
 }
@@ -463,7 +460,6 @@ input[type="radio"]:checked + label a{
   width: 200px;
   position: relative;
   top: 150px;
-  text-align: center;
   margin: 0 auto;
 }
 
@@ -472,8 +468,6 @@ input[type="radio"]:checked + label a{
   padding: 13px 30px;
   left:0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
   bottom: 2%;
   background: white;
   color: #0B1847;
