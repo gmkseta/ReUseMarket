@@ -12,6 +12,8 @@ $navbar-default-link-hover-bg: black;
 @import "jquery-ui";
 body { padding-top: 100px; margin: 0px;}
 
+nav.pagination > span { margin-right: 10px; }
+
 a { color: inherit; }
 
 // 상단 nav bar
@@ -319,7 +321,6 @@ p {
   text-transform: uppercase;
   transition: all 0.2s;
   text-align: center;
-  font-size: 30px;
   width: 200px;
   margin: 60px auto 0 auto;
 }

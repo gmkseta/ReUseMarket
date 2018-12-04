@@ -2,13 +2,16 @@
     <div style="display: inline-block; width: 40%;">
         <div class="user_container">
             <div class="avatar-flip">
-                <img src="" height="150" width="150" alt="">
-                <img src="" height="150" width="150" alt="">
+                <img src="<%= current_user.profile_img%>" height="150" width="150" alt="">
+                <img src="/images/item/irin.gif" height="150" width="150" alt="">
             </div>
             <h2><%= current_user.name %></h2>
-            <h4><%= current_user.stu_num %></h4>
-            <p><%= current_user.phone_num %></p>
-        <p><%= current_user.email %></p>
+            <br>
+            <h5><%= current_user.major %></h5>
+            <h5><%= current_user.stu_num %></h5>
+            <br>
+            <h6>연락처 : <%= current_user.phone_num %></h6>
+            <h6>이메일 : <%= current_user.email %></h6>
         </div>
         <div class="user_container">
           <%= link_to edit_user_registration_path do%>
