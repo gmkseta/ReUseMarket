@@ -2,55 +2,74 @@
 <section id="flat-banner" class="flat-banner">
       <div class="wrap-banner">
         <div class="row">
-          <div class="one-third">
-            <div class="banner-box">
-              <div class="banner-image">
-                <img data-src="/images/page/banner-01.jpg" class="lazy" alt="">
-              </div>
-              <div class="banner-content">
-                <a href="#" title="">전공 서적</a>
-              </div>
+          <!-- 슬라이드쇼 -->
+          <div class="slideshow-container">
+
+            <div class="mySlides fading">
+              <div class="numbertext">1 / 4</div>
+              <img src="/images/item/info_main.png" style="width:100%">
             </div>
-            <!-- /.banner-box -->
+
+            <div class="mySlides fading">
+              <div class="numbertext">2 / 4</div>
+              <img src="/images/item/info_buy.png" style="width:100%">
+            </div>
+
+            <div class="mySlides fading">
+              <div class="numbertext">3 / 4</div>
+              <img src="/images/item/info_sell.png" style="width:100%">
+            </div>
+
+            <div class="mySlides fading">
+              <div class="numbertext">4 / 4</div>
+              <img src="/images/item/info_log.png" style="width:100%">
+            </div>
+            
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
           </div>
-          <!-- /.one-third -->
-          <div class="one-third">
-            <div class="banner-box">
-              <div class="banner-image">
-                <img data-src="/images/page/banner-03.jpg" class="lazy" alt="">
-              </div>
-              <div class="banner-content">
-                <a href="#" title="">뭐시기</a>
-              </div>
-            </div>
-            <!-- /.banner-box -->
-            <div class="divider30"></div>
-            <div class="banner-box">
-              <div class="banner-image">
-                <img data-src="/images/page/banner-04.jpg" class="lazy" alt="">
-              </div>
-              <div class="banner-content">
-                <a href="#" title="">저시기</a>
-              </div>
-            </div>
-            <!-- /.banner-box -->
+          <br>
+
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+            <span class="dot" onclick="currentSlide(4)"></span>
           </div>
-          <!-- /.one-third -->
-          <div class="one-third">
-            <div class="banner-box">
-              <div class="banner-image">
-                <img data-src="/images/page/banner-02.jpg" class="lazy" alt="">
-              </div>
-              <div class="banner-content">
-                <a href="#" title="">시부ㅜ루ㅜ</a>
-              </div>
-            </div>
-            <!-- /.banner-box -->
-          </div>
-          <!-- /.one-third -->
         </div>
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
 </section>
 <!-- /.flat-banner -->
+
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+// Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+// Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1} 
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; 
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block"; 
+    dots[slideIndex-1].className += " active";
+  }
+</script>

@@ -69,21 +69,29 @@
         <div class="trades_area">
         	<div class="seller_area">
           	<div class="seller_info">
-            	<span class="seller_name"><%= @item.user.name %></span>
-              <span class="seller_subj"><%= @item.user.phone_num %></span>
+              <h5> 판매자 정보 </h5>
+              <br><br>
+              <div class="user_container1">
+              <div class="avatar-flip1">
+                <img src="<%= current_user.profile_img%>" height="150" width="150" alt="">
+              </div>
+            	<h6 class="seller_name"><%= @item.user.name %></h6>
+              <span class="seller_subj"><%= @item.user.major %></span>
               <span class="seller_sid"><%= @item.user.stu_num %></span>
+              </div>
             </div>
           </div>
           <div class="sell_area">
           	<p class="price">
-            	<span>￦ <%= @item.price %></span>
+            	<span>가격  ￦ <%= @item.price %></span>
             </p>
+          </div>
+
               <%= form_for(Trade.new, url: trades_mktr_path ,method: "post") do |f| %>
                 <% f.hidden_field :item_id ,:value => @item.id%>
                 <%= hidden_field_tag 'item_id', @item.id  %>
                 <%= f.button "거래 걸기",type:"submit",class:"purchase_btn" %>
               <% end %>
-          </div>
         </div>
       </div>
     </div>
