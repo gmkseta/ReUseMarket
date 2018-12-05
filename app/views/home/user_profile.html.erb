@@ -26,6 +26,7 @@
                 <ul class="tab-product-list" style="float:left;">
                   <li class="active">개인 거래내역</li>
                   <li>게시 물품 내역</li>
+                  <li>리뷰 내역</li>
                 </ul>
               </div>
           <br>
@@ -118,7 +119,7 @@
             </div>
             <!-- /.row -->
             <div class="row" style="display: none;">
-              <h3>게시 물품</h3>
+
               <div class="table-container">
                 <table class="table table-fixed">
                   <thead>
@@ -131,22 +132,22 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% current_user.items.each do |t|%>
+                    <% current_user.items.each do |i|%>
                         <tr data-status="pagado" onclick="location.href='<%= t %>'"  style="cursor:pointer">
                             <td class="col-xs-2">
-                              <%= image_tag t.item_images[0].url(:thumb) %>
+                              <%= image_tag i.item_images[0].url(:thumb) %>
                             </td>
                             <td class="col-xs-3">
-                              <%= t.name %>
+                              <%= i.name %>
                             </td>
                             <td class="col-xs-1">
-                              <%= t.category %>
+                              <%= i.category %>
                             </td>
                             <td class="col-xs-2">
-                              <%= t.price %> 원
+                              <%= i.price %> 원
                             </td>
                             <td class="col-xs-2">
-                              <%= t.status %>
+                              <%= i.status %>
                             </td>
 
                         </tr>
@@ -156,7 +157,40 @@
                 </table>
               </div>
             </div>
-            <!-- /.row -->
+
+            <div class="row" style="display: none;">
+
+              <div class="table-container">
+                <table class="table table-fixed">
+                  <thead>
+                    <tr>
+                      <th class="col-xs-2">물품</th>
+                      <th class="col-xs-2">구매자</th>
+                      <th class="col-xs-1">평점</th>
+                      <th class="col-xs-7">가격</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% current_user.seller_trades.where("status=3 and review_content is not null").each do |t|%>
+                        <tr data-status="pagado" onclick="location.href='<%= t %>'"  style="cursor:pointer">
+                            <td class="col-xs-2">
+                              <%= t.name %>
+                            </td>
+                            <td class="col-xs-3">
+                              <%= t.customer.name %>
+                            </td>
+                            <td class="col-xs-1">
+                              <%= t.score %>
+                            </td>
+                            <td class="col-xs-7">
+                              <%= t.review_content %>
+                            </td>
+                        </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
           <!-- /.tab-product-content -->
         </div>
