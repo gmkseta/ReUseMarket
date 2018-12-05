@@ -86,7 +86,7 @@
 							<div class="item_detail_desc" style="white-space:pre-line;"><%= @item.content %></div>
 							<hr>
 								<p class="price">
-									<span>가격  ￦ <%= @item.price %></span>
+									<span class="format-money"> <%= @item.price %> 원</span>
 								</p>
 							<%= form_for(Trade.new, url: trades_mktr_path ,method: "post") do |f| %>
 								<% f.hidden_field :item_id ,:value => @item.id%>
