@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_173131) do
+ActiveRecord::Schema.define(version: 2018_12_05_115752) do
 
   create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_12_04_173131) do
     t.integer "sel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["item_id"], name: "index_singos_on_item_id"
     t.index ["user_id"], name: "index_singos_on_user_id"
   end

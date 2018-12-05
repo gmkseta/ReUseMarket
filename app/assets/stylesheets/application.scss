@@ -11,10 +11,10 @@ $navbar-default-link-hover-bg: black;
 @import "font-awesome";
 @import "jquery-ui";
 
-@font-face { font-family: YaNolza; src: url('/fonts/yaNolza_Regular.ttf'); }
+@font-face { font-family: "YaNolza"; src: url('/fonts/yaNolza_Regular.ttf'); }
 
-html * { font-family: YaNolza ; }
-body { padding-top: 100px; margin: 0px;}
+
+body { padding-top: 100px; margin: 0px; font-family: "YaNolza"}
 
 nav.pagination > span { margin-right: 10px; font-size: 1.3em; }
 

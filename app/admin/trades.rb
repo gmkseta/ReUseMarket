@@ -11,5 +11,14 @@ ActiveAdmin.register Trade do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+  index do
+    column :id
+    column :seller
+    column :customer
+    column :item
+    column :status
+    column :score
 
+    actions
+  end
 end

@@ -6,7 +6,7 @@ ActiveAdmin.setup do |config|
   #
   config.site_title = "Reuse Market"
   config.comments_menu = false
-
+  config.default_per_page = 15
   config.namespace :admin do |admin|
     admin.build_menu do |menu|
       menu.add label: 'Dashboard', priority: 0

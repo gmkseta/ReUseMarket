@@ -1,11 +1,30 @@
 ---
 ko:
   activerecord:
+    models:
+      item: 물품
+      singo: 신고
+      trade: 거래
     attributes:
       user:
         name: "이름"
         stu_num: "학번"
-        phone_num: "전화 번호"
+        major: "학과"
+        phone_num: 번호
+        score: 평점
+      item:
+        name: 물품 명
+        user: 판매자
+        category: 분류
+        price: 가격
+        status: 거래 상태
+      singo:
+        content: 내용
+        user: 신고자
+        item: 신고 물품
+        sel: 분류
+        status: 접수 상태
+        created_at: 신고일자
     errors:
       messages:
         record_invalid: 데이터 검증에 실패하였습니다. %{errors}

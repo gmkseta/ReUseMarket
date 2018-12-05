@@ -11,5 +11,16 @@ ActiveAdmin.register Singo do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+  index do
+    column :id
+    column :content
+    column :user
+    column :sel
+    column :item
+    column :status
+
+    column :created_at
+    actions
+  end
 
 end

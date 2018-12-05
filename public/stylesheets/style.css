@@ -1,4 +1,4 @@
-/* font-family: 'Montserrat'; *//* font-family: 'Playfair Display'; *//**
+/* font-family: 'Montserrat'; *//* font-family: 'YaNolza'; *//**
   * Name: Yolo
   * Version: 1.0
   * Author: Themesflat
@@ -45,6 +45,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-size-adjust: 100%;
 	   -ms-text-size-adjust: 100%;
+		 font-family: "YaNolza";
 }
 
 a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, caption, canvas, center, cite, code,
@@ -171,7 +172,6 @@ input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly i
 }
 
 body {
-	font-family: 'Raleway', sans-serif;
 	font-size: 14px;
 	line-height: 24px;
 	font-weight: 400;
@@ -179,12 +179,13 @@ body {
 	color: #5a596a;
 	overflow: hidden;
 	position: relative;
+	font-family: "YaNolza";
 }
 
 a {
 	text-decoration: none;
 	color: #1e1e27;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'YaNolza', sans-serif;
 	-webkit-transition: all 0.3s ease-in-out;
 	   -moz-transition: all 0.3s ease-in-out;
 		-ms-transition: all 0.3s ease-in-out;
@@ -248,7 +249,7 @@ input[type="submit"] {
 	background: #1490d7;
 	border-radius: 2px;
 	font-weight: 600;
-	font-family: "Poppins", sans-serif;
+	font-family: "YaNolza", sans-serif;
 	position: relative;
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
@@ -275,7 +276,7 @@ input[type="color"],
 input[type="email"] {
 	position: relative;
 	display: block;
-	/* font-family: 'Poppins'; */
+	/* font-family: 'YaNolza'; */
 	width: 100%;
 	line-height: 24px;
 	padding: 8px 15px 8px 30px;
@@ -447,7 +448,7 @@ blockquote p {
 }
 
 blockquote > span {
-	/*  font-family: 'Playfair Display'; */
+	/*  font-family: 'YaNolza'; */
 	font-weight: 400;
 	font-size: 100px;
 	color: #1490d7;
@@ -469,7 +470,7 @@ select::-ms-expand {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'YaNolza', sans-serif;
 	font-weight: 600;
 	color: #1e1e27;
 }
@@ -749,7 +750,7 @@ h6 { font-size: 18px;line-height: 18px;}
 }
 
 .header-top.style1 .wrap-header-top ul li a {
-	/* font-family: 'Raleway'; */
+	/* font-family: 'YaNolza'; */
 }
 
 .header-top.style1 .wrap-header-top ul li a:not(:hover) {
@@ -1344,7 +1345,7 @@ ul.flat-infomation,
 
 .box-header.style1 span.icon_bag_alt i {
 	color: #fff;
-	/* font-family: 'Poppins'; */
+	/* font-family: 'YaNolza'; */
 	font-size: 10px;
 	position: absolute;
 	z-index: 5;
@@ -1376,7 +1377,7 @@ ul.flat-infomation,
 	color: #fff;
 	font-size: 10px;
 	font-weight: 500;
-	/* font-family: 'Poppins'; */
+	/* font-family: 'YaNolza'; */
 	bottom: 3px;
 	left: 8px;
 	z-index: 3;
@@ -1447,7 +1448,7 @@ ul.flat-infomation,
 	line-height: 30px;
 	margin-left: 20px;
 	padding-top: 10px;
-	/* font-family: 'Poppins'; */
+	/* font-family: 'YaNolza'; */
 }
 
 .box-cart .subcart ul li .info-product .price {
@@ -1467,13 +1468,13 @@ ul.flat-infomation,
 }
 
 .box-cart .subcart .total-cart p {
-	/* font-family: 'Poppins'; */
+	/* font-family: 'YaNolza'; */
 	font-weight: 300;
 }
 
 .box-cart .subcart .btn-cart a {
 	display: block;
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 	font-size: 12px;
 	font-weight: 600;
 	height: 48px;
@@ -1600,7 +1601,7 @@ ul.flat-infomation,
 
 .menu-canvas .widget-contact ul li a {
 	color: #c2c1ca;
-	/* font-family: 'Raleway'; */
+	/* font-family: 'YaNolza'; */
 }
 
 .menu-canvas .share-link {
@@ -1688,7 +1689,7 @@ ul.flat-infomation > li.phone {
 }
 
 ul.flat-infomation > li.phone a {
-	/* font-family: 'Raleway'; */
+	/* font-family: 'YaNolza'; */
 	/* letter-spacing: 0.1px; */
 }
 
@@ -2081,7 +2082,7 @@ ul.flat-infomation.style1 li.phone a {
 }
 
 .breadcrumbs ul li a {
-	/* font-family: 'Raleway'; */
+	/* font-family: 'YaNolza'; */
 }
 
 .breadcrumbs ul li i {
@@ -2148,7 +2149,7 @@ ul.flat-infomation.style1 li.phone a {
 
 .blog-post .entry-post-title {
 	text-align: center;
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 	margin-bottom: 32px;
 }
 
@@ -2425,7 +2426,7 @@ ul.flat-infomation.style1 li.phone a {
 
 .blog-post.single .content-post blockquote > span {
 	position: absolute;
-	/* font-family: 'Playfair Display'; */
+	/* font-family: 'YaNolza'; */
 	font-size: 100px;
 	top: 42px;
 	left: 63px;
@@ -2443,7 +2444,7 @@ ul.flat-infomation.style1 li.phone a {
 .blog-post.single .content-post blockquote .name span {
 	font-size: 16px;
 	font-weight: 500;
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 	color: #0d0d0d;
 	padding-left: 2px;
 }
@@ -2532,7 +2533,7 @@ ul.flat-infomation.style1 li.phone a {
 	height: 39px;
 	line-height: 41px;
 	padding: 0 29px 0 35px;
-	/* font-family: 'Poppins'; */
+	/* font-family: 'YaNolza'; */
 	font-size: 12px;
 	font-weight: 300;
 	background: #f3f3f3;
@@ -2608,7 +2609,7 @@ ul.flat-infomation.style1 li.phone a {
 	font-size: 12px;
 	font-weight: 300;
 	letter-spacing: 2px;
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 }
 
 .comment .comment-content .comment-author h4 {
@@ -2820,7 +2821,7 @@ ul.child .comment.style1 .comment-content .comment-text p {
 
 .widget-twitter .widget-content a {
 	font-size: 16px;
-	/* font-family: 'Raleway'; */
+	/* font-family: 'YaNolza'; */
 }
 
 /* Footer
@@ -2847,7 +2848,7 @@ footer {
 .widget-contact ul.flat-contact li {
 	color: #c2c1ca;
 	margin-bottom: 24px;
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 	font-weight: 300;
 	letter-spacing: -0.1px;
 }
@@ -2914,7 +2915,7 @@ footer {
 
 .widget-twitter-feed p {
 	color: #c2c1ca;
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 	line-height: 26px;
 }
 
@@ -2936,7 +2937,7 @@ footer {
 }
 
 .widget-newsletter p {
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 }
 
 .widget-newsletter .subscrible-email {
@@ -2991,7 +2992,7 @@ footer {
 }
 
 .widget-ft.widget-about p {
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 	font-weight: 300;
 	color: #c2c1ca
 }
@@ -3056,7 +3057,7 @@ footer.style2 {
 
 footer.style2 .widget-about p {
 	letter-spacing: -0.2px;
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 }
 
 .widget-menu-ft,
@@ -3079,7 +3080,7 @@ footer.style2 .widget-about p {
 }
 
 .widget-information ul li {
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 }
 
 /* Footer Style3
@@ -3117,7 +3118,7 @@ footer.style3 .footer-top {
 }
 
 .contact-classic.style1 h2 span {
-	/* font-family: 'Playfair Display'; */
+	/* font-family: 'YaNolza'; */
 	font-style: italic;
 }
 
@@ -3133,7 +3134,7 @@ footer.style3 .footer-top {
 }
 
 .contact-classic.style1 ul.flat-contact li.email {
-	/* font-family: 'Playfair Display'; */
+	/* font-family: 'YaNolza'; */
 	font-style: italic;
 	text-decoration: underline;
 	font-size: 16px;
@@ -3196,7 +3197,7 @@ footer.style3 .footer-bottom .widget-about-ft {
 footer.style3 .footer-bottom .widget-about-ft .widget-title {
 	color: #f2ce09;
 	font-weight: bold;
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 	line-height: 36px;
 	margin-bottom: 5px;
 }
@@ -3412,7 +3413,7 @@ ul.social-ft.style1.v1 li a.bg-green:hover {
 	margin-right: 28px;
 	border-color: #35353d;
 	padding-left: 0px;
-	/* font-family: 'Raleway'; */
+	/* font-family: 'YaNolza'; */
 	padding-right: 42px;
 }
 
@@ -3613,7 +3614,7 @@ footer.style8 {
 
 /* Widget Menu Footer Style1 */
 .widget-menu-ft.style1 .widget-title {
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 	font-weight: 600;
 	color: #fff;
 	margin-bottom: 18px;
@@ -3685,7 +3686,7 @@ footer.style8 {
 }
 
 .footer-bottom.style3 .copyright {
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 	font-weight: 300;
 	letter-spacing: 0px;
 }
@@ -3734,7 +3735,7 @@ footer.style8 {
 }
 
 .footer-bottom.style5 p.copyright {
-	/*font-family: 'Poppins';*/
+	/*font-family: 'YaNolza';*/
 	letter-spacing: -0.1px;
 }
 
