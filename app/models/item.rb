@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_many :trades , dependent: :destroy
+  has_many :singos, dependent: :destroy
   mount_uploaders :item_images, ItemImageUploader
   validates :item_images, presence:{message:"이미지를 등록 해야합니다."}
   validates :price, presence:{message:"가격을 등록해야합니다."}
