@@ -10,6 +10,10 @@ $navbar-default-link-hover-bg: black;
 @import "bootstrap";
 @import "font-awesome";
 @import "jquery-ui";
+
+@font-face { font-family: YaNolza; src: url('/fonts/yaNolza_Regular.ttf'); }
+
+html * { font-family: YaNolza ; }
 body { padding-top: 100px; margin: 0px;}
 
 nav.pagination > span { margin-right: 10px; font-size: 1.3em; }
@@ -207,7 +211,7 @@ ul.sell_items li.sell_item a
 
 .sell_item_thumb.thumb1
 { background-size: contain; }
-ul.sell_items li.sell_item .thumb2 { background-size: cover; opacity: 0; }
+ul.sell_items li.sell_item .thumb2 { opacity: 0; }
 ul.sell_items li.sell_item a:hover .thumb2 { opacity: 1; }
 ul.sell_items li.sell_item a:hover .thumb1 { opacity: 0; }
 
