@@ -11,7 +11,6 @@ class Trade < ApplicationRecord
     self.all.each do |t|
       if t.status == "거래 완료"
         t.item.update(status:1)
-
         puts("change"+t.item.name)
       end
     end

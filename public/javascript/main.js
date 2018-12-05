@@ -50,35 +50,6 @@
                 return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
             }
         }; // is Mobile
-        var headerFixed = function() {
-            if ( $('body').hasClass('header_sticky') ) {
-                var nav = $('.header');
-                if ( nav.length != 0 ) {
-
-                    var offsetTop = $('.header').offset().top,
-                        headerHeight = $('.header').height(),
-                        injectSpace = $('<div />', { height: headerHeight }).insertAfter(nav);
-                        injectSpace.hide();
-
-                    $(window).on('load scroll', function(){
-                        if ( $(window).scrollTop() > offsetTop + 100 ) {
-                            injectSpace.show();
-                            $('.header').addClass('downscrolled');
-
-                        } else {
-                            $('.header').removeClass('downscrolled');
-                            injectSpace.hide();
-                        }
-
-                        if ( $(window).scrollTop() > 600) {
-                            $('.header').addClass('upscrolled');
-                        } else {
-                            $('.header').removeClass('upscrolled');
-                        }
-                    })
-                }
-            }
-        }; // Header Fixed
 
         var responsiveMenu = function() {
             var menuType = 'desktop';
@@ -151,7 +122,7 @@
 
                     var offsetTop = $('.header').offset().top,
                         headerHeight = $('.header').height(),
-                        injectSpace = $('<div />', { height: headerHeight*3 }).insertAfter(nav);
+                        injectSpace = $('<div />', { height: headerHeight }).insertAfter(nav);
                         injectSpace.hide();
 
                     $(window).on('load scroll', function(){
@@ -506,7 +477,7 @@
         goTop();
         scroll();
         removePreloader();
-        headerFixed();
+
     });
 
 })(jQuery);

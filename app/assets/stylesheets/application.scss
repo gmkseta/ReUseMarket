@@ -14,7 +14,7 @@ body { padding-top: 100px; margin: 0px;}
 
 nav.pagination > span { margin-right: 10px; font-size: 1.3em; }
 
-nav.pagination > .current { border: 3px solid #e42929; border-radius: 100%; }
+nav.pagination > .current { color:#337ab7; border-radius: 100%; }
 
 a { color: inherit; }
 
@@ -242,8 +242,7 @@ div.txdiv
 {width: 30px;}
 .thumb
 { float: left; width: 70px; height: 70px; }
-.active
-{ filter: grayscale(100%) }
+
 
 /** 상품정보 좌측 상세정보 탭 **/
 .edit_delete_ { text-align: right; width:100%; margin-bottom: 20px; }
@@ -292,7 +291,7 @@ button.purchase_btn
 }
 .user_container_detail {
   width: 400px;
-  margin: 0 auto;
+
   background-color: #fff;
   padding: 0 20px 20px;
   border-radius: 6px;

@@ -4,6 +4,6 @@ class HomeController < ApplicationController
     puts "home"
   end
   def user_profile
-    puts "user_profile"
+    
   end
 end

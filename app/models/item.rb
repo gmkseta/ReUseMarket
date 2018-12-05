@@ -7,5 +7,6 @@ class Item < ApplicationRecord
   enum category: ["도서", "의류", "전자기기", "신발", "스포츠용품", "가전제품", "기타"]
   validates :category, presence:{message:"카테고리를 등록해야합니다."}
   validates :name, presence:{message:"물품명을 등록해야합니다."}
+  enum status: ["거래 전", "거래 완료"]
 
 end
