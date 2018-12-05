@@ -174,7 +174,7 @@
                     <% current_user.seller_trades.where("status=3 and review_content is not null").each do |t|%>
                         <tr data-status="pagado" onclick="location.href='<%= trade_detail_path(t)  %>'"  style="cursor:pointer">
                             <td class="col-xs-2">
-                              <%= t.name %>
+                              <%= t.item.name %>
                             </td>
                             <td class="col-xs-3">
                               <%= t.customer.name %>
