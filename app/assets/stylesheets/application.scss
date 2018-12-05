@@ -18,6 +18,82 @@ nav.pagination > .current { border: 3px solid #e42929; border-radius: 100%; }
 
 a { color: inherit; }
 
+// 메인 화면 슬라이드쇼 start
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.fading {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fading {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fading {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+// 메인 슬라이드쇼 end 
+
 // 상단 nav bar
 * {
   box-sizing: border-box;
@@ -128,7 +204,7 @@ ul.sell_items li.sell_item a
 
 .sell_item_thumb.thumb1
 { background-size: contain; }
-ul.sell_items li.sell_item .thumb2 { opacity: 0; }
+ul.sell_items li.sell_item .thumb2 { background-size: cover; opacity: 0; }
 ul.sell_items li.sell_item a:hover .thumb2 { opacity: 1; }
 ul.sell_items li.sell_item a:hover .thumb1 { opacity: 0; }
 
@@ -181,7 +257,7 @@ p.item_detail_category
 { margin: 20px 0 0 0; font-size: 15px; line-height: 22px; }
 
 .trades_area
-{ position:absolute; bottom:0; right: 0; width: 100%; padding: 0 0 30px 0; border-top: 1px solid #ddd; background:#ededed; }
+{ position:absolute; bottom:0; right: 0; width: 100%; padding: 0 0 30px 0; border-top: 1px solid #ddd;  }
 
 .seller_area
 { display: inline-block; width:50%; text-align: center; margin-top: 50px; letter-spacing: 0.13em; font-size: 15px }
@@ -191,7 +267,7 @@ p.item_detail_category
 .seller_area span { margin: 0 16px 0 0; }
 
 .sell_area
-{ display: inline-block; width:45%; text-align: right; padding: 20px 0 0 10px; }
+{ position: absolute; bottom: 100px; right: 0; padding: 20px 0 0 10px; }
 p.price
 { letter-spacing: 0.1em; font-weight: 600; font-size: 23px; }
 button.purchase_btn
@@ -211,6 +287,34 @@ button.purchase_btn
   -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
   text-align: center;
 }
+.user_container1 {
+  width: 200px;
+  background-color: #fff;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  text-align: center;
+}
+
+.avatar-flip1 {
+  border-radius: 100px;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  margin: auto;
+  top: -30px;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 0 3px #f0f0f0;
+  -webkit-box-shadow: 0 0 0 3px #f0f0f0;
+  -moz-box-shadow: 0 0 0 3px #f0f0f0;
+}
+
 .user_container:hover .avatar-flip {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
@@ -254,19 +358,26 @@ button.purchase_btn
   -webkit-transform: rotateY(180deg);
   opacity: 0;
 }
-h2 {
+.user_container h2 {
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 15px;
   color: #333;
 }
-h4 {
+.user_container h4 {
   font-size: 13px;
   color: #00baff;
   letter-spacing: 1px;
   margin-bottom: 25px
 }
-p {
+.user_container p {
+  font-size: 16px;
+  line-height: 26px;
+  margin-bottom: 20px;
+  color: #666;
+}
+.user_container1 span
+{
   font-size: 16px;
   line-height: 26px;
   margin-bottom: 20px;
