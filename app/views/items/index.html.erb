@@ -139,12 +139,30 @@
                 <div class="sell_item_thumb thumb1 lazy" data-src=''>
               <% end %>
                 </div>
-                <div class="sell_item_thumb thumb2 lazy" data-src="https://www.dongguk.edu/mbs/kr/images_new/logo.jpg"></div>
 
-                <div class="sell_item_meta">
-                  <h3 class="sell_item_title"><%= item.name %></h3>
-                  <p class="sell_item_price format-money"><%= item.price %> 원</p>
-                </div>
+                <div class="sell_item_thumb thumb2 lazy" style="text-align:center;">
+                  <div class="seller_area">
+                    <div class="seller_info">
+                      <div class="user_container1">
+                      <div class="avatar-flip1">
+                        <img src="<%= item.user.profile_img%>" height="150" width="150" alt="">
+                      </div>
+                      <h6 class="seller_name"><%= item.user.name %></h6>
+                      <br>
+                      <span class="seller_subj"><%= item.user.major %></span>
+                      <br>
+                      <span class="seller_sid"><%= item.user.stu_num %></span>
+                      </div>
+                    </div>
+                  </div>
+
+                 </div>
+                 <div class="sell_item_meta">
+                   <h3 class="sell_item_title"><%= item.name %></h3>
+                   <p class="sell_item_price format-money"><%= item.price %> 원</p>
+                 </div>
+
+
               <% end %>
             </li>
           <% end %>
