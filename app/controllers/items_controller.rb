@@ -9,11 +9,8 @@ class ItemsController < ApplicationController
   def index
     @q = Item.ransack(params[:q])
     @q.sorts = ['created_at desc'] if @q.sorts.empty?
-
     @items = @q.result.where(status:0).page(params[:page])
-
     puts params[:q]
-
   end
 
   # GET /items/1

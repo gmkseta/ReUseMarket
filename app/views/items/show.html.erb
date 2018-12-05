@@ -49,53 +49,75 @@
         <!-- /.flexslider -->
       </div>
       <!-- /.col-lg-7 -->
-      <div class="summary" style="height:700px; padding-bottom: 250px;">
-				<% if user_signed_in? && @item.user==current_user %>
-        <div class="edit_delete_">
-					<%= link_to @item ,method: :delete do %>
-	        	<em class="fa fa-trash fa-2x "></em>&nbsp&nbsp&nbsp&nbsp
-					<% end %>
-					<%= link_to edit_item_path(@item) do %>
-	        	<em class="fa fa-edit fa-2x"></em>
-					<% end %>
-        </div>
-				<% end %>
-        <div class="likes_alerts_">
-          <button class="btn_singo"><em class="fa fa-exclamation-circle fa-2x" ></em></button>&nbsp
-        </div>
-        <h3 class="item_detail_title"><%= @item.name %></h3>
-        <p class="item_detail_category">
-          <a href="#"><%= @item.category %> </a>
-        </p>
-        <div class="item_detail_desc" style="white-space:pre-line;"><%= @item.content %></div>
-        <div class="trades_area">
-        	<div class="seller_area">
-          	<div class="seller_info">
-              <h5> 판매자 정보 </h5>
-              <br><br>
-              <div class="user_container1">
-              <div class="avatar-flip1">
-                <img src="<%= current_user.profile_img%>" height="150" width="150" alt="">
-              </div>
-            	<h6 class="seller_name"><%= @item.user.name %></h6>
-              <span class="seller_subj"><%= @item.user.major %></span>
-              <span class="seller_sid"><%= @item.user.stu_num %></span>
-              </div>
-            </div>
-          </div>
-          <div class="sell_area">
-          	<p class="price">
-            	<span>가격  ￦ <%= @item.price %></span>
-            </p>
-          </div>
 
-              <%= form_for(Trade.new, url: trades_mktr_path ,method: "post") do |f| %>
-                <% f.hidden_field :item_id ,:value => @item.id%>
-                <%= hidden_field_tag 'item_id', @item.id  %>
-                <%= f.button "거래 걸기",type:"submit",class:"purchase_btn" %>
-              <% end %>
-        </div>
-      </div>
+			<div id="main-shop" class="summary col-lg-5 col-md-5 col-sm-5">
+				<% if user_signed_in? && @item.user==current_user %>
+					<div class="edit_delete_">
+						<%= link_to @item ,method: :delete do %>
+							<em class="fa fa-trash fa-2x "></em>&nbsp&nbsp&nbsp&nbsp
+						<% end %>
+						<%= link_to edit_item_path(@item) do %>
+							<em class="fa fa-edit fa-2x"></em>
+						<% end %>
+					</div>
+				<% end %>
+
+
+				<div class="wrap-product">
+						<div>
+								<ul class="tab-product-list" style="float:left;">
+									<li class="active">물품 정보</li>
+									<li>판매자 정보</li>
+								</ul>
+								<!-- <div class="likes_alerts_ float-right"> -->
+									<button class="btn_singo" style="float:right" ><em class="fa fa-exclamation-circle fa-2x" ></em></button>&nbsp
+								<!-- </div> -->
+							</div>
+							<!-- /.sort-product -->
+					<br>
+					<!-- /.row -->
+					<hr>
+					<div class="tab-product-content">
+						<div class="row first active" >
+							<h4 class="item_detail_title"><%= @item.name %></h4>
+							<p class="item_detail_category">
+								카테고리 - <%= @item.category %>
+							</p>
+							<div class="item_detail_desc" style="white-space:pre-line;"><%= @item.content %></div>
+							<hr>
+								<p class="price">
+									<span>가격  ￦ <%= @item.price %></span>
+								</p>
+							<%= form_for(Trade.new, url: trades_mktr_path ,method: "post") do |f| %>
+								<% f.hidden_field :item_id ,:value => @item.id%>
+								<%= hidden_field_tag 'item_id', @item.id  %>
+								<%= f.button "거래 걸기",type:"submit",class:"purchase_btn" %>
+							<% end %>
+						</div>
+						<!-- /.row -->
+						<div class="row" style="display: none;">
+							<div class="seller_area">
+								<div class="seller_info">
+									<div class="user_container_detail">
+									<div class="avatar-flip1">
+										<img src="<%= @item.user.profile_img%>" height="150" width="150" alt="">
+									</div>
+									<h6 class="seller_name"><%= @item.user.name %></h6>
+									<span class="seller_subj"><%= @item.user.major %></span>
+									<span class="seller_sid"><%= @item.user.stu_num %></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.row -->
+					</div>
+					<!-- /.tab-product-content -->
+				</div>
+			</div>
+
+
+
+
     </div>
       <!-- /.row -->
 	</div>
@@ -105,10 +127,15 @@
 
 			<h3>판매자에 대한 리뷰</h3>
 			<br>
+			<% if @trades.empty? %>
+				<p>리뷰가 없습니다</p>
+			<% end %>
 
 		<div class="row">
+
 					<div class="reviews" style="display: block;">
 	          <ol class="review-list">
+
 							<% @trades.each do |r| %>
 							<hr>
 							<li class="overflow">
@@ -148,7 +175,6 @@
 </section>
 <!-- /.flat-product-detail -->
 
-
 <script>
 
 // 신고 버튼에 모달 호출 액션 부여
@@ -176,5 +202,29 @@ $(document).keyup(function(e) {
     closeModal();
   }
 });
+
+// 리뷰주기 버튼 이벤트 ( 모달 오픈 )
+$(".btn_review").on("click", function(){
+  $(".mask_rev").addClass("active");
+});
+function closeModal_rev(){
+  $(".mask_rev").removeClass("active"); // active 지워서 모달 클로즈
+};
+
+  $(".rev_close, .mask_rev").on("click", function(){
+    closeModal_rev();
+  });
+
+  $(".rev_btn_close").click(function(){
+	  closeModal_rev();
+  });
+
+// 키보드 esc 키 리스너
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) {
+      closeModal_rev();
+    }
+  });
+
 
 </script>

@@ -72,8 +72,11 @@ a { color: inherit; }
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+ .dot:hover {
   background-color: #717171;
+}
+li.active ,.tab-product-content .active{
+  background-color: inherit;
 }
 
 .fading {
@@ -84,15 +87,15 @@ a { color: inherit; }
 }
 
 @-webkit-keyframes fading {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
 
 @keyframes fading {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
-// 메인 슬라이드쇼 end 
+// 메인 슬라이드쇼 end
 
 // 상단 nav bar
 * {
@@ -287,6 +290,20 @@ button.purchase_btn
   -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
   text-align: center;
 }
+.user_container_detail {
+  width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 0 20px 20px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+  text-align: center;
+}
+
 .user_container1 {
   width: 200px;
   background-color: #fff;
@@ -439,7 +456,7 @@ button.purchase_btn
 .close_modal {
   position: absolute;
   top: 15px;
-  right: -10px;
+  right: 5px;
   width: 40px;
   height: 40px;
   background: white;

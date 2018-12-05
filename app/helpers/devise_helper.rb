@@ -8,8 +8,7 @@ module DeviseHelper
                       resource: resource.class.model_name.human.downcase)
 
     html = <<-HTML
-    <div>
-
+    <div class="row">
       <ul>#{messages}</ul>
       <ul>#{sentence}</ul>
     </div>
