@@ -53,12 +53,13 @@ class TradesController < ApplicationController
   end
 
   def mktr#make trade
-    @trade = Trade.new
+
     i_id = params[:item_id]
 
     @trade = Trade.where(customer_id: current_user.id,item_id: i_id).last
     is_empty = @trade.nil?
     if is_empty
+      @trade = Trade.new
       @trade.customer_id = current_user.id
       @trade.seller_id = Item.find(i_id).user_id
       @trade.item_id = i_id
