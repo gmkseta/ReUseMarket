@@ -9321,7 +9321,7 @@ ul.list-info.v1 {
 }
 
 .box-work ul li .number {
-	font-family: "YaNolza";
+	font-family: 'YaNolza';
 	font-size: 60px;
 	font-weight: 600;
 	line-height: 36px;
@@ -9721,7 +9721,7 @@ ul.list-info.v1 {
 	font-size: 16px;
 	line-height: 30px;
 	font-weight: 300;
-	font-family: "YaNolza";
+	font-family: 'YaNolza';
 	color: #fff;
 }
 
@@ -9908,7 +9908,7 @@ ul.list-info.v1 {
 .imagebox.style4 .imagebox-bottom .price-course {
 	line-height: 40px;
 	color: #f06325;
-	font-family: "YaNolza";
+	font-family: 'YaNolza';
 	font-weight: 600;
 }
 

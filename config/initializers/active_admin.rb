@@ -16,7 +16,9 @@ ActiveAdmin.setup do |config|
       menu.add label: 'Singos', priority: 4
     end
   end
-
+  config.before_action do
+    params.permit!
+  end
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #

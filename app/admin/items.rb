@@ -36,6 +36,7 @@ ActiveAdmin.register Item do
 
       end
     end
+    f.actions
   end
 
 end
