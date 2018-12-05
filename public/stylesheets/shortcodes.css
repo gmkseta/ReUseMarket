@@ -4944,7 +4944,7 @@ ul.list-styles.style1 li a.active i {
 }
 
 .imagebox.style1 .imagebox-content .price .price-sale {
-	
+
 	text-decoration: line-through;
 	margin-left: 11px;
 }
@@ -5774,13 +5774,6 @@ ul.list-styles.style1 li a.active i {
 
 /* Main Shop
 ---------------------------------------------------------------*/
-#main-shop {
-	/* padding: 94px 0 73px; */
-}
-
-#main-shop.style1 {
-    /* padding: 94px 0 76px; */
-}
 
 .sort-product {
 	margin-bottom: 45px;
@@ -8774,13 +8767,7 @@ ul.list-info.v1 {
 
 /* Main Shop Minimals
 ---------------------------------------------------------------*/
-#main-shop.minimals {
-    padding: 94px 0 95px;
-}
 
-#main-shop.minimals .sort-product {
-	margin-bottom: 53px;
-}
 
 #main-shop.minimals .sort-product .tab-product-list li {
 	padding: 0 17px;
@@ -8795,11 +8782,6 @@ ul.list-info.v1 {
 	height: 320px;
 }
 
-/* Main Shop Minimals Style1
----------------------------------------------------------------*/
-#main-shop.minimals.style1 {
-    padding: 123px 0 95px;
-}
 
 #main-shop.minimals.style1 .tab-product-content .imagebox.style1 .imagebox-header {
 	height: auto;
