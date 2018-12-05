@@ -17,6 +17,7 @@
 //= require_tree .
 
 
+jQuery(document).ready(function($) {
 window.setTimeout(function() {
   $(".alert").addClass("in");
 }, 1000);
@@ -33,7 +34,7 @@ $(function() {
   });
 });
 
-jQuery(document).ready(function($) {
+
 // 숫자 타입에서 쓸 수 있도록 format() 함수 추가
 Number.prototype.format = function(){
     if(this==0) return 0;
