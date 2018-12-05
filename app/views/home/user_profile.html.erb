@@ -133,7 +133,7 @@
                   </thead>
                   <tbody>
                     <% current_user.items.each do |i|%>
-                        <tr data-status="pagado" onclick="location.href='<%= t %>'"  style="cursor:pointer">
+                        <tr data-status="pagado" onclick="location.href='<%= item_path(i) %>'"  style="cursor:pointer">
                             <td class="col-xs-2">
                               <%= image_tag i.item_images[0].url(:thumb) %>
                             </td>
@@ -172,7 +172,7 @@
                   </thead>
                   <tbody>
                     <% current_user.seller_trades.where("status=3 and review_content is not null").each do |t|%>
-                        <tr data-status="pagado" onclick="location.href='<%= item_path(i) %>'"  style="cursor:pointer">
+                        <tr data-status="pagado" onclick="location.href='<%= trade_detail_path(t)  %>'"  style="cursor:pointer">
                             <td class="col-xs-2">
                               <%= t.name %>
                             </td>
