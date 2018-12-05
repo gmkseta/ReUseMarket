@@ -2,7 +2,7 @@ class Trade < ApplicationRecord
   belongs_to :seller,class_name: :User
   belongs_to :customer,class_name: :User
   belongs_to :item
-  has_many :chats
+  has_many :chats , dependent: :destroy
   enum status: ["거래 중","판매 완료","수령 완료","거래 완료","거래 취소"]
   # after_create :send_sms, on: :create
   after_update :cal_score, on: :update
