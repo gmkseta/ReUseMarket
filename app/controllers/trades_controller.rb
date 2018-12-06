@@ -100,7 +100,7 @@ class TradesController < ApplicationController
     trade = Trade.find(params[:id])
     pra = params.require(:trade).permit(:review_content,:score)
     trade.update(pra)
-    redirect_to (trade_detail_path(trade), :flash => {:success => "리뷰 작성이 완료되었습니다."})
+    redirect_to trade_detail_path(trade)
 
   end
 
