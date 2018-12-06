@@ -159,7 +159,7 @@
         <div style="text-align:center">
 				  <button class=" line-black supper border-radius-2" style="background:rgb(231, 86, 66);border:rgb(255, 0, 0)" disabled>거래 취소 됨</button>
         </div>
-      <% elsif @trade.status=="거래 완료" and not is_seller%>
+      <% elsif @trade.status=="거래 완료" and not @is_seller%>
 				<div class="col-md-3"></div>
 				<div class="col-md-3">
 					<button class="supper border-radius-2" style="background:rgb(25, 235, 65);border:rgb(40, 129, 9); color:black" disabled>거래 완료 됨</button>
