@@ -1,0 +1,17 @@
+on: [push]
+name: Sonar Workflow
+jobs:
+  sonarTriger:
+    name: Sonar Triger
+    runs-on: ubuntu-latest
+    steps:
+    - uses: warchant/setup-sonar-scanner@v1
+    - uses: actions/checkout@master
+    - name: Setup sonarqube
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: sonar-scanner 
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.host.url=${{ secrets.SONAR_HOST }}
+            -Dsonar.projectKey=reuse
+            -Dsonar.scm.provider=git
